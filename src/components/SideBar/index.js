@@ -1,11 +1,12 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
 import { HamburgerCollapse } from "react-animated-burgers"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-import { useSiteMetadata } from "./../hooks/use-site-metadata"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 const Hamburger = css`
   bottom: -2.5px;
@@ -67,17 +68,17 @@ var styles = {
   },
 }
 
-export default props => {
+const SideBar = props => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const { navigation } = useSiteMetadata()
 
-  const body = document.body.classList
+  const docBody = typeof document !== 'undefined' ? document.body.classList : ''
 
-  const bodyDisabler = menuOpen => {
-    menuOpen === true
-      ? body.add("scroll-disabler")
-      : body.remove("scroll-disabler")
+  const bodyDisabler = state => {
+    state === true
+      ? docBody.add("scroll-disabler")
+      : docBody.remove("scroll-disabler")
   }
 
   const handleStateChange = state => {
@@ -126,3 +127,13 @@ export default props => {
     </>
   )
 }
+
+SideBar.propTypes = {
+  navigation: PropTypes.object.isRequired,
+}
+
+SideBar.defaultProps = {
+  navigation: {},
+}
+
+export default SideBar
