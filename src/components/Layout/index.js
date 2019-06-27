@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet"
 
 import Header from "../Header"
 import Footer from "../Footer"
+import SideBar from "../SideBar"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
