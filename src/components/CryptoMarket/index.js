@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-import axios from "axios"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+
+import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
 const CryptoMarketWrapper = styled.section`
   margin: 0;
@@ -21,7 +22,6 @@ const Message = styled.h1`
   @media (min-width: 767.98px) {
     font-size: 40px !important;
   }
-
 `
 
 const Span = styled.span`
@@ -44,21 +44,35 @@ const Span = styled.span`
 `
 
 const CryptoMarket = () => {
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({ currencies: [] })
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR&api_key=b86039193d7a9a43ed79cffa9a95877e11642d29ddba89cc071088a3680f2750"
-      )
-
-      setData(result.data)
-    }
-
-    fetchData()
+    setLoading(true)
+    useApi(REST_API_ENDPOINTS.PRICE_SINGLE, {
+      params: { fsym: "BTC", tsyms: "USD,JPY,EUR" },
+    })
+      .then(result => {
+        setLoading(false)
+        const { data: json } = result || {}
+        const { Data, Response, Message } = json || {}
+        if (Response === "Error") {
+          console.error(Message)
+          setError("There was an error loading this content")
+        } else {
+          setData(Data)
+        }
+        setData(result.data)
+      })
+      .catch(error => {
+        setLoading(false)
+        setError("There was an error loading this content")
+        console.error(error)
+      })
   }, [])
 
-  console.log('cryptoMarket', '/data/price', data)
+  console.log({ data })
 
   return (
     <Container>
@@ -66,7 +80,15 @@ const CryptoMarket = () => {
         <Col>
           <CryptoMarketWrapper>
             <Message>
-              Crypto Market is <Span>Up 39% $183,421,314,312.31</Span> USD
+              {loading ? (
+                "Loading..."
+              ) : error ? (
+                error
+              ) : (
+                <>
+                  Crypto Market is <Span>Up 39% $183,421,314,312.31</Span> USD
+                </>
+              )}
             </Message>
           </CryptoMarketWrapper>
         </Col>

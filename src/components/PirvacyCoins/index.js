@@ -1,60 +1,12 @@
 import React, { useState, useEffect } from "react"
-import Table from "react-bootstrap/Table"
 
-import styled from "@emotion/styled"
-import useApi, { baseUrl, REST_API_ENDPOINTS } from "../hooks/use-api"
-import useFormat from "../hooks/use-format"
+import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
-const PrivacyCoinsWrapper = styled.section`
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 0.3125rem;
-  margin: 0 0 2rem;
-  padding: 1rem;
-  text-align: center;
-`
+import CoinsTable from './components/CoinsTable'
+import PrivacyCoinsWrapper from './components/PrivacyCoinsWrapper'
+import ErrorMessage from './components/ErrorMessage'
+import Coin from './components/Coin'
 
-const CoinsTable = styled(props => <Table {...props} />)`
-  thead tr th,
-  tbody tr td {
-    border-color: transparent;
-    color: white;
-    font-weight: normal;
-    font-size: 14px;
-    padding: 0.5rem;
-  }
-`
-
-const ErrorMessage = styled(props => <td colSpan={5} {...props} />)`
-  color: #c80000 !important;
-  background-color: rgba(206, 17, 38, 0.05);
-  text-align: center;
-`
-
-const Icon = styled(({ url, ...rest }) => (
-  <div {...rest} style={{ backgroundImage: `url(${url})` }} />
-))`
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-`
-
-const Coin = ({ info, raw }) => {
-  const { Name, ImageUrl } = info
-  const { PRICE, MKTCAP, TOTALVOLUME24H } = raw.USD
-  return (
-    <tr>
-      <td>
-        <Icon url={`${baseUrl}${ImageUrl}`} />
-      </td>
-      <td>{Name}</td>
-      <td>{useFormat(PRICE)}</td>
-      <td>{useFormat(MKTCAP)}</td>
-      <td>{useFormat(TOTALVOLUME24H)}</td>
-    </tr>
-  )
-}
 const PrivacyCoins = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)

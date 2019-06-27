@@ -3,11 +3,11 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import CurrencyTicker from "./../components/currencyTicker"
-import CryptoMarket from "./../components/cryptoMarket"
-import PrivacyCoins from "./../components/privacyCoins"
+import Layout from "@components/Layout"
+import SEO from "@components/Seo"
+import CurrencyTicker from "@components/CurrencyTicker"
+import CryptoMarket from "@components/CryptoMarket"
+import PrivacyCoins from "@components/PirvacyCoins"
 
 const IndexPage = () => (
   <Layout>
