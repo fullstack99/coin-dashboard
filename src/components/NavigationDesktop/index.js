@@ -17,24 +17,10 @@ const NavItem = styled.li`
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
-  background-image: none;
   bottom: -2px;
-  color: #fff;
   display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.8;
-  line-height: 1.4;
   padding: 0 0.9rem;
   position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 100ms linear;
-
-  &:hover {
-    color: #ff3d5e;
-    text-decoration: none;
-  }
 `
 
 const NavigationDesktop = ({ pagesList }) => {

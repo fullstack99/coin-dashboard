@@ -29,12 +29,26 @@ const typography = new Typography({
         backgroundColor: "#1c1e2e !important",
         height: "100%",
       },
+      ".scroll-disabler": {
+        overflowY: "hidden"
+      },
       a: {
         textShadow: "none",
       },
-      "ul a.navigation": {
-        fontFamily: "'Oswald', sans-serif"
-      }
+      ".navigation": {
+        fontFamily: "'Oswald', sans-serif",
+        color: "#fff",
+        fontSize: "18px",
+        fontweight: "600",
+        letterSpacing: ".8px",
+        textDecoration: "none",
+        textTransform: "uppercase",
+        transition: "all 100ms linear",
+      },
+      ".navigation:hover": {
+        color: "#ff3d5e",
+        textDecoration: "none",
+      },
     }
   },
 })

@@ -1,12 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import Container from "react-bootstrap/Container"
-
-import { HamburgerCollapse } from "react-animated-burgers"
-
-// import Logo from "./logo"
 
 import Logo from "@images/logo.svg";
 
@@ -48,19 +44,7 @@ const Brand = css`
   transition: all 100ms linear;
 `
 
-const Hamburger = css`
-  bottom: -2.5px;
-  padding: 0;
-  position: relative;
-
-  &:focus {
-    outline: 0;
-  }
-`
-
 const Header = () => {
-  const [menuActive, setMenuActive] = useState(false)
-
   const { navigation } = useSiteMetadata()
 
   return (
@@ -72,13 +56,6 @@ const Header = () => {
             <span css={Brand}>Coingenious</span>
           </NavBrand>
           <NavigationDesktop pagesList={navigation} />
-          <HamburgerCollapse
-            onClick={() => setMenuActive(!menuActive)}
-            isActive={menuActive}
-            barColor={menuActive ? "#fecd00" : "#fff"}
-            css={Hamburger}
-            className="d-block d-lg-none"
-          />
         </TopNav>
       </Container>
     </HeaderStyled>
