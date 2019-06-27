@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CurrencyTicker from "./../components/currencyTicker"
 import CryptoMarket from "./../components/cryptoMarket"
+import PrivacyCoins from "./../components/privacyCoins"
 
 const IndexPage = () => (
   <Layout>
@@ -46,8 +47,9 @@ const IndexPage = () => (
         </Col>
       </Row>
       <Row>
-        <Col>Chart 1</Col>
-        <Col>Chart 2</Col>
+        <Col sm={5}>
+          <PrivacyCoins />
+        </Col>
         <Col>Chart 3</Col>
         <Col>Chart 4</Col>
         <Col>Chart 5</Col>

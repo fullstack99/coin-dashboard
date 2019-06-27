@@ -58,7 +58,7 @@ const CryptoMarket = () => {
     fetchData()
   }, [])
 
-  console.log(data)
+  console.log('cryptoMarket', '/data/price', data)
 
   return (
     <Container>
