@@ -21,14 +21,13 @@ const Message = styled.h1`
   @media (min-width: 767.98px) {
     font-size: 40px !important;
   }
-
 `
 
 const Span = styled.span`
   color: #fecd00;
   display: block;
   font-weight: 600;
-  padding: 0.5rem 0;
+  padding: .75rem 0;
 
   @media (min-width: 767.98px) {
     font-size: 50px;

@@ -42,20 +42,8 @@ const UnsortedItem = styled.li`
 const StyledLink = styled(props => <Link {...props} />)`
   color: #f7f7f7;
   display: inline-block;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.8;
-  line-height: 1.4;
   padding: 1rem 0;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 100ms linear;
   width: 100%;
-
-  &:hover {
-    color: #ff3d5e;
-    text-decoration: none;
-  }
 `
 
 const Copyright = styled.div`
