@@ -6,10 +6,12 @@ import Col from "react-bootstrap/Col"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CurrencyTicker from "./../components/currencyTicker"
+import CryptoMarket from "./../components/cryptoMarket"
 
 const IndexPage = () => (
   <Layout>
     <CurrencyTicker />
+    <CryptoMarket />
     <SEO title="Home" />
     <Container>
       <Row>
