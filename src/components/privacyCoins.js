@@ -24,6 +24,12 @@ const CoinsTable = styled(props => <Table {...props} />)`
   }
 `
 
+const ErrorMessage = styled(props => <td colSpan={5} {...props} />)`
+  color: #c80000 !important;
+  background-color: rgba(206, 17, 38, 0.05);
+  text-align: center;
+`
+
 const Icon = styled(({ url, ...rest }) => (
   <div {...rest} style={{ backgroundImage: `url(${url})` }} />
 ))`
@@ -50,19 +56,29 @@ const Coin = ({ info, raw }) => {
   )
 }
 const PrivacyCoins = () => {
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState([])
 
   useEffect(() => {
-    useApi({
-      endpoint: REST_API_ENDPOINTS.TOP_BY_MARKET,
+    setLoading(true)
+    useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
       params: { limit: 10, tsym: "USD" },
     })
       .then(result => {
-        const { data: response } = result || {}
-        const { Data } = response || {}
-        setCoins(Data)
+        setLoading(false)
+        const { data: json } = result || {}
+        const { Data, Response, Message } = json || {}
+        if (Response === "Error") {
+          console.error(Message)
+          setError("There was an error loading this content")
+        } else {
+          setCoins(Data)
+        }
       })
       .catch(error => {
+        setLoading(false)
+        setError("There was an error loading this content")
         console.error(error)
       })
   }, [])
@@ -75,8 +91,8 @@ const PrivacyCoins = () => {
         hover
         responsive
         variant="flat"
-        cellspacing="0"
-        cellpadding="0"
+        cellSpacing="0"
+        cellPadding="0"
       >
         <thead>
           <tr>
@@ -88,9 +104,19 @@ const PrivacyCoins = () => {
           </tr>
         </thead>
         <tbody>
-          {coins.map((coin, key) => (
-            <Coin key={key} info={coin.CoinInfo} raw={coin.RAW} />
-          ))}
+          {loading ? (
+            <tr>
+              <td colSpan={5}>Loading...</td>
+            </tr>
+          ) : error ? (
+            <tr>
+              <ErrorMessage>{error}</ErrorMessage>
+            </tr>
+          ) : (
+            coins.map((coin, key) => (
+              <Coin key={key} info={coin.CoinInfo} raw={coin.RAW} />
+            ))
+          )}
         </tbody>
       </CoinsTable>
     </PrivacyCoinsWrapper>

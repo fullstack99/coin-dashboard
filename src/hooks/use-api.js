@@ -12,7 +12,7 @@ const defaultConfig = {
   },
 }
 
-const useApi = async ({ endpoint, ...config }) => {
+const useApi = async (endpoint, { ...config }) => {
   const { params: defaultParams, url, ...defaultRest } = defaultConfig
   const { params, ...rest } = config || {}
   const opts = {
