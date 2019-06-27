@@ -57,6 +57,12 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+          bucketName: 'coingenius-dashboard'
+      },
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: "gatsby-plugin-react-svg",
