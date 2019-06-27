@@ -6,8 +6,8 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import { useSiteMetadata } from "./../hooks/use-site-metadata"
-import SocialFooter from "./../components/socialFooter"
+import { useSiteMetadata } from "@hooks/use-site-metadata"
+import SocialFooter from "../SocialFooter"
 
 const StyledFooter = styled.div`
   background-color: #1d2845;

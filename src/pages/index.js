@@ -3,10 +3,11 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import CurrencyTicker from "./../components/currencyTicker"
-import CryptoMarket from "./../components/cryptoMarket"
+import Layout from "@components/Layout"
+import SEO from "@components/Seo"
+import CurrencyTicker from "@components/CurrencyTicker"
+import CryptoMarket from "@components/CryptoMarket"
+import PrivacyCoins from "@components/PirvacyCoins"
 
 const IndexPage = () => (
   <Layout>
@@ -46,8 +47,9 @@ const IndexPage = () => (
         </Col>
       </Row>
       <Row>
-        <Col>Chart 1</Col>
-        <Col>Chart 2</Col>
+        <Col sm={5}>
+          <PrivacyCoins />
+        </Col>
         <Col>Chart 3</Col>
         <Col>Chart 4</Col>
         <Col>Chart 5</Col>

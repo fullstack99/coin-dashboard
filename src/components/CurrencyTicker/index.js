@@ -29,7 +29,7 @@ const CurrencyTicker = () => {
     fetchData();
   }, []);
 
-  console.log(data)
+  console.log('currencyTicker', '/data/price', data)
 
   return (
     <TickerWrapper>

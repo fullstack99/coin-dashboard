@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Hero from "gatsby-background-image"
 import styled from "styled-components"
 
-import Mask from "./mask"
+import Mask from "../Mask"
 
 const HeroWrapper = styled.section`
   position: relative;

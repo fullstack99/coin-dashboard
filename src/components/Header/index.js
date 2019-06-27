@@ -4,11 +4,11 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import Container from "react-bootstrap/Container"
 
-import Logo from "./../images/logo.svg";
+import Logo from "@images/logo.svg";
 
-import NavigationDesktop from "./navigationDesktop"
+import NavigationDesktop from "../NavigationDesktop"
 
-import { useSiteMetadata } from "./../hooks/use-site-metadata"
+import { useSiteMetadata } from "@hooks/use-site-metadata"
 
 const HeaderStyled = styled.header`
   background: #262d3f;
