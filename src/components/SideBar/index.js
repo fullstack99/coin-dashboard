@@ -11,7 +11,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 const Hamburger = css`
   bottom: -2.5px;
   height: 24px;
-  padding: 0;
+  padding: 0 !important;
   position: absolute;
   right: 15px;
   top: 25px;
