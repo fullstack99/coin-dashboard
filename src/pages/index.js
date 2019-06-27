@@ -8,6 +8,7 @@ import SEO from "@components/Seo"
 import CurrencyTicker from "@components/CurrencyTicker"
 import CryptoMarket from "@components/CryptoMarket"
 import PrivacyCoins from "@components/PirvacyCoins"
+import Button from "@components/Button"
 
 const IndexPage = () => (
   <Layout>
@@ -44,6 +45,9 @@ const IndexPage = () => (
       <Row>
         <Col>
           <h1>Privacy Coin Market Data</h1>
+        </Col>
+        <Col>
+          <Button active>Test</Button>
         </Col>
       </Row>
       <Row>
