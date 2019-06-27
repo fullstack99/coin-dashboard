@@ -1,9 +1,9 @@
 import axios from "axios"
 
-export const baseUrl = 'https://www.cryptocompare.com'
+export const baseUrl = "https://www.cryptocompare.com"
 export const REST_API_ENDPOINTS = {
   TOP_BY_MARKET: "/top/totalvolfull",
-  PRICE_SINGLE: "/price"
+  PRICE_SINGLE: "/price",
 }
 
 const defaultConfig = {
@@ -14,14 +14,14 @@ const defaultConfig = {
 }
 
 const useApi = async (endpoint, { ...config }) => {
-  const { params: defaultParams, url, ...defaultRest } = defaultConfig
+  const { params: defaultParams, ...defaultRest } = defaultConfig
   const { params, ...rest } = config || {}
   const opts = {
     ...defaultRest,
     ...rest,
-    url: `${url}${endpoint}`,
     params: { ...defaultParams, ...params },
   }
+  opts.url = `${opts.url}${endpoint}`
   return await axios({ ...opts })
 }
 
