@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
-import Header from "./header"
-import Footer from "./footer"
+import Header from "../Header"
+import Footer from "../Footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

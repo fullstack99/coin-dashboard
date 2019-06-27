@@ -8,11 +8,11 @@ import { HamburgerCollapse } from "react-animated-burgers"
 
 // import Logo from "./logo"
 
-import Logo from "./../images/logo.svg";
+import Logo from "@images/logo.svg";
 
-import NavigationDesktop from "./navigationDesktop"
+import NavigationDesktop from "../NavigationDesktop"
 
-import { useSiteMetadata } from "./../hooks/use-site-metadata"
+import { useSiteMetadata } from "@hooks/use-site-metadata"
 
 const HeaderStyled = styled.header`
   background: #262d3f;

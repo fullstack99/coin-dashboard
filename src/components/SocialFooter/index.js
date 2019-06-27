@@ -8,7 +8,7 @@ import fontawesome from "@fortawesome/fontawesome"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { fab } from "@fortawesome/free-brands-svg-icons"
 
-import { useSiteMetadata } from "./../hooks/use-site-metadata"
+import { useSiteMetadata } from "@hooks/use-site-metadata"
 
 fontawesome.library.add(fab)
 
