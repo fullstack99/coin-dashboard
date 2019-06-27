@@ -13,7 +13,7 @@ const defaultConfig = {
   },
 }
 
-const useApi = async (endpoint, { ...config }) => {
+const useApi = (endpoint, { ...config }) => {
   const { params: defaultParams, ...defaultRest } = defaultConfig
   const { params, ...rest } = config || {}
   const opts = {
@@ -22,7 +22,7 @@ const useApi = async (endpoint, { ...config }) => {
     params: { ...defaultParams, ...params },
   }
   opts.url = `${opts.url}${endpoint}`
-  return await axios({ ...opts })
+  return axios({ ...opts })
 }
 
 export default useApi
