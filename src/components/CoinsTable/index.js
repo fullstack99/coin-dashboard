@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
-
+import { number, string } from 'prop-types'
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
-import CoinsTable from './components/CoinsTable'
-import PrivacyCoinsWrapper from './components/PrivacyCoinsWrapper'
+import CoinsGrid from './components/CoinsGrid'
+import CoinsGridWrapper from './components/CoinsGridWrapper'
 import ErrorMessage from './components/ErrorMessage'
 import Coin from './components/Coin'
 
-const PrivacyCoins = () => {
+const CoinsTable = ({ page, title }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState([])
@@ -15,7 +15,7 @@ const PrivacyCoins = () => {
   useEffect(() => {
     setLoading(true)
     useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-      params: { limit: 10, tsym: "USD" },
+      params: { limit: 10, tsym: "USD", page },
     })
       .then(result => {
         setLoading(false)
@@ -33,12 +33,12 @@ const PrivacyCoins = () => {
         setError("There was an error loading this content")
         console.error(error)
       })
-  }, [])
+  }, [page])
 
   return (
-    <PrivacyCoinsWrapper>
-      <p align="left">Privacy Coins</p>
-      <CoinsTable
+    <CoinsGridWrapper>
+      <p align="left">{title}</p>
+      <CoinsGrid
         borderless
         hover
         responsive
@@ -70,9 +70,19 @@ const PrivacyCoins = () => {
             ))
           )}
         </tbody>
-      </CoinsTable>
-    </PrivacyCoinsWrapper>
+      </CoinsGrid>
+    </CoinsGridWrapper>
   )
 }
 
-export default PrivacyCoins
+CoinsTable.propTypes = {
+  page: number,
+  title: string
+}
+
+CoinsTable.defaultProps = {
+  page: 1,
+  title: ''
+}
+
+export default CoinsTable
