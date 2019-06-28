@@ -1,45 +1,39 @@
-import React, { useState, useEffect } from "react"
-import Ticker from "react-ticker"
+import React from "react"
 import styled from "@emotion/styled"
-import axios from 'axios';
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 const TickerWrapper = styled.div`
   background-color: #3041eb;
-  margin: 0;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 `
 
-const TickerItem = styled.div`
+const Indicator = styled.p`
+  font-family: "Oswald", "sans-sarif";
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 0;
-  padding: 0 4rem;
+  padding: .125rem 0;
+  text-align: center;
 `
 
 const CurrencyTicker = () => {
-  const [data, setData] = useState({ currencies: [] });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR&api_key=b86039193d7a9a43ed79cffa9a95877e11642d29ddba89cc071088a3680f2750',
-      );
-
-      setData(result.data);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log('currencyTicker', '/data/price', data)
-
   return (
     <TickerWrapper>
-      <Ticker>
-        {({ index }) => (
-          <>
-            <TickerItem>elem #{index}!</TickerItem>
-          </>
-        )}
-      </Ticker>
+      <Container>
+        <Row>
+          <Col md={4}>
+            <Indicator>Market Cap: $318,054,966,357</Indicator>
+          </Col>
+          <Col md={4}>
+            <Indicator>24h Vol: $119,265,825,324</Indicator>
+          </Col>
+          <Col md={4}>
+            <Indicator>BTC Dominance: 61.9%</Indicator>
+          </Col>
+        </Row>
+      </Container>
     </TickerWrapper>
   )
 }

@@ -11,7 +11,7 @@ import SocialFooter from "../SocialFooter"
 
 const StyledFooter = styled.div`
   background-color: #1d2845;
-  padding: 60px 0;
+  padding: 2rem 0;
 `
 
 const Nav = styled.div`
@@ -42,7 +42,6 @@ const UnsortedItem = styled.li`
 const StyledLink = styled(props => <Link {...props} />)`
   color: #f7f7f7;
   display: inline-block;
-  padding: 1rem 0;
   width: 100%;
 `
 
