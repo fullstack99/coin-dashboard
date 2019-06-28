@@ -15,7 +15,7 @@ const typography = new Typography({
   ],
   headerFontFamily: ["Oswald", "sans-serif"],
   bodyFontFamily: ["Open sans", "sans-serif"],
-  headerColor: "hsla(360,100%,100%,.8) !important",
+  headerColor: "hsla(360,100%,100%,1) !important",
   bodyColor: "hsla(360,100%,100%,1) !important",
   headerWeight: 700,
   bodyWeight: 400,

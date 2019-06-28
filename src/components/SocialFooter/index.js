@@ -17,7 +17,7 @@ const Nav = styled.div`
   list-style-type: none;
   list-style: none;
   margin-bottom: 0;
-  marginp-top: 40px;
+  marginp-top: 1rem;
   padding-left: 0;
 `
 
@@ -30,14 +30,14 @@ const Unsorted = styled.ul`
 
 const UnsortedItem = styled.li`
   float: left;
-  padding: 60px 0;
+  padding: 1rem 0;
   width: 20%;
 `
 const SocialNetwork = styled.a`
   background-image: none;
   color: #00e5ff;
   display: inline-block;
-  font-size: 32px;
+  font-size: 22px;
   text-align: center;
   transition: all 250ms linear;
   width: 100%;
