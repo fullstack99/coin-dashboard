@@ -53,7 +53,7 @@ const Header = () => {
         <TopNav>
           <NavBrand>
             <Logo css={IconLogo} />
-            <span css={Brand}>Coingenious</span>
+            <span css={Brand}>CoinGenious</span>
           </NavBrand>
           <NavigationDesktop pagesList={navigation} />
         </TopNav>

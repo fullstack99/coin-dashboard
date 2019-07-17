@@ -71,7 +71,7 @@ const CryptoMarket = () => {
         console.error(error)
       })
   }, [])
-  console.log("CryptoMarket", { data })
+  // console.log("CryptoMarket", { data })
   return (
     <Container>
       <Row>

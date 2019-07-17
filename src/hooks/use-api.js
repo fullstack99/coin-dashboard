@@ -2,7 +2,8 @@ import axios from "axios"
 
 export const baseUrl = "https://www.cryptocompare.com"
 export const REST_API_ENDPOINTS = {
-  TOP_BY_MARKET: "/top/totalvolfull",
+  TOP_BY_VOL24H: "/top/totalvolfull",
+  TOP_BY_MARKET: "/top/mktcapfull",
   PRICE_SINGLE: "/price",
 }
 
