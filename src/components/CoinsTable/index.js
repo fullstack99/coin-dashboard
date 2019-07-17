@@ -14,7 +14,7 @@ const CoinsTable = ({ page, title }) => {
 
   useEffect(() => {
     setLoading(true)
-    useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
+    useApi(REST_API_ENDPOINTS.TOP_BY_VOL24H, {
       params: { limit: 10, tsym: "USD", page },
     })
       .then(result => {

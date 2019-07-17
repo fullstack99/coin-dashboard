@@ -16,13 +16,6 @@ const NavItem = styled.li`
   margin: 0;
 `
 
-const StyledLink = styled(props => <Link {...props} />)`
-  bottom: -2px;
-  display: inline-block;
-  padding: 0 0.9rem;
-  position: relative;
-`
-
 const NavigationDesktop = ({ pagesList }) => {
   return (
     <div className="d-none d-lg-block">
@@ -30,9 +23,9 @@ const NavigationDesktop = ({ pagesList }) => {
         {pagesList.map((item, index) => {
           return (
             <NavItem key={index}>
-              <StyledLink className="navigation" to={item.url}>
+              <Link className="navigation" to={item.url}>
                 {item.label}
-              </StyledLink>
+              </Link>
             </NavItem>
           )
         })}

@@ -41,6 +41,7 @@ const IndexPage = () => {
                 <Button
                   onClick={() => setSelected(index)}
                   active={selected === index}
+                  key={index}
                 >
                   {title}
                 </Button>
