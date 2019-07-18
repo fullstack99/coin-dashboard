@@ -7,26 +7,26 @@ export const GROUP_DIGITS = "groupDigits"
 const defaultOpts = {
   type: [CURRENCY],
   decimals: 2,
-  includeSymbol: true,
+  includeSymbol: true
 }
 
 const CONVERSIONS = [
   {
     symbol: "T",
-    rate: 1000000000000,
+    rate: 1000000000000
   },
   {
     symbol: "B",
-    rate: 1000000000,
+    rate: 1000000000
   },
   {
     symbol: "M",
-    rate: 1000000,
+    rate: 1000000
   },
   {
     symbol: "K",
-    rate: 1000,
-  },
+    rate: 1000
+  }
 ]
 
 const toCurrency = (amount, config = { includeSymbol: true }) => {

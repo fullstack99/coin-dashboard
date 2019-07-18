@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { string, array } from "prop-types"
+import { string, array, func } from "prop-types"
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
 import CoinsGrid from "./components/CoinsGrid"
@@ -9,7 +9,7 @@ import Coin from "./components/Coin"
 
 import { CURRENCY } from "@utils/constants"
 
-const CoinsTable = ({ title, cryptoCurrencies }) => {
+const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState({})
@@ -19,8 +19,8 @@ const CoinsTable = ({ title, cryptoCurrencies }) => {
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
       params: {
         fsyms: cryptoCurrencies.map(item => item.symbol).join(","),
-        tsyms: CURRENCY,
-      },
+        tsyms: CURRENCY
+      }
     })
       .then(result => {
         setLoading(false)
@@ -83,6 +83,9 @@ const CoinsTable = ({ title, cryptoCurrencies }) => {
                   price={PRICE}
                   mktcap={MKTCAP}
                   totalVolume24h={TOTALVOLUME24H}
+                  onClick={() => {
+                    onClick(info, crypto)
+                  }}
                 />
               )
             })
@@ -96,10 +99,12 @@ const CoinsTable = ({ title, cryptoCurrencies }) => {
 CoinsTable.propTypes = {
   cryptoCurrencies: array.isRequired,
   title: string,
+  onClick: func
 }
 
 CoinsTable.defaultProps = {
   title: "",
+  onClick: () => null
 }
 
 export default CoinsTable
