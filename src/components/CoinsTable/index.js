@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from "react"
-import { number, string } from 'prop-types'
+import { string, array } from "prop-types"
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
-import CoinsGrid from './components/CoinsGrid'
-import CoinsGridWrapper from './components/CoinsGridWrapper'
-import ErrorMessage from './components/ErrorMessage'
-import Coin from './components/Coin'
+import CoinsGrid from "./components/CoinsGrid"
+import CoinsGridWrapper from "./components/CoinsGridWrapper"
+import ErrorMessage from "./components/ErrorMessage"
+import Coin from "./components/Coin"
 
-const CoinsTable = ({ page, title }) => {
+import { CURRENCY } from "@utils/constants"
+
+const CoinsTable = ({ title, cryptoCurrencies }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [coins, setCoins] = useState([])
+  const [coins, setCoins] = useState({})
 
   useEffect(() => {
     setLoading(true)
-    useApi(REST_API_ENDPOINTS.TOP_BY_VOL24H, {
-      params: { limit: 10, tsym: "USD", page },
+    useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
+      params: {
+        fsyms: cryptoCurrencies.map(item => item.symbol).join(","),
+        tsyms: CURRENCY,
+      },
     })
       .then(result => {
         setLoading(false)
         const { data: json } = result || {}
-        const { Data, Response, Message } = json || {}
-        if (Response === "Error") {
-          console.error(Message)
+        const { RAW } = json || {}
+        if (!RAW) {
           setError("There was an error loading this content")
         } else {
-          setCoins(Data)
+          setCoins(RAW)
         }
       })
       .catch(error => {
@@ -33,7 +37,7 @@ const CoinsTable = ({ page, title }) => {
         setError("There was an error loading this content")
         console.error(error)
       })
-  }, [page])
+  }, [title])
 
   return (
     <CoinsGridWrapper>
@@ -65,9 +69,23 @@ const CoinsTable = ({ page, title }) => {
               <ErrorMessage>{error}</ErrorMessage>
             </tr>
           ) : (
-            coins.map((coin, key) => (
-              <Coin key={key} info={coin.CoinInfo} raw={coin.RAW} />
-            ))
+            cryptoCurrencies.map((crypto, key) => {
+              const { name, symbol } = crypto
+              const info = coins[symbol]
+              if (!info || !info[CURRENCY]) return null
+              const displayInfo = info[CURRENCY]
+              const { PRICE, IMAGEURL, MKTCAP, TOTALVOLUME24H } = displayInfo
+              return (
+                <Coin
+                  key={key}
+                  name={name}
+                  imageUrl={IMAGEURL}
+                  price={PRICE}
+                  mktcap={MKTCAP}
+                  totalVolume24h={TOTALVOLUME24H}
+                />
+              )
+            })
           )}
         </tbody>
       </CoinsGrid>
@@ -76,13 +94,12 @@ const CoinsTable = ({ page, title }) => {
 }
 
 CoinsTable.propTypes = {
-  page: number,
-  title: string
+  cryptoCurrencies: array.isRequired,
+  title: string,
 }
 
 CoinsTable.defaultProps = {
-  page: 1,
-  title: ''
+  title: "",
 }
 
 export default CoinsTable

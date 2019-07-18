@@ -4,7 +4,12 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
+// hooks
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
+import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
+
+// utils
+import { CURRENCY } from "@utils/constants"
 
 const CryptoMarketWrapper = styled.section`
   margin: 0;
@@ -28,7 +33,7 @@ const Span = styled.span`
   color: #fecd00;
   display: block;
   font-weight: 600;
-  padding: .75rem 0;
+  padding: 0.75rem 0;
 
   @media (min-width: 767.98px) {
     font-size: 50px;
@@ -46,24 +51,24 @@ const Span = styled.span`
 const CryptoMarket = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [data, setData] = useState({ currencies: [] })
+  const [data, setData] = useState({})
 
   useEffect(() => {
     setLoading(true)
-    useApi(REST_API_ENDPOINTS.PRICE_SINGLE, {
-      params: { fsym: "BTC", tsyms: "USD,JPY,EUR" },
+    useApi(REST_API_ENDPOINTS.PRICE_MULTI_FULL, {
+      params: { fsyms: "BTC", tsyms: CURRENCY },
     })
       .then(result => {
         setLoading(false)
-        const { data: json } = result || {}
-        const { Data, Response, Message } = json || {}
-        if (Response === "Error") {
-          console.error(Message)
+        const { data: response } = result
+        const { RAW } = response || {}
+        const { BTC } = RAW || {}
+
+        if (!BTC || !BTC[CURRENCY]) {
           setError("There was an error loading this content")
         } else {
-          setData(Data)
+          setData(BTC[CURRENCY])
         }
-        setData(result.data)
       })
       .catch(error => {
         setLoading(false)
@@ -71,7 +76,6 @@ const CryptoMarket = () => {
         console.error(error)
       })
   }, [])
-  // console.log("CryptoMarket", { data })
   return (
     <Container>
       <Row>
@@ -84,7 +88,13 @@ const CryptoMarket = () => {
                 error
               ) : (
                 <>
-                  Crypto Market is <Span>Up 39% $183,421,314,312.31</Span> USD
+                  Crypto Market is{" "}
+                  <Span>
+                    {data.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
+                    {useFormat(data.CHANGEPCT24HOUR, PERCENTAGE)} $
+                    {useFormat(data.VOLUME24HOURTO, GROUP_DIGITS)}
+                  </Span>{" "}
+                  {CURRENCY}
                 </>
               )}
             </Message>

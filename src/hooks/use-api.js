@@ -5,6 +5,8 @@ export const REST_API_ENDPOINTS = {
   TOP_BY_VOL24H: "/top/totalvolfull",
   TOP_BY_MARKET: "/top/mktcapfull",
   PRICE_SINGLE: "/price",
+  PRICE_MULTI_FULL: "/pricemultifull",
+  PRICE_MULTIFULL: "/pricemultifull",
 }
 
 const defaultConfig = {
