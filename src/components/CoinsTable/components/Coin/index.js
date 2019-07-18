@@ -1,5 +1,5 @@
 import React from "react"
-import { string } from "prop-types"
+import { string, number } from "prop-types"
 
 // components
 import Icon from "../Icon"
@@ -22,9 +22,9 @@ const Coin = ({ name, imageUrl, price, mktcap, totalVolume24h }) => {
 
 Coin.propTypes = {
   name: string.isRequired,
-  price: string.isRequired,
-  mktcap: string.isRequired,
-  totalVolume24h: string.isRequired,
+  price: number.isRequired,
+  mktcap: number.isRequired,
+  totalVolume24h: number.isRequired,
   imageUrl: string,
 }
 
