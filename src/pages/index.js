@@ -67,14 +67,17 @@ const IndexPage = () => {
       <CurrencyTicker />
       <CryptoMarket />
       <SEO title="Home" />
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
             <ButtonsGroup>
               {Categories.map((title, index) => (
                 <Button
                   key={index}
-                  onClick={() => setSelected(index)}
+                  onClick={() => {
+                    setSelected(index)
+                    setCoinSelected({})
+                  }}
                   active={selected === index}
                 >
                   {title}
@@ -88,11 +91,13 @@ const IndexPage = () => {
           <Col sm={7}>
             Chart for {Categories[selected]}
             <div>
-              {coinSelected.crypto && (
-                <TradingView
-                  symbol={coinSelected.crypto.symbol}
-                  save_image={false}
-                />
+              {coinSelected.info && (
+                <>
+                  <TradingView
+                    symbol={coinSelected.crypto.tradingview}
+                    save_image={false}
+                  />
+                </>
               )}
             </div>
           </Col>

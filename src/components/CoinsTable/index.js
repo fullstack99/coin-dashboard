@@ -84,7 +84,7 @@ const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
                   mktcap={MKTCAP}
                   totalVolume24h={TOTALVOLUME24H}
                   onClick={() => {
-                    onClick(info, crypto)
+                    onClick(displayInfo, crypto)
                   }}
                 />
               )

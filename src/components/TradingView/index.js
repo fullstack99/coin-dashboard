@@ -2,9 +2,16 @@ import React from "react"
 import { oneOf, bool, string } from "prop-types"
 import TradingViewWidget, { Themes, BarStyles } from "react-tradingview-widget"
 
-export const TradingView = ({ symbol, theme, autosize, style, ...props }) => (
+export const TradingView = ({
+  symbol,
+  theme,
+  autosize,
+  style,
+  save_image,
+  ...props
+}) => (
   <TradingViewWidget
-    symbol={`CRYPTOCAP:${symbol}`}
+    symbol={symbol}
     theme={theme}
     autosize={autosize}
     style={style}
@@ -13,17 +20,18 @@ export const TradingView = ({ symbol, theme, autosize, style, ...props }) => (
 )
 
 TradingView.propTypes = {
-  symbol: string,
+  symbol: string.isRequired,
   theme: oneOf([Themes.DARK, Themes.LIGHT]),
   style: oneOf(Object.values(BarStyles)),
-  autosize: bool
+  autosize: bool,
+  save_image: bool
 }
 
 TradingView.defaultProps = {
-  symbol: "BTC",
   theme: Themes.DARK,
   style: BarStyles.CANDLES,
-  autosize: true
+  autosize: true,
+  save_image: false
 }
 
 export default TradingView
