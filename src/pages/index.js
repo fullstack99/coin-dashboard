@@ -92,12 +92,10 @@ const IndexPage = () => {
             Chart for {Categories[selected]}
             <div>
               {coinSelected.info && (
-                <>
-                  <TradingView
-                    symbol={coinSelected.crypto.tradingview}
-                    save_image={false}
-                  />
-                </>
+                <TradingView
+                  symbol={coinSelected.crypto.tradingview}
+                  save_image={false}
+                />
               )}
             </div>
           </Col>
