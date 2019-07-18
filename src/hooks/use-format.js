@@ -1,22 +1,36 @@
-const defaultConfig = {
-  type: "k",
-}
-const useFormat = (amount, opts) => {
+const CONVERSIONS = [
+  {
+    symbol: "T",
+    rate: 1000000000000,
+  },
+  {
+    symbol: "B",
+    rate: 1000000000,
+  },
+  {
+    symbol: "M",
+    rate: 1000000,
+  },
+  {
+    symbol: "K",
+    rate: 1000,
+  },
+]
+const useFormat = amount => {
   if (!amount) return 0
-  const config = { ...defaultConfig, ...opts }
-  const { type } = config
-  let format = amount
-  switch (type) {
-    case "k":
-      const tmp = Math.round(amount / 1000)
-      if (tmp === 0) {
-        format = parseFloat(amount).toFixed(2)
-      } else {
-        format = `${tmp} K`
-      }
-      break
-    default:
-      break
+  let format = null
+  CONVERSIONS.forEach(conversion => {
+    if (format) return format
+    let tmp = amount / conversion.rate
+    if (Math.round(tmp) > 0) {
+      tmp = parseFloat(tmp).toFixed(2)
+      format = `${tmp} ${conversion.symbol}`
+      return format
+    }
+    return false
+  })
+  if (!format) {
+    format = parseFloat(amount).toFixed(2)
   }
   return format
 }

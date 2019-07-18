@@ -4,6 +4,7 @@ export const baseUrl = "https://www.cryptocompare.com"
 export const REST_API_ENDPOINTS = {
   TOP_BY_MARKET: "/top/totalvolfull",
   PRICE_SINGLE: "/price",
+  PRICE_MULTIFULL: "/pricemultifull",
 }
 
 const defaultConfig = {
