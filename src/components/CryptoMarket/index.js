@@ -55,8 +55,8 @@ const CryptoMarket = () => {
 
   useEffect(() => {
     setLoading(true)
-    useApi(REST_API_ENDPOINTS.PRICE_MULTI_FULL, {
-      params: { fsyms: "BTC", tsyms: CURRENCY },
+    useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
+      params: { fsyms: "BTC", tsyms: CURRENCY }
     })
       .then(result => {
         setLoading(false)

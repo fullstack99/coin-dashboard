@@ -5,15 +5,14 @@ export const REST_API_ENDPOINTS = {
   TOP_BY_VOL24H: "/top/totalvolfull",
   TOP_BY_MARKET: "/top/mktcapfull",
   PRICE_SINGLE: "/price",
-  PRICE_MULTI_FULL: "/pricemultifull",
-  PRICE_MULTIFULL: "/pricemultifull",
+  PRICE_MULTIFULL: "/pricemultifull"
 }
 
 const defaultConfig = {
   url: `https://min-api.cryptocompare.com/data`,
   params: {
-    apiKey: "b86039193d7a9a43ed79cffa9a95877e11642d29ddba89cc071088a3680f2750",
-  },
+    apiKey: "b86039193d7a9a43ed79cffa9a95877e11642d29ddba89cc071088a3680f2750"
+  }
 }
 
 const useApi = (endpoint, { ...config }) => {
@@ -22,7 +21,7 @@ const useApi = (endpoint, { ...config }) => {
   const opts = {
     ...defaultRest,
     ...rest,
-    params: { ...defaultParams, ...params },
+    params: { ...defaultParams, ...params }
   }
   opts.url = `${opts.url}${endpoint}`
   return axios({ ...opts })

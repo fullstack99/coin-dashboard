@@ -19,23 +19,49 @@ import { Tokens } from "../utils/constants"
 import smartContracts from "../utils/constants/smartContracts"
 import interoperability from "../utils/constants/interoperability"
 import privacyCoins from "../utils/constants/privacyCoins"
+import TradingView from "../components/TradingView"
 
 const Categories = [
   "Stablecoins",
   "Tokens",
   "SmartContracts",
   "Interoperability",
-  "Privacy Coins",
+  "Privacy Coins"
 ]
-const GridMapper = [
-  <CoinsTable title="Stablecoins" cryptoCurrencies={StableCoins} />,
-  <CoinsTable title="Tokens" cryptoCurrencies={Tokens} />,
-  <CoinsTable title="SmartContracts" cryptoCurrencies={smartContracts} />,
-  <CoinsTable title="Interoperability" cryptoCurrencies={interoperability} />,
-  <CoinsTable title="Privacy Coins" cryptoCurrencies={privacyCoins} />,
+const GridMapper = onCoinSelected => [
+  <CoinsTable
+    title="Stablecoins"
+    cryptoCurrencies={StableCoins}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Tokens"
+    cryptoCurrencies={Tokens}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="SmartContracts"
+    cryptoCurrencies={smartContracts}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Interoperability"
+    cryptoCurrencies={interoperability}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Privacy Coins"
+    cryptoCurrencies={privacyCoins}
+    onClick={onCoinSelected}
+  />
 ]
+
 const IndexPage = () => {
+  const [coinSelected, setCoinSelected] = useState({})
   const [selected, setSelected] = useState(0)
+  const onClick = (info, crypto) => {
+    setCoinSelected({ info, crypto })
+  }
   return (
     <Layout>
       <CurrencyTicker />
@@ -48,7 +74,10 @@ const IndexPage = () => {
               {Categories.map((title, index) => (
                 <Button
                   key={index}
-                  onClick={() => setSelected(index)}
+                  onClick={() => {
+                    setSelected(index)
+                    setCoinSelected({})
+                  }}
                   active={selected === index}
                 >
                   {title}
@@ -58,8 +87,18 @@ const IndexPage = () => {
           </Col>
         </Row>
         <Row>
-          <Col sm={5}>{GridMapper[selected]}</Col>
-          <Col sm={7}>Chart for {Categories[selected]}</Col>
+          <Col sm={5}>{GridMapper(onClick)[selected]}</Col>
+          <Col sm={7}>
+            Chart for {Categories[selected]}
+            <div>
+              {coinSelected.info && (
+                <TradingView
+                  symbol={coinSelected.crypto.tradingview}
+                  save_image={false}
+                />
+              )}
+            </div>
+          </Col>
         </Row>
         <Row>
           <Col>
@@ -74,7 +113,7 @@ const IndexPage = () => {
               text="secondary"
             >
               <Card.Body>
-                <Card.Text>Chart {index + 1}</Card.Text>
+                <Card.Text>{index + 1}</Card.Text>
               </Card.Body>
               <Card.Img
                 style={{ marginBottom: 0 }}

@@ -6,12 +6,12 @@ const typography = new Typography({
   googleFonts: [
     {
       name: "Oswald",
-      styles: ["700"],
+      styles: ["700"]
     },
     {
       name: "Open sans",
-      styles: ["400", "400i", "700"],
-    },
+      styles: ["400", "400i", "700"]
+    }
   ],
   headerFontFamily: ["Oswald", "sans-serif"],
   bodyFontFamily: ["Open sans", "sans-serif"],
@@ -23,17 +23,17 @@ const typography = new Typography({
   overrideStyles: () => {
     return {
       html: {
-        height: "100%",
+        height: "100%"
       },
       body: {
         backgroundColor: "#1c1e2e !important",
-        height: "100%",
+        height: "100%"
       },
       ".scroll-disabler": {
         overflowY: "hidden"
       },
       a: {
-        textShadow: "none",
+        textShadow: "none"
       },
       ".navigation": {
         color: "#9dafbd",
@@ -47,13 +47,13 @@ const typography = new Typography({
         padding: "0 20px",
         textDecoration: "none",
         textTransform: "uppercase",
-        transition: "all 100ms linear",
+        transition: "all 100ms linear"
       },
       ".navigation:hover": {
-        color: "#475ff2",
-      },
+        color: "#475ff2"
+      }
     }
-  },
+  }
 })
 
 export default typography
