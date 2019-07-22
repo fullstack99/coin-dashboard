@@ -8,6 +8,7 @@ import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
 import addAllFields from "./../../utils/add-all-fields"
+import getObjectValue from "./../../utils/get-object-value"
 import btcDominance from "./../../utils/btc-dominance"
 
 const TickerWrapper = styled.div`
@@ -41,10 +42,14 @@ const GetTickerData = () => {
           setError("There was an error loading this content")
         } else {
           // Get total Market Cap
-          const totalMarketCap = addAllFields(Data, "MKTCAP")
+          const totalMarketCap = addAllFields(
+            getObjectValue(Data, "RAW.USD.MKTCAP")
+          )
 
           // Get last 24H volume
-          const totalVol24 = addAllFields(Data, "TOTALVOLUME24H")
+          const totalVol24 = addAllFields(
+            getObjectValue(Data, "RAW.USD.TOTALVOLUME24H")
+          )
 
           // BTC Dominance
           const btcDmn = btcDominance(Data, totalMarketCap)
@@ -110,5 +115,7 @@ const CurrencyTicker = () => {
     </TickerWrapper>
   )
 }
+
+CurrencyTicker.defaultProps = { Data: {} }
 
 export default CurrencyTicker

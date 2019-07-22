@@ -9,48 +9,37 @@ import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
 // utils
+import addAllFields from "./../../utils/add-all-fields"
+import getObjectValue from "./../../utils/get-object-value"
 import { CURRENCY } from "@utils/constants"
 
 const CryptoMarketWrapper = styled.section`
   margin: 0;
-  padding: 4rem 2rem;
+  padding: 75px 0;
   text-align: center;
 `
 
 const Message = styled.h1`
   color: #fff !important;
-  font-size: 34px;
-  font-weight: 400;
+  font-size: 36px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: -1px;
+  line-height: normal;
   margin: 0;
-  text-transform: uppercase;
-
-  @media (min-width: 767.98px) {
-    font-size: 40px !important;
-  }
+  text-align: center;
 `
 
 const Span = styled.span`
-  color: #fecd00;
-  display: block;
-  font-weight: 600;
-  padding: 0.75rem 0;
-
-  @media (min-width: 767.98px) {
-    font-size: 50px;
-  }
-
-  @media (min-width: 991.98px) {
-    font-size: 70px;
-  }
-
-  @media (min-width: 1199.98px) {
-    font-size: 70px;
-  }
+  font-weight: bold;
+  color: #4659fb;
 `
 
 const CryptoMarket = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
 
   useEffect(() => {
@@ -67,7 +56,30 @@ const CryptoMarket = () => {
         if (!BTC || !BTC[CURRENCY]) {
           setError("There was an error loading this content")
         } else {
-          setData(BTC[CURRENCY])
+          setPrc(BTC[CURRENCY])
+        }
+      })
+      .catch(error => {
+        setLoading(false)
+        setError("There was an error loading this content")
+        console.error(error)
+      })
+
+    useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
+      params: { limit: "100", tsym: "USD" },
+    })
+      .then(result => {
+        setLoading(false)
+        const { data: json } = result || {}
+        const { Data, Response, Message } = json || {}
+        if (Response === "Error") {
+          console.error(Message)
+          setError("There was an error loading this content")
+        } else {
+          // Get total Market Cap
+          const totalMarketCap = addAllFields(getObjectValue(Data, "RAW.USD.MKTCAP"))
+
+          setData(totalMarketCap)
         }
       })
       .catch(error => {
@@ -78,8 +90,8 @@ const CryptoMarket = () => {
   }, [])
   return (
     <Container>
-      <Row>
-        <Col>
+      <Row className="justify-content-md-center">
+        <Col md={8}>
           <CryptoMarketWrapper>
             <Message>
               {loading ? (
@@ -90,9 +102,9 @@ const CryptoMarket = () => {
                 <>
                   Crypto Market is{" "}
                   <Span>
-                    {data.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
-                    {useFormat(data.CHANGEPCT24HOUR, PERCENTAGE)} $
-                    {useFormat(data.VOLUME24HOURTO, GROUP_DIGITS)}
+                    {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
+                    {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $
+                    {useFormat(data, GROUP_DIGITS)}
                   </Span>{" "}
                   {CURRENCY}
                 </>
