@@ -2,50 +2,24 @@ import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import Ticker from "react-ticker"
 
+import TickerItem from "./TickerItem"
+
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
+import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
 const TickerWrapper = styled.div`
-  background-color: #3041eb;
+  background-color: #475ff2;
   color: #fff;
   height: 56px;
   padding: 16px 0;
 `
 
-const Item = styled.span`
-  margin-right: 55px;
-  white-space: nowrap;
-`
-
-const formattedSum = num => {
-  return new Intl.NumberFormat().format(num)
-}
-
-const printItems = (data = {}) => {
-  return (
-    <>
-      {data ? (
-        <>
-          <Item>Market Cap ${data.totalMarketCapFormatted} </Item>
-          <Item>24 Hours Trade Volume ${data.totalVol24Formatted} </Item>
-          <Item>BTC Dominance {data.btcDominance} </Item>
-        </>
-      ) : (
-        <>
-          <Item>Market Cap $xxx,xxx,xxx,xxx.xx </Item>
-          <Item>24 Hours Trade Volume $$xxx,xxx,xxx,xxx.xx </Item>
-          <Item>BTC Dominance $xx.xx </Item>
-        </>
-      )}
-    </>
-  )
-}
-
 const GetTickerData = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
-    totalMarketCapFormatted: null,
-    totalVol24Formatted: null,
+    totalMarketCap: null,
+    totalVol24: null,
     btcDominance: null,
   })
 
@@ -63,43 +37,31 @@ const GetTickerData = () => {
           console.error(Message)
           setError("There was an error loading this content")
         } else {
-          // Get total Market Cap
-          let marketCap = Data.map(coin => {
-            return coin["RAW"]["USD"]["MKTCAP"]
-          })
-
-          const totalMarketCap = marketCap.reduce((a, b) => a + b, 0)
-
-          const totalMarketCapFormatted = formattedSum(totalMarketCap)
-
-          // Get last 24H volume
-          let vol24 = Data.map(coin => {
-            return coin["RAW"]["USD"]["TOTALVOLUME24H"]
-          })
-
-          const totalVol24 = vol24.reduce((a, b) => a + b, 0)
-
-          const totalVol24Formatted = formattedSum(totalVol24)
-
-          // BTC Dominance
-
+          let totalMarketCap = 0
+          let totalVolTrade = 0
           let btcDominance = 0
 
-          for (var i = 0; i < Data.length; i++) {
-            if (Data[i]["CoinInfo"]["Name"] === "BTC") {
-              const BTCMarket = Data[i]["RAW"]["USD"]["MKTCAP"]
+          for (let i = 0; i < Data.length; i++) {
+            const { RAW } = Data[i] || {}
+            const { USD } = RAW || {}
+            const { MKTCAP } = USD || {}
+            const { FROMSYMBOL } = USD || {}
+            const { TOTALVOLUME24H } = USD || {}
 
-              btcDominance = (BTCMarket * 100) / totalMarketCap
-              break
+            if (FROMSYMBOL === "BTC") {
+              btcDominance = MKTCAP
             }
+
+            totalMarketCap += MKTCAP
+            totalVolTrade += TOTALVOLUME24H
           }
 
-          const btcDominanceFormatted = formattedSum(btcDominance)
+          const btcDmn = (btcDominance * 100) / totalMarketCap
 
           setData({
-            totalMarketCapFormatted: totalMarketCapFormatted,
-            totalVol24Formatted: totalVol24Formatted,
-            btcDominance: btcDominanceFormatted,
+            totalMarketCap: totalMarketCap,
+            totalVol24: totalVolTrade,
+            btcDominance: btcDmn,
           })
         }
       })
@@ -115,23 +77,35 @@ const GetTickerData = () => {
       {loading ? (
         <div
           css={{
-            width: "1850px",
+            width: "750px",
             visibility: "hidden",
           }}
         >
-          {printItems()}
-          {printItems()}
+          Loading...
         </div>
       ) : error ? (
         error
       ) : (
         <div
           css={{
-            width: "1850px",
+            width: "750px",
           }}
         >
-          {printItems(data)}
-          {printItems(data)}
+          <TickerItem
+            label="Market Cap $"
+            value={useFormat(data.totalMarketCap, GROUP_DIGITS)}
+            placeholder="xxx,xxx,xxx,xxx.xx"
+          />
+          <TickerItem
+            label="24 Hours Trade Volume $"
+            value={useFormat(data.totalVol24, GROUP_DIGITS)}
+            placeholder="xxx,xxx,xxx,xxx.xx"
+          />
+          <TickerItem
+            label="BTC Dominance "
+            value={useFormat(data.btcDominance, PERCENTAGE)}
+            placeholder="xx.xx"
+          />
         </div>
       )}
     </>
@@ -141,11 +115,11 @@ const GetTickerData = () => {
 const CurrencyTicker = () => {
   return (
     <TickerWrapper>
-      <Ticker offset="0" speed={5}>
-        {() => <GetTickerData />}
-      </Ticker>
+      <Ticker speed={5}>{() => <GetTickerData />}</Ticker>
     </TickerWrapper>
   )
 }
+
+CurrencyTicker.defaultProps = { Data: {} }
 
 export default CurrencyTicker
