@@ -9,8 +9,6 @@ import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
 // utils
-import addAllFields from "./../../utils/add-all-fields"
-import getObjectValue from "./../../utils/get-object-value"
 import { CURRENCY } from "@utils/constants"
 
 const CryptoMarketWrapper = styled.section`
@@ -76,8 +74,15 @@ const CryptoMarket = () => {
           console.error(Message)
           setError("There was an error loading this content")
         } else {
-          // Get total Market Cap
-          const totalMarketCap = addAllFields(getObjectValue(Data, "RAW.USD.MKTCAP"))
+          let totalMarketCap = 0
+
+          for (let i = 0; i < Data.length; i++) {
+            const { RAW } = Data[i] || {}
+            const { USD } = RAW || {}
+            const { MKTCAP } = USD || {}
+
+            totalMarketCap += MKTCAP
+          }
 
           setData(totalMarketCap)
         }

@@ -7,10 +7,6 @@ import TickerItem from "./TickerItem"
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
-import addAllFields from "./../../utils/add-all-fields"
-import getObjectValue from "./../../utils/get-object-value"
-import btcDominance from "./../../utils/btc-dominance"
-
 const TickerWrapper = styled.div`
   background-color: #475ff2;
   color: #fff;
@@ -41,22 +37,30 @@ const GetTickerData = () => {
           console.error(Message)
           setError("There was an error loading this content")
         } else {
-          // Get total Market Cap
-          const totalMarketCap = addAllFields(
-            getObjectValue(Data, "RAW.USD.MKTCAP")
-          )
+          let totalMarketCap = 0
+          let totalVolTrade = 0
+          let btcDominance = 0
 
-          // Get last 24H volume
-          const totalVol24 = addAllFields(
-            getObjectValue(Data, "RAW.USD.TOTALVOLUME24H")
-          )
+          for (let i = 0; i < Data.length; i++) {
+            const { RAW } = Data[i] || {}
+            const { USD } = RAW || {}
+            const { MKTCAP } = USD || {}
+            const { FROMSYMBOL } = USD || {}
+            const { TOTALVOLUME24H } = USD || {}
 
-          // BTC Dominance
-          const btcDmn = btcDominance(Data, totalMarketCap)
+            if (FROMSYMBOL === "BTC") {
+              btcDominance = MKTCAP
+            }
+
+            totalMarketCap += MKTCAP
+            totalVolTrade += TOTALVOLUME24H
+          }
+
+          const btcDmn = (btcDominance * 100) / totalMarketCap
 
           setData({
             totalMarketCap: totalMarketCap,
-            totalVol24: totalVol24,
+            totalVol24: totalVolTrade,
             btcDominance: btcDmn,
           })
         }
@@ -98,7 +102,7 @@ const GetTickerData = () => {
             placeholder="xxx,xxx,xxx,xxx.xx"
           />
           <TickerItem
-            label="BTC Dominance"
+            label="BTC Dominance "
             value={useFormat(data.btcDominance, PERCENTAGE)}
             placeholder="xx.xx"
           />
