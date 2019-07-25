@@ -14,21 +14,60 @@ import Button from "@components/Button"
 import CoinsTable from "@components/CoinsTable"
 
 // modules
-import { StableCoins } from "@utils/constants"
-import { Tokens } from "../utils/constants"
-import smartContracts from "../utils/constants/smartContracts"
-import interoperability from "../utils/constants/interoperability"
-import privacyCoins from "../utils/constants/privacyCoins"
+import {
+  BiggestGainers,
+  BiggestLosers,
+  HighestVolume,
+  TopEighteen,
+  LargeMarketCapSector,
+  StableCoins,
+  Tokens,
+  SmartContracts,
+  Interoperability,
+  PrivacyCoins
+} from "@utils/constants"
 import TradingView from "../components/TradingView"
 
 const Categories = [
+  "Biggest Gainers",
+  "Biggest Losers",
+  "Highest Volume",
+  "Top 18",
+  "Large Market Cap Sector",
   "Stablecoins",
   "Tokens",
-  "SmartContracts",
+  "Smart Contracts",
   "Interoperability",
   "Privacy Coins"
 ]
-const GridMapper = onCoinSelected => [
+const GridMapper = (selectedCoin, onCoinSelected) => [
+  <CoinsTable
+    title="Biggest Gainers"
+    cryptoCurrencies={BiggestGainers}
+    selectedCoin={selectedCoin}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Biggest Losers"
+    cryptoCurrencies={BiggestLosers}
+    selectedCoin={selectedCoin}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Highest Volume"
+    cryptoCurrencies={HighestVolume}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Top 18"
+    cryptoCurrencies={TopEighteen}
+    onClick={onCoinSelected}
+  />,
+  <CoinsTable
+    title="Large Market Cap Sector"
+    cryptoCurrencies={LargeMarketCapSector}
+    onClick={onCoinSelected}
+  />,
   <CoinsTable
     title="Stablecoins"
     cryptoCurrencies={StableCoins}
@@ -41,17 +80,17 @@ const GridMapper = onCoinSelected => [
   />,
   <CoinsTable
     title="SmartContracts"
-    cryptoCurrencies={smartContracts}
+    cryptoCurrencies={SmartContracts}
     onClick={onCoinSelected}
   />,
   <CoinsTable
     title="Interoperability"
-    cryptoCurrencies={interoperability}
+    cryptoCurrencies={Interoperability}
     onClick={onCoinSelected}
   />,
   <CoinsTable
     title="Privacy Coins"
-    cryptoCurrencies={privacyCoins}
+    cryptoCurrencies={PrivacyCoins}
     onClick={onCoinSelected}
   />
 ]
@@ -87,7 +126,7 @@ const IndexPage = () => {
           </Col>
         </Row>
         <Row>
-          <Col sm={5}>{GridMapper(onClick)[selected]}</Col>
+          <Col sm={5}>{GridMapper(coinSelected.crypto, onClick)[selected]}</Col>
           <Col sm={7}>
             Chart for {Categories[selected]}
             <div>
@@ -102,7 +141,7 @@ const IndexPage = () => {
         </Row>
         <Row>
           <Col>
-            <h1>Privacy Coin Market Data</h1>
+            <h1>{Categories[selected]} Coin Market Data</h1>
           </Col>
         </Row>
         <Row className="justify-content-between flex-wrap mb-4">
