@@ -126,7 +126,7 @@ const IndexPage = () => {
           </Col>
         </Row>
         <Row>
-          <Col sm={5}>{GridMapper(coinSelected.crypto, onClick)[selected]}</Col>
+          <Col sm={5}>{GridMapper(coinSelected.crypto || {}, onClick)[selected]}</Col>
           <Col sm={7}>
             Chart for {Categories[selected]}
             <div>
