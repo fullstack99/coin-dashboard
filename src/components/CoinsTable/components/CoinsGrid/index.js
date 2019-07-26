@@ -13,7 +13,7 @@ const CoinsGrid = styled(props => <Table {...props} />)`
     font-size: 14px;
     padding: 0.5rem;
 
-    &:first-child {
+    &:first-of-type {
       padding-left: 1rem;
     }
   }

@@ -126,7 +126,9 @@ const IndexPage = () => {
           </Col>
         </Row>
         <Row className="mb-5">
-          <Col lg={5}>{GridMapper(onClick)[selected]}</Col>
+          <Col lg={5}>
+            {GridMapper(coinSelected.crypto || {}, onClick)[selected]}
+          </Col>
           <Col lg={7}>
             {coinSelected.info && (
               <TradingView

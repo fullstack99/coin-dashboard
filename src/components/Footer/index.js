@@ -42,7 +42,7 @@ const UnsortedItem = styled.li`
     width: auto;
   }
 
-  &:first-child {
+  &:first-of-type {
     a {
       padding-right: 0;
     }
