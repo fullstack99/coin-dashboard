@@ -35,6 +35,7 @@
     "gatsby-transformer-sharp": "^2.1.21",
     "intersection-observer": "^0.7.0",
     "object-fit-images": "^3.2.4",
+    "object-path": "^0.11.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-animated-burgers": "^1.2.7",

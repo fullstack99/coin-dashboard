@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
+import { css, Global } from "@emotion/core"
+
 import Header from "../Header"
 import Footer from "../Footer"
 import SideBar from "../SideBar"
@@ -40,6 +42,13 @@ const Layout = ({ children }) => {
           crossorigin="anonymous"
         />
       </Helmet>
+
+      <Global
+        styles={css`
+
+        `}
+      />
+
       <div id="Layout">
         <Header siteTitle={data.site.siteMetadata.title} />
 

@@ -32,6 +32,15 @@ const typography = new Typography({
       ".scroll-disabler": {
         overflowY: "hidden"
       },
+      h1: {
+        color: "#afbdd1",
+        fontSize: "28px",
+        fontStretch: "normal",
+        fontstyle: "normal",
+        fontWeight: "normal",
+        letterSpacing: "normal",
+        lineHeight: "1.21",
+      },
       a: {
         textShadow: "none"
       },

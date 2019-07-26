@@ -125,26 +125,23 @@ const IndexPage = () => {
             </ButtonsGroup>
           </Col>
         </Row>
-        <Row>
-          <Col sm={5}>{GridMapper(coinSelected.crypto || {}, onClick)[selected]}</Col>
-          <Col sm={7}>
-            Chart for {Categories[selected]}
-            <div>
-              {coinSelected.info && (
-                <TradingView
-                  symbol={coinSelected.crypto.tradingview}
-                  save_image={false}
-                />
-              )}
-            </div>
+        <Row className="mb-5">
+          <Col lg={5}>{GridMapper(onClick)[selected]}</Col>
+          <Col lg={7}>
+            {coinSelected.info && (
+              <TradingView
+                symbol={coinSelected.crypto.tradingview}
+                save_image={false}
+              />
+            )}
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-5">
           <Col>
             <h1>{Categories[selected]} Coin Market Data</h1>
           </Col>
         </Row>
-        <Row className="justify-content-between flex-wrap mb-4">
+        <Row className="justify-content-between flex-wrap mb-5">
           {Array.from(Array(5).keys()).map((_, index) => (
             <Card
               key={index}
