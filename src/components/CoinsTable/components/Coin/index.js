@@ -1,5 +1,5 @@
 import React from "react"
-import { string, number, func } from "prop-types"
+import { string, number, func, bool } from "prop-types"
 import styled from "@emotion/styled"
 
 // components
@@ -11,11 +11,12 @@ import useFormat from "@hooks/use-format"
 
 const Row = styled.tr`
   cursor: pointer;
+  background: ${props => props.selected ? 'rgba(0,0,0,.2)' : 'transparent'};
 `
 
-const Coin = ({ name, imageUrl, price, mktcap, totalVolume24h, onClick }) => {
+const Coin = ({ name, imageUrl, price, mktcap, totalVolume24h, selected, onClick }) => {
   return (
-    <Row onClick={onClick}>
+    <Row onClick={onClick} selected={selected}>
       <td>{imageUrl ? <Icon url={`${baseUrl}${imageUrl}`} /> : ""}</td>
       <td>{name}</td>
       <td>{useFormat(price)}</td>
@@ -31,11 +32,13 @@ Coin.propTypes = {
   mktcap: number.isRequired,
   totalVolume24h: number.isRequired,
   imageUrl: string,
+  selected: bool,
   onClick: func
 }
 
 Coin.defaultProps = {
   imageUrl: "",
+  selected: false,
   onClick: () => null
 }
 

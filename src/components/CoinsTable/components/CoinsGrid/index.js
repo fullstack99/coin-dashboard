@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import Table from "react-bootstrap/Table"
 
 const CoinsGrid = styled(props => <Table {...props} />)`
+  margin-top: 20px;
   thead tr th,
   tbody tr td {
     border-color: transparent;

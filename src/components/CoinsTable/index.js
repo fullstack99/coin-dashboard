@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { string, array, func } from "prop-types"
+import { string, array, func, shape } from "prop-types"
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 
 import CoinsGrid from "./components/CoinsGrid"
@@ -9,7 +9,7 @@ import Coin from "./components/Coin"
 
 import { CURRENCY } from "@utils/constants"
 
-const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
+const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState({})
@@ -41,7 +41,7 @@ const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
 
   return (
     <CoinsGridWrapper>
-      <p align="left">{title}</p>
+      <h3 align="left">{title}</h3>
       <CoinsGrid
         borderless
         hover
@@ -83,6 +83,7 @@ const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
                   price={PRICE}
                   mktcap={MKTCAP}
                   totalVolume24h={TOTALVOLUME24H}
+                  selected={selectedCoin.symbol === symbol}
                   onClick={() => {
                     onClick(displayInfo, crypto)
                   }}
@@ -99,11 +100,13 @@ const CoinsTable = ({ title, cryptoCurrencies, onClick }) => {
 CoinsTable.propTypes = {
   cryptoCurrencies: array.isRequired,
   title: string,
+  selectedCoin: shape({}),
   onClick: func
 }
 
 CoinsTable.defaultProps = {
   title: "",
+  selectedCoin: {},
   onClick: () => null
 }
 
