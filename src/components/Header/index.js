@@ -29,16 +29,16 @@ const NavBrand = styled.div`
   transition: all 100ms linear;
 `
 
-const IconLogo = css`
+const iconLogo = css`
+  font-family: HelveticaNeue;
   margin-right: 1rem;
   opacity: 1;
   transition: all 100ms linear;
 `
 
 const Brand = css`
-  font-family: 'Oswald', sans-serif;
+  font-family: "Roboto, sans-serif" !important;
   font-size: 32px;
-  font-weight: 600;
   opacity: 1;
   position: relative;
   transition: all 100ms linear;
@@ -52,7 +52,7 @@ const Header = () => {
       <Container fluid>
         <TopNav>
           <NavBrand>
-            <Logo css={IconLogo} />
+            <Logo css={iconLogo} />
             <span css={Brand}>CoinGenious</span>
           </NavBrand>
           <NavigationDesktop pagesList={navigation} />

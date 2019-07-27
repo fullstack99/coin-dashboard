@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { string, array, func, shape } from "prop-types"
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
+import styled from "@emotion/styled"
 
 import CoinsGrid from "./components/CoinsGrid"
 import CoinsGridWrapper from "./components/CoinsGridWrapper"
@@ -8,6 +9,15 @@ import ErrorMessage from "./components/ErrorMessage"
 import Coin from "./components/Coin"
 
 import { CURRENCY } from "@utils/constants"
+
+const Title = styled.p`
+  color: #fff;
+  font-family: HelveticaNeue;
+  font-size: 17px;
+  opacity: 0.7;
+  padding: 15px;
+  text-align: left;
+`
 
 const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
   const [error, setError] = useState(false)
@@ -40,8 +50,8 @@ const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
   }, [title])
 
   return (
-    <CoinsGridWrapper>
-      <h3 align="left">{title}</h3>
+    <CoinsGridWrapper className="mb-5">
+      <Title align="left">{title}</Title>
       <CoinsGrid
         borderless
         hover

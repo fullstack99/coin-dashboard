@@ -1,13 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+// import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 import { useSiteMetadata } from "@hooks/use-site-metadata"
-import SocialFooter from "../SocialFooter"
+
+import Logo from "@images/logo.svg"
 
 const StyledFooter = styled.div`
   background-color: #1d2845;
@@ -30,18 +32,27 @@ const Unsorted = styled.ul`
 `
 
 const UnsortedItem = styled.li`
-  float: left;
+  float: right;
+  margin-bottom: 0;
   text-align: center;
   width: 50%;
 
   @media (min-width: 992px) {
-    width: 25%;
+    text-align: right;
+    width: auto;
+  }
+
+  &:first-of-type {
+    a {
+      padding-right: 0;
+    }
   }
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
   color: #f7f7f7;
   display: inline-block;
+  line-height: 50px;
   width: 100%;
 `
 
@@ -59,10 +70,13 @@ const Footer = () => {
     <StyledFooter>
       <Container>
         <Row className="justify-content-md-center">
-          <Col xs lg="8">
+          <Col xs lg={4}>
+            <Logo />
+          </Col>
+          <Col xs lg={8}>
             <Nav>
               <Unsorted>
-                {navigation.map((item, index) => {
+                {navigation.reverse().map((item, index) => {
                   return (
                     <UnsortedItem key={index}>
                       <StyledLink className="navigation" to={item.url}>
@@ -76,18 +90,17 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-      <SocialFooter />
       <Copyright>© Copyright 2019 Coingeniuos.</Copyright>
     </StyledFooter>
   )
 }
 
 Footer.propTypes = {
-  navigation: PropTypes.array.isRequired,
+  navigation: PropTypes.array.isRequired
 }
 
 Footer.defaultProps = {
-  navigation: [],
+  navigation: []
 }
 
 export default Footer

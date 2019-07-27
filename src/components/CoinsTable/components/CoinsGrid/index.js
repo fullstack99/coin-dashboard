@@ -3,7 +3,8 @@ import styled from "@emotion/styled"
 import Table from "react-bootstrap/Table"
 
 const CoinsGrid = styled(props => <Table {...props} />)`
-  margin-top: 20px;
+  margin: 0;
+
   thead tr th,
   tbody tr td {
     border-color: transparent;
@@ -11,6 +12,10 @@ const CoinsGrid = styled(props => <Table {...props} />)`
     font-weight: normal;
     font-size: 14px;
     padding: 0.5rem;
+
+    &:first-of-type {
+      padding-left: 1rem;
+    }
   }
 `
 
