@@ -40,60 +40,26 @@ const Categories = [
   "Interoperability",
   "Privacy Coins"
 ]
-const GridMapper = (selectedCoin, onCoinSelected) => [
-  <CoinsTable
-    title="Biggest Gainers"
-    cryptoCurrencies={BiggestGainers}
-    selectedCoin={selectedCoin}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Biggest Losers"
-    cryptoCurrencies={BiggestLosers}
-    selectedCoin={selectedCoin}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Highest Volume"
-    cryptoCurrencies={HighestVolume}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Top 18"
-    cryptoCurrencies={TopEighteen}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Large Market Cap Sector"
-    cryptoCurrencies={LargeMarketCapSector}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Stablecoins"
-    cryptoCurrencies={StableCoins}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Tokens"
-    cryptoCurrencies={Tokens}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="SmartContracts"
-    cryptoCurrencies={SmartContracts}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Interoperability"
-    cryptoCurrencies={Interoperability}
-    onClick={onCoinSelected}
-  />,
-  <CoinsTable
-    title="Privacy Coins"
-    cryptoCurrencies={PrivacyCoins}
-    onClick={onCoinSelected}
-  />
+const gridMapper = [
+  { title: "Biggest Gainers", cryptoCurrencies: BiggestGainers },
+  { title: "Biggest Losers", cryptoCurrencies: BiggestLosers },
+  { title: "Highest Volume", cryptoCurrencies: HighestVolume },
+  { title: "Top 18", cryptoCurrencies: TopEighteen },
+  { title: "Large Market Cap Sector", cryptoCurrencies: LargeMarketCapSector },
+  { title: "Stablecoins", cryptoCurrencies: StableCoins },
+  { title: "Tokens", cryptoCurrencies: Tokens },
+  { title: "SmartContracts", cryptoCurrencies: SmartContracts },
+  { title: "Interoperability", cryptoCurrencies: Interoperability },
+  { title: "Privacy Coins", cryptoCurrencies: PrivacyCoins }
 ]
+
+const renderGridMapper = ({ selected, selectedCoin, onClick }) => {
+  const polyConfig = gridMapper[selected] || null
+  if (!polyConfig) return null
+  return (
+    <CoinsTable selectedCoin={selectedCoin} onClick={onClick} {...polyConfig} />
+  )
+}
 
 const IndexPage = () => {
   const [coinSelected, setCoinSelected] = useState({})
@@ -127,7 +93,11 @@ const IndexPage = () => {
         </Row>
         <Row className="mb-5">
           <Col lg={5}>
-            {GridMapper(coinSelected.crypto || {}, onClick)[selected]}
+            {renderGridMapper({
+              selected,
+              selectedCoin: coinSelected.crypto || {},
+              onClick
+            })}
           </Col>
           <Col lg={7}>
             {coinSelected.info && (
