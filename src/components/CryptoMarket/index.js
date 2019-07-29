@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
 
 // hooks
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
@@ -64,7 +61,7 @@ const CryptoMarket = () => {
       })
 
     useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-      params: { limit: "100", tsym: "USD" },
+      params: { limit: "100", tsym: "USD" }
     })
       .then(result => {
         setLoading(false)
@@ -94,31 +91,25 @@ const CryptoMarket = () => {
       })
   }, [])
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md={8}>
-          <CryptoMarketWrapper>
-            <Message>
-              {loading ? (
-                "Loading..."
-              ) : error ? (
-                error
-              ) : (
-                <>
-                  Crypto Market is{" "}
-                  <Span>
-                    {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
-                    {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $
-                    {useFormat(data, GROUP_DIGITS)}
-                  </Span>{" "}
-                  {CURRENCY}
-                </>
-              )}
-            </Message>
-          </CryptoMarketWrapper>
-        </Col>
-      </Row>
-    </Container>
+    <CryptoMarketWrapper>
+      <Message>
+        {loading ? (
+          "Loading..."
+        ) : error ? (
+          error
+        ) : (
+          <>
+            Crypto Market is{" "}
+            <Span>
+              {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
+              {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $
+              {useFormat(data, GROUP_DIGITS)}
+            </Span>{" "}
+            {CURRENCY}
+          </>
+        )}
+      </Message>
+    </CryptoMarketWrapper>
   )
 }
 
