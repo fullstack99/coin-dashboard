@@ -3,9 +3,10 @@ import styled from "@emotion/styled"
 import Container from "react-bootstrap/Container"
 
 import Logo from "@components/Logo"
-import LogoWrapper from "@components/Header/components/LogoWrapper"
-import TopNav from "@components/Header/components/TopNav"
-import NavigationDesktop from "@components/Header/components/NavigationDesktop"
+
+import LogoWrapper from "./components/LogoWrapper"
+import TopNav from "./components/TopNav"
+import NavigationDesktop from "./components/NavigationDesktop"
 
 const HeaderStyled = styled.header`
   background: #262d3f;

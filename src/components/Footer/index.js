@@ -4,10 +4,11 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import Copyright from "@components/Footer/components/Copyright"
 import Logo from "@components/Logo"
-import LogoWrapper from "@components/Footer/components/LogoWrapper"
-import FooterNav from "@components/Footer/components/FooterNav"
+
+import Copyright from "./components/Copyright"
+import LogoWrapper from "./components/LogoWrapper"
+import FooterNav from "./components/FooterNav"
 
 const StyledFooter = styled.section`
   background-color: #1d2845;
