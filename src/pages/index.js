@@ -69,10 +69,14 @@ const IndexPage = () => {
   }
   return (
     <Layout>
-      <CurrencyTicker />
-      <CryptoMarket />
       <SEO title="Home" />
+      <CurrencyTicker />
       <Container>
+        <Row className="justify-content-md-center">
+          <Col md={8}>
+            <CryptoMarket />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <ButtonsGroup>
@@ -113,22 +117,20 @@ const IndexPage = () => {
             <h1>{Categories[selected]} Coin Market Data</h1>
           </Col>
         </Row>
-        <Row className="justify-content-between flex-wrap mb-5">
+        <Row className="mb-5">
           {Array.from(Array(5).keys()).map((_, index) => (
-            <Card
-              key={index}
-              style={{ flex: 1, margin: "5px 10px" }}
-              text="secondary"
-            >
-              <Card.Body>
-                <Card.Text>{index + 1}</Card.Text>
-              </Card.Body>
-              <Card.Img
-                style={{ marginBottom: 0 }}
-                variant="bottom"
-                src="https://via.placeholder.com/160"
-              />
-            </Card>
+            <Col xs={12} md={2} key={index}>
+              <Card style={{ marginBottom: "30px" }} text="secondary">
+                <Card.Body>
+                  <Card.Text>{index + 1}</Card.Text>
+                </Card.Body>
+                <Card.Img
+                  style={{ marginBottom: 0 }}
+                  variant="bottom"
+                  src="https://via.placeholder.com/160"
+                />
+              </Card>
+            </Col>
           ))}
         </Row>
       </Container>

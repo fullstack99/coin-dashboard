@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 
+import { useSiteMetadata } from "@hooks/use-site-metadata"
+
 const Nav = styled.ul`
   flex-wrap: wrap;
   list-style: none;
@@ -16,11 +18,13 @@ const NavItem = styled.li`
   margin: 0;
 `
 
-const NavigationDesktop = ({ pagesList }) => {
+const NavigationDesktop = () => {
+  const { navigation } = useSiteMetadata()
+
   return (
     <div className="d-none d-lg-block">
       <Nav>
-        {pagesList.map((item, index) => {
+        {navigation.map((item, index) => {
           return (
             <NavItem key={index}>
               <Link className="navigation" to={item.url}>

@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
-import { css, Global } from "@emotion/core"
+import { Global } from "@emotion/core"
 
 import Header from "../Header"
 import Footer from "../Footer"
@@ -43,11 +43,7 @@ const Layout = ({ children }) => {
         />
       </Helmet>
 
-      <Global
-        styles={css`
-
-        `}
-      />
+      <Global />
 
       <div id="Layout">
         <Header siteTitle={data.site.siteMetadata.title} />
@@ -61,7 +57,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout
