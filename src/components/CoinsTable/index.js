@@ -19,11 +19,15 @@ const Title = styled.p`
   text-align: left;
 `
 
-const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
+const CoinsTable = ({
+  title,
+  cryptoCurrencies,
+  selectedCoin,
+  onClick
+}) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState({})
-
   useEffect(() => {
     setLoading(true)
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
@@ -40,6 +44,12 @@ const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
           setError("There was an error loading this content")
         } else {
           setCoins(RAW)
+          const crypto = cryptoCurrencies.find(item => RAW[item.symbol])
+          const info = RAW[crypto.symbol]
+          if (info && info[CURRENCY]) {
+            const displayInfo = info[CURRENCY]
+            onClick(displayInfo, crypto)
+          }
         }
       })
       .catch(error => {
@@ -79,27 +89,29 @@ const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
               <ErrorMessage>{error}</ErrorMessage>
             </tr>
           ) : (
-            cryptoCurrencies.map((crypto, key) => {
-              const { name, symbol } = crypto
-              const info = coins[symbol]
-              if (!info || !info[CURRENCY]) return null
-              const displayInfo = info[CURRENCY]
-              const { PRICE, IMAGEURL, MKTCAP, TOTALVOLUME24H } = displayInfo
-              return (
-                <Coin
-                  key={key}
-                  name={name}
-                  imageUrl={IMAGEURL}
-                  price={PRICE}
-                  mktcap={MKTCAP}
-                  totalVolume24h={TOTALVOLUME24H}
-                  selected={selectedCoin.symbol === symbol}
-                  onClick={() => {
-                    onClick(displayInfo, crypto)
-                  }}
-                />
-              )
-            })
+            cryptoCurrencies
+              .filter(item => coins[item.symbol])
+              .map((crypto, key) => {
+                const { name, symbol } = crypto
+                const info = coins[symbol]
+                if (!info || !info[CURRENCY]) return null
+                const displayInfo = info[CURRENCY]
+                const { PRICE, IMAGEURL, MKTCAP, TOTALVOLUME24H } = displayInfo
+                return (
+                  <Coin
+                    key={key}
+                    name={name}
+                    imageUrl={IMAGEURL}
+                    price={PRICE}
+                    mktcap={MKTCAP}
+                    totalVolume24h={TOTALVOLUME24H}
+                    selected={selectedCoin.symbol === symbol}
+                    onClick={() => {
+                      onClick(displayInfo, crypto)
+                    }}
+                  />
+                )
+              })
           )}
         </tbody>
       </CoinsGrid>
