@@ -10,3 +10,6 @@ export default [
   { name: "Basic Attention Token", symbol: "BAT", tradingview: 'COINBASE:BATUSDC' },
   { name: "OmiseGO", symbol: "OMG", tradingview: 'BITFINEX:OMGUSD' }
 ]
+
+// Cryptocompare fetch
+// https://min-api.cryptocompare.com/data/pricemultifull?fsyms=USDT,LEO,LINK,MKR,ONT,USDC,CRO,EGT,BAT,OMG&tsyms=USD

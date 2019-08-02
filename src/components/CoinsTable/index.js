@@ -11,10 +11,12 @@ import Coin from "./components/Coin"
 import { CURRENCY } from "@utils/constants"
 
 const Title = styled.p`
-  color: #fff;
+  background-color: rgba(36, 43, 59, 1);
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
+  color: rgba(255, 255, 255, 0.7);
   font-family: HelveticaNeue;
   font-size: 17px;
-  opacity: 0.7;
   padding: 15px;
   text-align: left;
 `
@@ -73,9 +75,9 @@ const CoinsTable = ({
         <thead>
           <tr>
             <th> </th>
-            <th>name</th>
-            <th>price</th>
-            <th>Mrk Cap</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Market Cap</th>
             <th>Volume</th>
           </tr>
         </thead>
@@ -92,7 +94,7 @@ const CoinsTable = ({
             cryptoCurrencies
               .filter(item => coins[item.symbol])
               .map((crypto, key) => {
-                const { name, symbol } = crypto
+                const { symbol } = crypto
                 const info = coins[symbol]
                 if (!info || !info[CURRENCY]) return null
                 const displayInfo = info[CURRENCY]
@@ -100,7 +102,7 @@ const CoinsTable = ({
                 return (
                   <Coin
                     key={key}
-                    name={name}
+                    symbol={symbol}
                     imageUrl={IMAGEURL}
                     price={PRICE}
                     mktcap={MKTCAP}
