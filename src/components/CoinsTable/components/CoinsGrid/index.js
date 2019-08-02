@@ -8,13 +8,19 @@ const CoinsGrid = styled(props => <Table {...props} />)`
   thead tr th,
   tbody tr td {
     border-color: transparent;
-    color: white;
-    font-weight: normal;
+    color: #afbdd1;
+    font-weight: bold;
     font-size: 14px;
     padding: 0.5rem;
 
     &:first-of-type {
       padding-left: 1rem;
+    }
+  }
+
+  tbody tr {
+    &:hover {
+      background-color: rgba(216, 216, 216, 0.1) !important;
     }
   }
 `

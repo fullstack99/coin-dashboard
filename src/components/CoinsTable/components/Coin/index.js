@@ -11,14 +11,14 @@ import useFormat from "@hooks/use-format"
 
 const Row = styled.tr`
   cursor: pointer;
-  background: ${props => props.selected ? 'rgba(0,0,0,.2)' : 'transparent'};
+  background: ${props => props.selected ? 'rgba(216, 216, 216, 0.1)' : 'transparent'};
 `
 
-const Coin = ({ name, imageUrl, price, mktcap, totalVolume24h, selected, onClick }) => {
+const Coin = ({ symbol, imageUrl, price, mktcap, totalVolume24h, selected, onClick }) => {
   return (
     <Row onClick={onClick} selected={selected}>
       <td>{imageUrl ? <Icon url={`${baseUrl}${imageUrl}`} /> : ""}</td>
-      <td>{name}</td>
+      <td>{symbol}</td>
       <td>{useFormat(price)}</td>
       <td>{useFormat(mktcap)}</td>
       <td>{useFormat(totalVolume24h)}</td>
@@ -27,7 +27,7 @@ const Coin = ({ name, imageUrl, price, mktcap, totalVolume24h, selected, onClick
 }
 
 Coin.propTypes = {
-  name: string.isRequired,
+  symbol: string.isRequired,
   price: number.isRequired,
   mktcap: number.isRequired,
   totalVolume24h: number.isRequired,

@@ -21,7 +21,6 @@ const Hamburger = css`
 
 const StyledLink = styled(props => <Link {...props} />)`
   font-size: 22px;
-  font-weight: 600;
   margin-bottom: 1.5rem;
   width: 100%;
 `
@@ -120,7 +119,7 @@ const SideBar = props => {
       <HamburgerCollapse
         onClick={() => toggleMenu()}
         isActive={menuOpen}
-        barColor={menuOpen ? "#fecd00" : "#fff"}
+        barColor={menuOpen ? "#657d97" : "#fff"}
         css={Hamburger}
         className="d-block d-lg-none"
       />

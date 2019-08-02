@@ -7,7 +7,10 @@ export default [
   { name: "Bitcoin Cash", symbol: "BCH", tradingview: "CRYPTOCAP:BCH" },
   { name: "XRP", symbol: "XRP", tradingview: "CRYPTOCAP:LTC" },
   { name: "TRON", symbol: "TRX", tradingview: "CRYPTOCAP:TRX" },
-  { name: "Ethereum Classic", symbol: "ETC", tradingview: "OTC:ETCG" },
+  { name: "Ethereum Classic", symbol: "ETC", tradingview: "KRAKEN:ETCUSD" },
   { name: "Bitcoin SV", symbol: "BSV", tradingview: "CRYPTOCAP:BSV" },
-  { name: "NEO", symbol: "NEO", tradingview: "NASDAQ:NEO" }
+  { name: "NEO", symbol: "NEO", tradingview: "BITFINEX:NEOUSD" }
 ]
+
+// Cryptocompare fetch
+// https://min-api.cryptocompare.com/data/pricemultifull?fsyms=USDT,BTC,ETH,LTC,EOS,BCH,XRP,BRX,ETC,BSV,NEO&tsyms=USD

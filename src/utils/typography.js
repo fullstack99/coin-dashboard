@@ -48,11 +48,7 @@ const typography = new Typography({
         color: "#9dafbd",
         fontFamily: "Roboto, sans-serif",
         fontSize: "14px",
-        fontStretch: "normal",
-        fontStyle: "normal",
-        fontWeight: "normal",
         letterSpacing: "-0.5px",
-        lineHeight: "normal",
         padding: "0 20px",
         textDecoration: "none",
         textTransform: "uppercase",
@@ -60,7 +56,10 @@ const typography = new Typography({
       },
       ".navigation:hover": {
         color: "#475ff2"
-      }
+      },
+      ".navigation.disabled:hover": {
+        color: "#9dafbd",
+      },
     }
   }
 })

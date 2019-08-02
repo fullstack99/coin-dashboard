@@ -3,14 +3,13 @@ import styled from "@emotion/styled"
 
 // hooks
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
-import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
+import useFormat, { GROUP_DIGITS } from "@hooks/use-format"
 
 // utils
 import { CURRENCY } from "@utils/constants"
 
 const CryptoMarketWrapper = styled.section`
   margin: 0;
-  padding: 75px 0;
   text-align: center;
 `
 
@@ -34,7 +33,7 @@ const Span = styled.span`
 const CryptoMarket = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [prc, setPrc] = useState({})
+  // const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const CryptoMarket = () => {
         if (!BTC || !BTC[CURRENCY]) {
           setError("There was an error loading this content")
         } else {
-          setPrc(BTC[CURRENCY])
+          // setPrc(BTC[CURRENCY])
         }
       })
       .catch(error => {
@@ -91,7 +90,7 @@ const CryptoMarket = () => {
       })
   }, [])
   return (
-    <CryptoMarketWrapper>
+    <CryptoMarketWrapper className="my-5">
       <Message>
         {loading ? (
           "Loading..."
@@ -99,11 +98,11 @@ const CryptoMarket = () => {
           error
         ) : (
           <>
-            Crypto Market is{" "}
+            Global Crypto Currency Valuation{" "}
             <Span>
-              {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "}
-              {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $
-              {useFormat(data, GROUP_DIGITS)}
+              {/* {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "} */}
+              {/* {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $ */}
+              ${useFormat(data, GROUP_DIGITS)}
             </Span>{" "}
             {CURRENCY}
           </>
