@@ -6,22 +6,26 @@ import styled from "@emotion/styled"
 import { useSiteMetadata } from "@hooks/use-site-metadata"
 
 const Nav = styled.div`
-  list-style-type: none;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none;
+  width: 100%;
 `
 
 const Unsorted = styled.ul`
   display: flex;
   flex-direction: column;
+  list-style: none;
   list-style-type: none;
   margin: 0;
   overflow: hidden;
   padding: 0;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     flex-direction: row;
+    width: auto;
+  }
+
+  @media (min-width: 992px) {
     float: right;
   }
 `
@@ -31,10 +35,15 @@ const UnsortedItem = styled.li`
   text-align: center;
   width: 100%;
 
+  @media (min-width: 768px) {
+    flex: 1;
+    width: auto;
+  }
+
   @media (min-width: 992px) {
+    flex: none;
     margin: 0;
     text-align: right;
-    width: auto;
   }
 
   &:last-child {
