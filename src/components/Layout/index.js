@@ -1,19 +1,16 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-
-import { Global } from "@emotion/core"
+import { Global, css } from "@emotion/core"
+import styled from "@emotion/styled"
 
 import Header from "../Header"
 import Footer from "../Footer"
 import SideBar from "../SideBar"
+
+const AppWrapper = styled.div`
+  position: relative;
+`
 
 const Layout = ({ children }) => {
   return (
@@ -31,16 +28,28 @@ const Layout = ({ children }) => {
           crossorigin="anonymous"
         />
       </Helmet>
+      <Global
+        styles={css`
+          .container-fluid {
+            max-width: 1680px;
 
-      <Global />
+            @media (min-width: 992px) {
+              margin: 0 auto;
+              width: 94% !important;
+            }
 
-      <div id="Layout">
+            @media (min-width: 1200px) {
+              width: 90% !important;
+            }
+          }
+        `}
+      />
+      <AppWrapper id="Layout">
         <Header />
-
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"Layout"} />
         <main id="page-wrap">{children}</main>
         <Footer />
-      </div>
+      </AppWrapper>
     </>
   )
 }

@@ -1,5 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
 
+// TODO: Remove "disabled" & "active" when all pages are completed
 export const useSiteMetadata = () => {
   const { site } = useStaticQuery(
     graphql`
@@ -9,6 +10,8 @@ export const useSiteMetadata = () => {
             navigation {
               url
               label
+              disabled
+              active
             }
             socials {
               social

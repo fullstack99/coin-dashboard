@@ -47,7 +47,8 @@ const UnsortedItem = styled.li`
   }
 
   &:last-child {
-    a {
+    a,
+    p {
       padding-right: 0;
     }
   }

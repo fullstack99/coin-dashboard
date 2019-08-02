@@ -7,7 +7,8 @@ module.exports = {
       {
         url: "#",
         label: "Market",
-        disabled: true
+        disabled: true,
+        active: true
       },
       {
         url: "/",
