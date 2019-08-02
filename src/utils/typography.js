@@ -57,8 +57,18 @@ const typography = new Typography({
       ".navigation:hover": {
         color: "#475ff2"
       },
+      ".navigation.disabled": {
+        opacity: "0.4",
+      },
       ".navigation.disabled:hover": {
         color: "#9dafbd",
+      },
+      ".navigation.disabled.active": {
+        color: "#475ff2",
+        opacity: "1",
+      },
+      ".navigation.disabled.active:hover": {
+        color: "#475ff2",
       },
     }
   }

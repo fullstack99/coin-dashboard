@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 
@@ -18,7 +17,8 @@ const NavItem = styled.li`
   margin: 0;
 
   &:last-child {
-    a {
+    a,
+    p {
       padding-right: 0;
     }
   }
@@ -33,12 +33,18 @@ const NavigationDesktop = () => {
         {navigation.map((item, index) => {
           return (
             <NavItem key={index}>
-              {item.disabled ? (
+              {item.disabled === false ? (
                 <Link className="navigation" to={item.url}>
                   {item.label}
                 </Link>
               ) : (
-                <p className="navigation disabled">{item.label}</p>
+                <p
+                  className={
+                    "navigation disabled" + (item.active ? " active" : "")
+                  }
+                >
+                  {item.label}
+                </p>
               )}
             </NavItem>
           )
@@ -46,14 +52,6 @@ const NavigationDesktop = () => {
       </Nav>
     </div>
   )
-}
-
-NavigationDesktop.propTypes = {
-  pagesList: PropTypes.array.isRequired
-}
-
-NavigationDesktop.defaultProps = {
-  pagesList: []
 }
 
 export default NavigationDesktop
