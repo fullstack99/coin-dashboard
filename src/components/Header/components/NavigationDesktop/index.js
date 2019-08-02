@@ -16,6 +16,12 @@ const Nav = styled.ul`
 const NavItem = styled.li`
   float: left;
   margin: 0;
+
+  &:last-child {
+    a {
+      padding-right: 0;
+    }
+  }
 `
 
 const NavigationDesktop = () => {
@@ -27,9 +33,13 @@ const NavigationDesktop = () => {
         {navigation.map((item, index) => {
           return (
             <NavItem key={index}>
-              <Link className="navigation" to={item.url}>
-                {item.label}
-              </Link>
+              {item.disabled ? (
+                <Link className="navigation" to={item.url}>
+                  {item.label}
+                </Link>
+              ) : (
+                <p className="navigation disabled">{item.label}</p>
+              )}
             </NavItem>
           )
         })}
@@ -39,11 +49,11 @@ const NavigationDesktop = () => {
 }
 
 NavigationDesktop.propTypes = {
-  pagesList: PropTypes.array.isRequired,
+  pagesList: PropTypes.array.isRequired
 }
 
 NavigationDesktop.defaultProps = {
-  pagesList: [],
+  pagesList: []
 }
 
 export default NavigationDesktop

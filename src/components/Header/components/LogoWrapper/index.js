@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 
 const LogoWrapper = styled.section`
-  width: 106px;
-  background: #fff;
+  width: 200px;
 
   img {
     margin: 0;

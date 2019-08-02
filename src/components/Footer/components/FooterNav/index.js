@@ -6,43 +6,56 @@ import styled from "@emotion/styled"
 import { useSiteMetadata } from "@hooks/use-site-metadata"
 
 const Nav = styled.div`
-  flex-wrap: wrap;
-  height: 100%;
-  list-style-type: none;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none;
+  width: 100%;
 `
 
 const Unsorted = styled.ul`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
   list-style-type: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    width: auto;
+  }
+
+  @media (min-width: 992px) {
+    float: right;
+  }
 `
 
 const UnsortedItem = styled.li`
-  align-items: center;
-  display: flex;
-  float: right;
-  height: 100%;
-  margin-bottom: 0;
+  margin: 20px 0;
   text-align: center;
-  width: 50%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 1;
+    width: auto;
+  }
 
   @media (min-width: 992px) {
+    flex: none;
+    margin: 0;
     text-align: right;
-    width: auto;
+  }
+
+  &:last-child {
+    a {
+      padding-right: 0;
+    }
   }
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
-  color: #f7f7f7;
-  display: inline-block;
-  height: 100%;
+  color: #9dafbd;
   line-height: 50px;
-  width: 100%;
 `
 
 const FooterNav = () => {
@@ -51,12 +64,16 @@ const FooterNav = () => {
   return (
     <Nav>
       <Unsorted>
-        {navigation.reverse().map((item, index) => {
+        {navigation.map((item, index) => {
           return (
             <UnsortedItem key={index}>
-              <StyledLink className="navigation" to={item.url}>
-                {item.label}
-              </StyledLink>
+              {item.disabled ? (
+                <StyledLink className="navigation" to={item.url}>
+                  {item.label}
+                </StyledLink>
+              ) : (
+                <p className="navigation disabled">{item.label}</p>
+              )}
             </UnsortedItem>
           )
         })}

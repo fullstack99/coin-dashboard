@@ -2,6 +2,8 @@ import React from "react"
 import { oneOf, bool, string } from "prop-types"
 import TradingViewWidget, { Themes, BarStyles } from "react-tradingview-widget"
 
+import TradingViewWrapper from "./TradingViewWrapper/index"
+
 export const TradingView = ({
   symbol,
   theme,
@@ -10,13 +12,15 @@ export const TradingView = ({
   save_image,
   ...props
 }) => (
-  <TradingViewWidget
-    symbol={symbol}
-    theme={theme}
-    autosize={autosize}
-    style={style}
-    {...props}
-  />
+  <TradingViewWrapper>
+    <TradingViewWidget
+      symbol={symbol}
+      theme={theme}
+      autosize={autosize}
+      style={style}
+      {...props}
+    />
+  </TradingViewWrapper>
 )
 
 TradingView.propTypes = {

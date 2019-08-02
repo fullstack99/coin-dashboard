@@ -7,6 +7,6 @@ export { default as BiggestGainers } from "./biggestGainers"
 export { default as BiggestLosers } from "./biggestLosers"
 export { default as HighestVolume } from "./highestVolume"
 export { default as LargeMarketCapSector } from "./largeMarketCapSector"
-export { default as TopEighteen } from "./topEighteen"
+export { default as topTen } from "./topTen"
 
 export const CURRENCY = "USD"

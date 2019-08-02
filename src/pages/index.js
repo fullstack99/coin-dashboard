@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Card from "react-bootstrap/Card"
+// import Card from "react-bootstrap/Card"
 
 // components
 import Layout from "@components/Layout"
@@ -18,7 +18,7 @@ import {
   BiggestGainers,
   BiggestLosers,
   HighestVolume,
-  TopEighteen,
+  topTen,
   LargeMarketCapSector,
   StableCoins,
   Tokens,
@@ -32,7 +32,7 @@ const Categories = [
   "Biggest Gainers",
   "Biggest Losers",
   "Highest Volume",
-  "Top 18",
+  "Top 10",
   "Large Market Cap Sector",
   "Stablecoins",
   "Tokens",
@@ -44,7 +44,7 @@ const gridMapper = [
   { title: "Biggest Gainers", cryptoCurrencies: BiggestGainers },
   { title: "Biggest Losers", cryptoCurrencies: BiggestLosers },
   { title: "Highest Volume", cryptoCurrencies: HighestVolume },
-  { title: "Top 18", cryptoCurrencies: TopEighteen },
+  { title: "Top 10", cryptoCurrencies: topTen },
   { title: "Large Market Cap Sector", cryptoCurrencies: LargeMarketCapSector },
   { title: "Stablecoins", cryptoCurrencies: StableCoins },
   { title: "Tokens", cryptoCurrencies: Tokens },
@@ -69,16 +69,19 @@ const IndexPage = () => {
   }
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Market and sentiment crypto trading analysis | Coingenius"
+        description="CoinGenius is helping the world trade smarter by providing real time crypto trading market and sentiment analysis"
+      />
       <CurrencyTicker />
-      <Container>
+      <Container fluid>
         <Row className="justify-content-md-center">
-          <Col md={8}>
+          <Col sm={11} md={8} lg={7} xl={5}>
             <CryptoMarket />
           </Col>
         </Row>
-        <Row>
-          <Col>
+        <Row className="justify-content-md-center">
+          <Col md={10} lg={8}>
             <ButtonsGroup>
               {Categories.map((title, index) => (
                 <Button
@@ -95,15 +98,15 @@ const IndexPage = () => {
             </ButtonsGroup>
           </Col>
         </Row>
-        <Row className="mb-5">
-          <Col lg={5}>
+        <Row>
+          <Col lg={5} className="mb-5">
             {renderGridMapper({
               selected,
               selectedCoin: coinSelected.crypto || {},
               onClick
             })}
           </Col>
-          <Col lg={7}>
+          <Col lg={7} className="mb-5">
             {coinSelected.info && (
               <TradingView
                 symbol={coinSelected.crypto.tradingview}
@@ -112,14 +115,14 @@ const IndexPage = () => {
             )}
           </Col>
         </Row>
-        <Row className="mb-5">
+        {/* <Row className="mb-5">
           <Col>
             <h1>{Categories[selected]} Coin Market Data</h1>
           </Col>
         </Row>
         <Row className="mb-5">
           {Array.from(Array(5).keys()).map((_, index) => (
-            <Col xs={12} md={2} key={index}>
+            <Col xs={12} md={4} lg={2} key={index}>
               <Card style={{ marginBottom: "30px" }} text="secondary">
                 <Card.Body>
                   <Card.Text>{index + 1}</Card.Text>
@@ -132,7 +135,7 @@ const IndexPage = () => {
               </Card>
             </Col>
           ))}
-        </Row>
+        </Row> */}
       </Container>
     </Layout>
   )

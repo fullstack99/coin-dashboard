@@ -7,7 +7,6 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
 import { Global } from "@emotion/core"
@@ -17,16 +16,6 @@ import Footer from "../Footer"
 import SideBar from "../SideBar"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Helmet>
@@ -46,7 +35,7 @@ const Layout = ({ children }) => {
       <Global />
 
       <div id="Layout">
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
 
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"Layout"} />
         <main id="page-wrap">{children}</main>
