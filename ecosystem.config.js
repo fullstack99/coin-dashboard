@@ -25,7 +25,7 @@ module.exports = {
       key: '~/gocodistry/Coingenious.pem',
       ref: 'origin/master',
       repo: 'git@bitbucket.org:gocodistry/dashboard.git',
-      path: '/opt/bitnami/apps/pm2-deployments/coingenius.ai',
+      path: '/opt/bitnami/apps/coingenius.ai',
       // 'post-deploy':
       //   'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
       env: {
