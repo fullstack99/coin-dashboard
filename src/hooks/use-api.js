@@ -15,8 +15,23 @@ const defaultConfig = {
   }
 }
 
-const useApi = (endpoint, { ...config }) => {
-  const { params: defaultParams, ...defaultRest } = defaultConfig
+const defaultConfigCoinMarketCap = {
+  url: `https://s2.coinmarketcap.com/generated/stats/global.json`,
+  params: {
+
+  }
+}
+
+export const REST_API_ENDPOINTS_COIN_CAP = {
+  TOP_BY_MARKET: '/v1/global-metrics/quotes/latest'
+}
+
+const useApi = (endpoint, { ...config }, apiDefault = true) => {
+  let { params: defaultParams, ...defaultRest } = defaultConfig
+  if(!apiDefault){
+   defaultRest.url = defaultConfigCoinMarketCap.url
+   defaultParams = defaultConfigCoinMarketCap.params
+  }
   const { params, ...rest } = config || {}
   const opts = {
     ...defaultRest,

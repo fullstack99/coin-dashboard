@@ -59,29 +59,20 @@ const CryptoMarket = () => {
         console.error(error)
       })
 
-    useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-      params: { limit: "100", tsym: "USD" }
-    })
+    useApi('', {
+      params: { }
+    }, false)
       .then(result => {
         setLoading(false)
-        const { data: json } = result || {}
-        const { Data, Response, Message } = json || {}
-        if (Response === "Error") {
-          console.error(Message)
+        // const data  = result || {}
+        const { data, status } = result || {}
+        if (status !== 200) {
+          // console.error(status.error_message)
           setError("There was an error loading this content")
         } else {
-          let totalMarketCap = 0
-
-          for (let i = 0; i < Data.length; i++) {
-            const { RAW } = Data[i] || {}
-            const { USD } = RAW || {}
-            const { MKTCAP } = USD || {}
-
-            totalMarketCap += MKTCAP
+            const { total_market_cap_by_available_supply_usd }  = data || {}
+            setData(total_market_cap_by_available_supply_usd)
           }
-
-          setData(totalMarketCap)
-        }
       })
       .catch(error => {
         setLoading(false)
