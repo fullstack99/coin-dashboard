@@ -33,19 +33,19 @@ const Span = styled.span`
 const CryptoMarket = () => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState({
-    changepc: false,
+    changePercentage: false,
     globalCrypto: false
   })
   // const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
 
   useEffect(() => {
-    setLoading({ globalCrypto: true, changepc: true })
+    setLoading({ globalCrypto: true, changePercentage: true })
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
       params: { fsyms: "BTC", tsyms: CURRENCY }
     })
       .then(result => {
-        setLoading({ ...loading, changepc: false })
+        setLoading({ ...loading, changePercentage: false })
         const { data: response } = result
         const { RAW } = response || {}
         const { BTC } = RAW || {}
@@ -84,7 +84,7 @@ const CryptoMarket = () => {
   return (
     <CryptoMarketWrapper className="my-5">
       <Message>
-        {loading.globalCrypto && loading.changepc ? (
+        {loading.globalCrypto && loading.changePercentage ? (
           "Loading..."
         ) : error ? (
           error
