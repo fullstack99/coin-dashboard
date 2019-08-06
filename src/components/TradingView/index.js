@@ -33,7 +33,7 @@ TradingView.propTypes = {
 
 TradingView.defaultProps = {
   theme: Themes.DARK,
-  style: BarStyles.CANDLES,
+  style: BarStyles.AREA,
   autosize: true,
   save_image: false
 }
