@@ -13,7 +13,7 @@ export const REST_API_ENDPOINTS = {
 const defaultConfig = {
   url: `https://min-api.cryptocompare.com/data`,
   params: {
-    apiKey: "b86039193d7a9a43ed79cffa9a95877e11642d29ddba89cc071088a3680f2750"
+    apiKey: "cf4d7fa2bac9320077e822ba35bdb009ef9c0308bed3909abd9c91012ac4c384"
   }
 }
 
