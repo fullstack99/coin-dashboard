@@ -87,8 +87,9 @@ const IndexPage = () => {
                 <Button
                   key={index}
                   onClick={() => {
+                    const { info, crypto } = coinSelected;
                     setSelected(index)
-                    setCoinSelected({})
+                    setCoinSelected({info, crypto})
                   }}
                   active={selected === index}
                 >
