@@ -5,8 +5,7 @@ import axios from "axios"
 
 import TickerItem from "./TickerItem"
 
-// import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
-import useApi from "@hooks/use-api"
+import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
 const TickerWrapper = styled.div`
@@ -31,25 +30,27 @@ const GetTickerData = () => {
     const CancelToken = axios.CancelToken
     const source = CancelToken.source()
 
-    // TODO: Need to refactor
     const loadData = async () => {
-      await useApi('', {
-        params: { }
-      }, false)
+      await useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
+        url: TOP_BY_MARKET_URL
+      })
         .then(result => {
           setLoading(false)
           const { data, status } = result || {}
           if (status !== 200) {
-            // console.error(status.error_message)
             setError("There was an error loading this content")
           } else {
-              const { total_market_cap_by_available_supply_usd, total_volume_usd ,bitcoin_percentage_of_market_cap }  = data || {}
-              setData({
-                totalMarketCap: total_market_cap_by_available_supply_usd,
-                totalVol24: total_volume_usd,
-                btcDominance: bitcoin_percentage_of_market_cap
-              });
-            }
+            const {
+              total_market_cap_by_available_supply_usd,
+              total_volume_usd,
+              bitcoin_percentage_of_market_cap
+            } = data || {}
+            setData({
+              totalMarketCap: total_market_cap_by_available_supply_usd,
+              totalVol24: total_volume_usd,
+              btcDominance: bitcoin_percentage_of_market_cap
+            })
+          }
         })
         .catch(error => {
           setLoading(false)
@@ -59,54 +60,7 @@ const GetTickerData = () => {
     }
 
     loadData()
-    return () => {
-      source.cancel()
-    }
-
-    // useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-    //   params: { limit: "100", tsym: "USD" }
-    // })
-    //   .then(result => {
-    //     setLoading(false)
-    //     const { data: json } = result || {}
-    //     const { Data, Response, Message } = json || {}
-    //     if (Response === "Error") {
-    //       console.error(Message)
-    //       setError("There was an error loading this content")
-    //     } else {
-    //       let totalMarketCap = 0
-    //       let totalVolTrade = 0
-    //       let btcDominance = 0
-
-    //       for (let i = 0; i < Data.length; i++) {
-    //         const { RAW } = Data[i] || {}
-    //         const { USD } = RAW || {}
-    //         const { MKTCAP } = USD || {}
-    //         const { FROMSYMBOL } = USD || {}
-    //         const { TOTALVOLUME24H } = USD || {}
-
-    //         if (FROMSYMBOL === "BTC") {
-    //           btcDominance = MKTCAP
-    //         }
-
-    //         totalMarketCap += MKTCAP
-    //         totalVolTrade += TOTALVOLUME24H
-    //       }
-
-    //       const btcDmn = (btcDominance * 100) / totalMarketCap
-
-    //       setData({
-    //         totalMarketCap: totalMarketCap,
-    //         totalVol24: totalVolTrade,
-    //         btcDominance: btcDmn
-    //       })
-    //     }
-    //   })
-    //   .catch(error => {
-    //     setLoading(false)
-    //     setError("There was an error loading this content")
-    //     console.error(error)
-    //   })
+    return () => source.cancel()
   }, [])
 
   return (

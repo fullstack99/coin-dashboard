@@ -1,9 +1,11 @@
 import axios from "axios"
 
 export const baseUrl = "https://www.cryptocompare.com"
+export const TOP_BY_MARKET_URL = "https://s2.coinmarketcap.com"
+
 export const REST_API_ENDPOINTS = {
   TOP_BY_VOL24H: "/top/totalvolfull",
-  TOP_BY_MARKET: "/top/mktcapfull",
+  TOP_BY_MARKET: "/generated/stats/global.json",
   PRICE_SINGLE: "/price",
   PRICE_MULTIFULL: "/pricemultifull"
 }
@@ -15,23 +17,8 @@ const defaultConfig = {
   }
 }
 
-const defaultConfigCoinMarketCap = {
-  url: `https://s2.coinmarketcap.com/generated/stats/global.json`,
-  params: {
-
-  }
-}
-
-export const REST_API_ENDPOINTS_COIN_CAP = {
-  TOP_BY_MARKET: '/v1/global-metrics/quotes/latest'
-}
-
-const useApi = (endpoint, { ...config }, apiDefault = true) => {
-  let { params: defaultParams, ...defaultRest } = defaultConfig
-  if(!apiDefault){
-   defaultRest.url = defaultConfigCoinMarketCap.url
-   defaultParams = defaultConfigCoinMarketCap.params
-  }
+const useApi = (endpoint, { ...config }) => {
+  const { params: defaultParams, ...defaultRest } = defaultConfig
   const { params, ...rest } = config || {}
   const opts = {
     ...defaultRest,
