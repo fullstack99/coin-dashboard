@@ -109,7 +109,7 @@ const IndexPage = () => {
           <Col lg={7} className="mb-5">
             {coinSelected.info && (
               <TradingView
-                symbol={coinSelected.crypto.tradingview}
+                symbol={coinSelected.crypto.symbol != 'BTC' ? coinSelected.crypto.tradingview : coinSelected.info.FROMSYMBOL + coinSelected.info.TOSYMBOL }
                 save_image={false}
               />
             )}
