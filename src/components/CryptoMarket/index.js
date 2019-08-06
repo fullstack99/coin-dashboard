@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 
 // hooks
-import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
+import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { GROUP_DIGITS } from "@hooks/use-format"
 
 // utils
@@ -32,17 +32,20 @@ const Span = styled.span`
 
 const CryptoMarket = () => {
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState({
+    changePercentage: false,
+    globalCrypto: false
+  })
   // const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
 
   useEffect(() => {
-    setLoading(true)
+    setLoading({ globalCrypto: true, changePercentage: true })
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
       params: { fsyms: "BTC", tsyms: CURRENCY }
     })
       .then(result => {
-        setLoading(false)
+        setLoading({ ...loading, changePercentage: false })
         const { data: response } = result
         const { RAW } = response || {}
         const { BTC } = RAW || {}
@@ -60,27 +63,16 @@ const CryptoMarket = () => {
       })
 
     useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-      params: { limit: "100", tsym: "USD" }
+      url: TOP_BY_MARKET_URL
     })
       .then(result => {
-        setLoading(false)
-        const { data: json } = result || {}
-        const { Data, Response, Message } = json || {}
-        if (Response === "Error") {
-          console.error(Message)
+        setLoading({ ...loading, globalCrypto: false })
+        const { data, status } = result || {}
+        if (status !== 200) {
           setError("There was an error loading this content")
         } else {
-          let totalMarketCap = 0
-
-          for (let i = 0; i < Data.length; i++) {
-            const { RAW } = Data[i] || {}
-            const { USD } = RAW || {}
-            const { MKTCAP } = USD || {}
-
-            totalMarketCap += MKTCAP
-          }
-
-          setData(totalMarketCap)
+          const { total_market_cap_by_available_supply_usd } = data || {}
+          setData(total_market_cap_by_available_supply_usd)
         }
       })
       .catch(error => {
@@ -92,7 +84,7 @@ const CryptoMarket = () => {
   return (
     <CryptoMarketWrapper className="my-5">
       <Message>
-        {loading ? (
+        {loading.globalCrypto && loading.changePercentage ? (
           "Loading..."
         ) : error ? (
           error
@@ -101,8 +93,8 @@ const CryptoMarket = () => {
             Global Crypto Currency Valuation{" "}
             <Span>
               {/* {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "} */}
-              {/* {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $ */}
-              ${useFormat(data, GROUP_DIGITS)}
+              {/* {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $ */}$
+              {useFormat(data, GROUP_DIGITS)}
             </Span>{" "}
             {CURRENCY}
           </>

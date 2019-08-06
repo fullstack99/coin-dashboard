@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { string, array, func, shape } from "prop-types"
+import axios from "axios"
+
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
 import styled from "@emotion/styled"
 
@@ -31,6 +33,9 @@ const CoinsTable = ({
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState({})
   useEffect(() => {
+    const CancelToken = axios.CancelToken
+    const source = CancelToken.source()
+
     setLoading(true)
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
       params: {
@@ -59,6 +64,7 @@ const CoinsTable = ({
         setError("There was an error loading this content")
         console.error(error)
       })
+    return () => source.cancel()
   }, [title])
 
   return (
