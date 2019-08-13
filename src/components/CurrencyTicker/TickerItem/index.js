@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 
 const Item = styled.span`
   color: #ffffff;
-  font-family: Roboto;
+  font-family: sans-serif;
   font-size: 14px;
   letter-spacing: -0.5px;
   margin-right: 55px;

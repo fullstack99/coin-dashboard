@@ -17,7 +17,7 @@ const Title = styled.p`
   border-top-left-radius: 0.3125rem;
   border-top-right-radius: 0.3125rem;
   color: rgba(255, 255, 255, 0.7);
-  font-family: HelveticaNeue;
+  font-family: sans-serif;
   font-size: 17px;
   padding: 15px;
   text-align: left;

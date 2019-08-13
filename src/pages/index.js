@@ -67,6 +67,8 @@ const IndexPage = () => {
   const onClick = (info, crypto) => {
     setCoinSelected({ info, crypto })
   }
+  const AllCurrency = gridMapper.map(data => data.cryptoCurrencies);
+
   return (
     <Layout>
       <SEO
@@ -77,7 +79,7 @@ const IndexPage = () => {
       <Container fluid>
         <Row className="justify-content-md-center">
           <Col sm={11} md={8} lg={7} xl={5}>
-            <CryptoMarket />
+            <CryptoMarket currency={AllCurrency} />
           </Col>
         </Row>
         <Row className="justify-content-md-center">
@@ -110,7 +112,7 @@ const IndexPage = () => {
           <Col lg={7} className="mb-5">
             {coinSelected.info && (
               <TradingView
-                symbol={coinSelected.crypto.symbol != 'BTC' ? coinSelected.crypto.tradingview : coinSelected.info.FROMSYMBOL + coinSelected.info.TOSYMBOL }
+                symbol={coinSelected.crypto.symbol !== 'BTC' ? coinSelected.crypto.tradingview : coinSelected.info.FROMSYMBOL + coinSelected.info.TOSYMBOL }
                 save_image={false}
               />
             )}
