@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 
 const Item = styled.span`
   color: #ffffff;
-  font-family: Roboto;
+  font-family: sans-serif;
   font-size: 14px;
   letter-spacing: -0.5px;
   margin-right: 55px;
@@ -23,17 +23,14 @@ const TickerItem = ({ label, value, placeholder }) => {
 
 TickerItem.propTypes = {
   label: string.isRequired,
-  value: oneOfType([
-    string.isRequired,
-    number.isRequired,
-  ]),
-  placeholder: string.isRequired,
+  value: oneOfType([string.isRequired, number.isRequired]),
+  placeholder: string.isRequired
 }
 
 TickerItem.defaultProps = {
   label: null,
   value: null,
-  placeholder: null,
+  placeholder: null
 }
 
 export default TickerItem

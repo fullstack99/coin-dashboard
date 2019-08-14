@@ -2,7 +2,7 @@ import React from "react"
 import { oneOf, bool, string } from "prop-types"
 import TradingViewWidget, { Themes, BarStyles } from "react-tradingview-widget"
 
-import TradingViewWrapper from "./TradingViewWrapper/index"
+import TradingViewWrapper from "./components/TradingViewWrapper/index"
 
 export const TradingView = ({
   symbol,
