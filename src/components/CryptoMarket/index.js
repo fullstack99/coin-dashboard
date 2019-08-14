@@ -30,7 +30,7 @@ const Span = styled.span`
   color: #4659fb;
 `
 
-const CryptoMarket = ({currency}) => {
+const CryptoMarket = ({ currency }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState({
     changePercentage: false,
@@ -41,10 +41,12 @@ const CryptoMarket = ({currency}) => {
   useEffect(() => {
     setLoading({ globalCrypto: true, changePercentage: true })
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
-      params: { fsyms: currency.map(data => data.map(item => item.symbol)).join(","), tsyms: CURRENCY }
+      params: {
+        fsyms: currency.map(data => data.map(item => item.symbol)).join(","),
+        tsyms: CURRENCY
+      }
     })
       .then(result => {
-        console.log(result)
         setLoading({ ...loading, changePercentage: false })
         const { data: response } = result
         const { RAW } = response || {}

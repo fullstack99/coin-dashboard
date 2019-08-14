@@ -23,12 +23,7 @@ const Title = styled.p`
   text-align: left;
 `
 
-const CoinsTable = ({
-  title,
-  cryptoCurrencies,
-  selectedCoin,
-  onClick
-}) => {
+const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState({})

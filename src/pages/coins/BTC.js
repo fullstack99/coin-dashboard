@@ -24,7 +24,9 @@ const CardView = styled.section`
 `
 const Dought = styled(Col)`
   position: relative;
-  height: 209px;
+  @media (max-width:575px) {
+    height:209px;
+  }
 `
 
 const BarChatCol = styled(Col)`
