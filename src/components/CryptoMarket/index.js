@@ -30,7 +30,7 @@ const Span = styled.span`
   color: #4659fb;
 `
 
-const CryptoMarket = () => {
+const CryptoMarket = ({ currency }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState({
     changePercentage: false,
@@ -38,11 +38,13 @@ const CryptoMarket = () => {
   })
   // const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
-
   useEffect(() => {
     setLoading({ globalCrypto: true, changePercentage: true })
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
-      params: { fsyms: "BTC", tsyms: CURRENCY }
+      params: {
+        fsyms: currency.map(data => data.map(item => item.symbol)).join(","),
+        tsyms: CURRENCY
+      }
     })
       .then(result => {
         setLoading({ ...loading, changePercentage: false })

@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import Ticker from "react-ticker"
 import axios from "axios"
 
-import TickerItem from "./TickerItem"
+import TickerItem from "./components/TickerItem"
 
 import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
