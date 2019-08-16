@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import styled from "@emotion/styled"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -24,17 +24,29 @@ const CardView = styled.section`
 `
 const Dought = styled(Col)`
   position: relative;
-  @media (max-width:575px) {
-    height:209px;
+  @media (max-width: 575px) {
+    height: 209px;
   }
 `
 
 const BarChatCol = styled(Col)`
+  position: relative;
+  height: 450px;
   @media (max-width: 575px) {
-    height: 200px;
+    height: 200px !important;
   }
 `
 const BtcPage = () => {
+
+  const [selected, setSelected] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSelected(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Layout>
       <CurrencyTicker />
@@ -45,7 +57,7 @@ const BtcPage = () => {
           </Col>
         </Row>
         <Row className="justify-content-md-center mb-5">
-          <BarChatCol md={7} lg={7} sm={7}>
+          <BarChatCol md={7} lg={7} sm={7} style={{ height: "450px" }}>
             <Barchart />
           </BarChatCol>
           <Col md={4} lg={4} sm={4}>
@@ -63,7 +75,7 @@ const BtcPage = () => {
         </Row>
         <Row className="justify-content-md-center mb-5">
           <Col md={7} lg={7} sm={7}>
-            <TradingView symbol="BTC" save_image={false} />
+            { selected && <TradingView symbol="BTC" /> }
           </Col>
           <Dought md={5} lg={4} sm={4}>
             <Doughnut />

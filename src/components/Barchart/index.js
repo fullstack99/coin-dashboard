@@ -24,26 +24,18 @@ let chartOptions = {
         }
       }
     ]
-  }
+  },
+  maintainAspectRatio: false,
+  responsive: true
 }
 
 const Chart = styled(Bar)`
-  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
   bottom: 0;
 `
 
 const Barchart = () => {
-  return (
-    <Chart
-      data={chartData}
-      options={chartOptions}
-      width={
-        window.innerWidth > 575
-          ? window.innerWidth / 2 + 20
-          : window.innerWidth - 30
-      }
-      height={window.innerWidth > 575 && window.innerWidth / 4}
-    />
-  )
+  return <Chart data={chartData} options={chartOptions} />
 }
 export default Barchart
