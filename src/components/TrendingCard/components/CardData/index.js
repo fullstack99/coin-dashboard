@@ -33,6 +33,7 @@ const TrendingRating = styled.section`
   font-weight: 500;
   text-align: right;
   color: #475ff2;
+  float:right;
   @media (max-width: 768px) {
     font-size: 16px;
   }
