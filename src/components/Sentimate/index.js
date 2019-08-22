@@ -11,6 +11,7 @@ const Card = styled.section`
   width: 83%;
   float: right;
   @media (max-width: 575px) {
+    margin-top:3em;
     margin-left: 0px;
     width: 100%;
   }
