@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 const Card = styled.section`
-  width: 30%;
+  width: 100%;
   border-radius: 8px;
   border: solid 1px #313d4f;
   @media (max-width: 575px) {
