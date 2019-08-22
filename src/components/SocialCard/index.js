@@ -6,11 +6,9 @@ import CardHeader from "@components/CardHeader"
 import CardHeading from "@components/CardHeading"
 
 const Card = styled.section`
-  width: 30%;
+  width: 100%;
   border-radius: 8px;
   border: solid 1px #313d4f;
-  margin-right: 4.8%;
-  margin-left: 4.8%;
   @media (max-width: 575px) {
     width: 100% !important;
     margin-left: 0px;

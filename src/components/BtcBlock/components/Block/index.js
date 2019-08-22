@@ -4,8 +4,7 @@ import { TiArrowUpThick } from "react-icons/ti"
 
 const InsideBlock = styled.section`
   width: 100%;
-  padding-left: 2%;
-  padding-top: 19px;
+  padding: 1.5625em;
   border-radius: 8px;
   font-family: sans-serif;
   box-shadow: 0 0 20px 0 #171b3a;

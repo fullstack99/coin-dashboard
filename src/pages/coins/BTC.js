@@ -16,10 +16,19 @@ import TradingView from "@components/TradingView"
 import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
 
-const CardView = styled.section`
-  display: flex;
-  @media (max-width: 575px) {
-    display: block;
+const CardView = styled(Col)`
+  @media (min-width: 992px) {
+    margin-top:0px;
+    :first-of-type{
+      padding-right:56.33px !important;
+    }
+    :nth-of-type(2n){
+      padding-left:35.67px !important;
+      padding-right:35.67px !important;
+    }
+    :last-of-type{
+      padding-left:56.33px !important;
+    }
   }
 `
 const Dought = styled(Col)`
@@ -66,11 +75,17 @@ const BtcPage = () => {
         </Row>
         <Row className="justify-content-md-center mb-5">
           <Col md={11} lg={11} sm={11}>
-            <CardView>
-              <TrendingCard />
-              <SocialCard />
-              <WatchlistCard />
-            </CardView>
+            <Row>
+              <CardView md={12} lg={4} sm={12} className="mb-5">
+                <TrendingCard />
+              </CardView>  
+              <CardView md={12} lg={4} sm={12} className="mb-5">
+                <SocialCard />
+              </CardView>  
+              <CardView md={12} lg={4} sm={12} className="mb-5">
+                <WatchlistCard />
+              </CardView>  
+            </Row>
           </Col>
         </Row>
         <Row className="justify-content-md-center mb-5">

@@ -20,6 +20,7 @@ const Price = styled.section`
   font-weight: 500;
   text-align: right;
   color: #475ff2;
+  float:right;
   margin-bottom: 26px @media (max-width: 768px) {
     font-size: 10px;
     font-weight: 500;
