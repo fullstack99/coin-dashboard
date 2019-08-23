@@ -2,7 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 import QuantToolData from "./components/QuantToolData/index"
-import CardHeader from "@components/CardHeader"
 
 const Card = styled.section`
   border: solid 1px #313d4f;
@@ -32,8 +31,7 @@ const QuantTool = () => {
   }
 
   return (
-    <Card>
-      <CardHeader text="Quant Toolbox" />
+    <Card title="Quant Toolbox">
       <Col style={{ marginTop: "25px" }}>
         <QuantToolData QuantToolFields={"Market Rank"} QuantToolValue={"785"} />
         {data}

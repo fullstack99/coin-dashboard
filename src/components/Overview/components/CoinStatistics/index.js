@@ -2,7 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 import CoinStatisticsData from "./components/CoinStatisticsData/index"
-import CardHeader from "@components/CardHeader"
 
 const Card = styled.section`
   border: solid 1px #313d4f;
@@ -19,8 +18,7 @@ const Card = styled.section`
 const CoinStatistics = () => {
   return (
     <>
-      <Card>
-        <CardHeader text="Coin Statistics" />
+      <Card title="Description">
         <Col style={{ marginTop: "25px" }}>
           <CoinStatisticsData
             CoinStatisticsFields={"Market Rank"}

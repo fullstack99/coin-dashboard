@@ -2,8 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 
-import CardHeader from "@components/CardHeader"
-
 import SocialData from "./components/SocialData"
 
 const Card = styled.section`
@@ -21,8 +19,7 @@ const Card = styled.section`
 
 const SocialCard = () => {
   return (
-    <Card>
-      <CardHeader text="Social" />
+    <Card title="Social">
       <Col>
         <SocialData
           username={"@theRealMacafee"}

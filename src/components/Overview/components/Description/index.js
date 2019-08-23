@@ -2,7 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import CardHeader from "@components/CardHeader"
 
 const Des = styled.section`
   color: #748aa1;
@@ -32,8 +31,7 @@ const Card = styled.section`
 
 const Description = () => {
   return (
-    <Card>
-      <CardHeader text="Description" />
+    <Card text="Description">
       <Row>
         <Col sm={12}>
           <Des>

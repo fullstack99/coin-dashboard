@@ -1,11 +1,9 @@
 import styled from "@emotion/styled"
 
-const CardHeading = styled.section`
-  color: #a5a6ad;
-  font-family: sans-serif;
+const CardHeading = styled.h2`
+  color: #a5a6ad !important;
   font-size: 28px;
   font-weight: 500;
-  height: auto;
 
   @media (max-width: 768px) {
     font-size: 22px;

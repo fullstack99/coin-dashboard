@@ -2,12 +2,10 @@ import React from "react"
 import Col from "react-bootstrap/Col"
 import CardData from "./components/CardData/index"
 import Card from "@components/Card"
-import CardHeader from "@components/CardHeader"
 
 const TrendingCard = () => {
   return (
-    <Card>
-      <CardHeader text="Trending" />
+    <Card title="Trending">
       <Col style={{ marginTop: "25px" }}>
         <CardData field={"Coindesk"} />
         <CardData field={"Coin Telelgraph"} />
