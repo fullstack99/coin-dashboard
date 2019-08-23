@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -31,19 +31,20 @@ const BarChatCol = styled(Col)`
   }
 `
 const BtcPage = () => {
-
   const [selected, setSelected] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSelected(true);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+      setSelected(true)
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <Layout>
-      <CurrencyTicker />
+      <div className="mb-5">
+        <CurrencyTicker />
+      </div>
       <Container fluid>
         <Row className="justify-content-md-center mb-5">
           <Col sm={11}>
@@ -51,11 +52,15 @@ const BtcPage = () => {
           </Col>
         </Row>
         <Row className="justify-content-md-center mb-5">
-          <BarChatCol md={7} lg={7} sm={7} style={{ height: "450px" }}>
-            <Barchart />
-          </BarChatCol>
-          <Col md={4} lg={4} sm={4}>
-            <Sentiment />
+          <Col sm={11}>
+            <Row>
+              <BarChatCol sm={7} style={{ height: "450px" }}>
+                <Barchart />
+              </BarChatCol>
+              <Col sm={5}>
+                <Sentiment />
+              </Col>
+            </Row>
           </Col>
         </Row>
         <Row className="justify-content-md-center mb-5">
@@ -75,7 +80,7 @@ const BtcPage = () => {
         </Row>
         <Row className="justify-content-md-center mb-5">
           <Col md={7} lg={7} sm={7}>
-            { selected && <TradingView symbol="BTC" /> }
+            {selected && <TradingView symbol="BTC" />}
           </Col>
           <Dought md={5} lg={4} sm={4}>
             <Doughnut />

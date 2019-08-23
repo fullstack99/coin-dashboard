@@ -5,12 +5,11 @@ import Col from "react-bootstrap/Col"
 import { IoMdArrowDropup } from "react-icons/io"
 
 const Socialmedia = styled.section`
-  height: 13px;
-  font-family: Interstate;
+  color: #626f86;
   font-size: 12px;
   font-weight: 300;
+  height: 13px;
   letter-spacing: 0.4px;
-  color: #626f86;
   margin-bottom: 10.3px;
   margin-top: 12%;
 `
