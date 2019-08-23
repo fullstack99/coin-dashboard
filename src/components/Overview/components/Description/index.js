@@ -30,10 +30,10 @@ const Card = styled.section`
   }
 `
 
-const Descripation = () => {
+const Description = () => {
   return (
     <Card>
-      <CardHeader text="Descripation" />
+      <CardHeader text="Description" />
       <Row>
         <Col sm={12}>
           <Des>
@@ -52,4 +52,4 @@ const Descripation = () => {
     </Card>
   )
 }
-export default Descripation
+export default Description

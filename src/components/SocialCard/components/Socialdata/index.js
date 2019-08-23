@@ -1,6 +1,6 @@
-import React from "./node_modules/react"
-import Row from "./node_modules/react-bootstrap/Row"
-import Col from "./node_modules/react-bootstrap/Col"
+import React from "react"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 import SocialRating from "./components/SocialRating"
 import SocialUsername from "./components/SocialUsername"
@@ -11,7 +11,7 @@ const CardData = props => {
     <Row style={{ marginTop: "25px", paddingBottom: "20px" }}>
       <Col xs={9} sm={8} md={8} lg={8}>
         <SocialUsername>{props.username}</SocialUsername>
-        <SocialDescription>{props.descripation}</SocialDescription>
+        <SocialDescription>{props.description}</SocialDescription>
         <hr
           style={{ marginTop: "0.5em", marginBottom: "0.5em", width: "50%" }}
         />

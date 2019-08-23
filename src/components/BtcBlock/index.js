@@ -13,7 +13,7 @@ const BtcComponents = () => {
         height="100px"
       />
       <Block valueName={"Tru value"} amount={"$ 10,313"} pct={"5.25%"} />
-      <Block valueName={"Sentimate"} amount={"+7.2"} pct={"5.25%"} />
+      <Block valueName={"Sentiment"} amount={"+7.2"} pct={"5.25%"} />
       <Block valueName={"Stability"} amount={"+7.2"} pct={"5.25%"} />
       <Block valueName={"Longevity"} amount={"+7.2"} pct={"5.25%"} />
       <Block valueName={"Community"} amount={"+7.2"} pct={"5.25%"} />

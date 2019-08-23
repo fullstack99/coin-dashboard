@@ -21,14 +21,14 @@ const Card = styled.section`
     border-radius: 8px;
   }
 `
-const Sentimate = () => {
+const Sentiment = () => {
   return (
     <Card>
-      <CardHeader text="Sentimate"/>
+      <CardHeader text="Sentiment"/>
       <Col>
         <BtcMenu />
       </Col>
     </Card>
   )
 }
-export default Sentimate
+export default Sentiment

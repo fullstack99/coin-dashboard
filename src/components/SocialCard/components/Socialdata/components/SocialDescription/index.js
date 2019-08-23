@@ -1,6 +1,6 @@
-import styled from "./node_modules/@emotion/styled"
+import styled from "@emotion/styled"
 
-const SocialDescripation = styled.section`
+const SocialDescription = styled.section`
   color: #748aa1;
   font-family: sans-serif;
   font-size: 14px;
@@ -13,4 +13,4 @@ const SocialDescripation = styled.section`
   }
 `
 
-export default SocialDescripation
+export default SocialDescription
