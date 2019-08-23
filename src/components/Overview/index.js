@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import CoinInfo from "./components/CoinInfo/index"
 import QuantTool from "./components/QuantTool/index"
-import Descripation from "./components/Descripation/index"
+import Description from "./components/Description/index"
 import CoinStatistics from "./components/CoinStatistics/index"
 
 const OverviewWapper = styled.section`
@@ -13,7 +13,7 @@ const Overview = () => {
     <OverviewWapper>
       <CoinInfo />
       <QuantTool />
-      <Descripation />
+      <Description />
       <CoinStatistics />
     </OverviewWapper>
   )

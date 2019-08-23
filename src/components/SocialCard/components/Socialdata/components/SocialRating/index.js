@@ -1,4 +1,4 @@
-import styled from "./node_modules/@emotion/styled"
+import styled from "@emotion/styled"
 
 const SocialRating = styled.section`
   color: #475ff2;

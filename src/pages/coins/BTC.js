@@ -10,7 +10,7 @@ import TrendingCard from "@components/TrendingCard"
 import WatchlistCard from "@components/WatchlistCard"
 import SocialCard from "@components/SocialCard"
 import BtcMenu from "@components/BtcMenu"
-import Sentimate from "@components/Sentimate"
+import Sentiment from "@components/Sentiment"
 import Overview from "@components/Overview"
 import TradingView from "@components/TradingView"
 import Barchart from "@components/Barchart"
@@ -70,7 +70,7 @@ const BtcPage = () => {
             <Barchart />
           </BarChatCol>
           <Col md={4} lg={4} sm={4}>
-            <Sentimate />
+            <Sentiment />
           </Col>
         </Row>
         <Row className="justify-content-md-center mb-5">

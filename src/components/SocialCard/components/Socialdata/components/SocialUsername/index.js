@@ -1,4 +1,4 @@
-import styled from "./node_modules/@emotion/styled"
+import styled from "@emotion/styled"
 
 const SocialUsername = styled.section`
   color: #748aa1;

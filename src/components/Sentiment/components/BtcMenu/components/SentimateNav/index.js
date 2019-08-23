@@ -50,19 +50,19 @@ const SentimateNav = () => {
       >
         <SentimateData
           socialmedia={"TWITTER"}
-          descripation={"Posted on Twiter 10min ago.."}
+          description={"Posted on Twiter 10min ago.."}
         />
       </ButtonWrapper>
       <ButtonWrapper style={{ padding: "0px" }}>
         <SentimateData
           socialmedia={"REDDIT"}
-          descripation={"Posted on FaceBook 32min ago.."}
+          description={"Posted on FaceBook 32min ago.."}
         />
       </ButtonWrapper>
       <ButtonWrapper style={{ padding: "0px" }}>
         <SentimateData
           socialmedia={"FORUMS"}
-          descripation={"Posted on Reddit 10min ago.."}
+          description={"Posted on Reddit 10min ago.."}
         />
       </ButtonWrapper>
     </ButtonsGroup>
