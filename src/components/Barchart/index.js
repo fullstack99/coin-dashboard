@@ -1,6 +1,6 @@
 import React from "react"
-import styled from "@emotion/styled"
-import { Bar } from "react-chartjs"
+
+import Chart from "./components/Chart/index"
 
 let chartData = {
   labels: ["Jan2", "Jan3", "Jan4", "Jan5", "Jan6", "Jan7", "Jan8", "Jan9"],
@@ -15,6 +15,7 @@ let chartData = {
     }
   ]
 }
+
 let chartOptions = {
   scales: {
     yAxes: [
@@ -29,13 +30,8 @@ let chartOptions = {
   responsive: true
 }
 
-const Chart = styled(Bar)`
-  width: 100% !important;
-  height: 100% !important;
-  bottom: 0;
-`
-
 const Barchart = () => {
   return <Chart data={chartData} options={chartOptions} />
 }
+
 export default Barchart

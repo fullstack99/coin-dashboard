@@ -1,31 +1,7 @@
 import React from "react"
-import styled from "@emotion/styled"
-import { Doughnut } from "react-chartjs"
 
-const Chart = styled(Doughnut)`
-  @media (max-width: 575px) {
-    position: absolute;
-    left: 14% !important;
-    top: 10%;
-    width: 600px !important;
-    height: 200px !important;
-  }
-  @media (max-width: 1100px) {
-    width: 300px !important ;
-    position: absolute;
-    left: 20%;
-    top: 10%;
-    height: 200px !important;
-  }
-  @media (max-width: 768px) {
-    width: 100% !important ;
-    // position: absolute;
-    left: -36%;
-    top: 10%;
-    height: 200px !important;
-  }
- 
-`
+import Chart from "./components/Chart"
+
 const DoughnutData = () => {
   const doughnuData = [
     {
@@ -47,10 +23,11 @@ const DoughnutData = () => {
       label: "Yellow"
     }
   ]
-  const options = {
-    responsive:false
-  };
 
-  return <Chart data={doughnuData} options={options} width="500" height="250"/>
+  const options = {
+    responsive: false
+  }
+
+  return <Chart data={doughnuData} options={options} width="500" height="250" />
 }
 export default DoughnutData

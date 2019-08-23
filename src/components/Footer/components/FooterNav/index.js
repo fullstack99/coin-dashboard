@@ -31,7 +31,7 @@ const Unsorted = styled.ul`
 `
 
 const UnsortedItem = styled.li`
-  margin: 20px 0;
+  margin-bottom: 10px;
   text-align: center;
   width: 100%;
 
@@ -49,7 +49,9 @@ const UnsortedItem = styled.li`
   &:last-child {
     a,
     p {
-      padding-right: 0;
+      @media (min-width: 992px) {
+        padding-right: 0;
+      }
     }
   }
 `

@@ -3,25 +3,14 @@ import { string, array, func, shape } from "prop-types"
 import axios from "axios"
 
 import useApi, { REST_API_ENDPOINTS } from "@hooks/use-api"
-import styled from "@emotion/styled"
 
 import CoinsGrid from "./components/CoinsGrid"
 import CoinsGridWrapper from "./components/CoinsGridWrapper"
+import Title from "./components/Title"
 import ErrorMessage from "./components/ErrorMessage"
 import Coin from "./components/Coin"
 
 import { CURRENCY } from "@utils/constants"
-
-const Title = styled.p`
-  background-color: rgba(36, 43, 59, 1);
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: sans-serif;
-  font-size: 17px;
-  padding: 15px;
-  text-align: left;
-`
 
 const CoinsTable = ({ title, cryptoCurrencies, selectedCoin, onClick }) => {
   const [error, setError] = useState(false)

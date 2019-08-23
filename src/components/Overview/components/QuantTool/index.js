@@ -3,21 +3,22 @@ import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 import QuantToolData from "./components/QuantToolData/index"
 import CardHeader from "@components/CardHeader"
-import CardHeading from "@components/CardHeading"
 
 const Card = styled.section`
-  width: 30%;
+  border: solid 1px #313d4f;
+  border-radius: 8px;
+  float: left;
   margin-left: 5.2%;
   margin-top: 3%;
-  border-radius: 8px;
-  border: solid 1px #313d4f;
-  float: left;
+  width: 30%;
+
   @media (max-width: 575px) {
-    width: 100%;
     margin-left: 0px;
     margin-top: 10%;
+    width: 100%;
   }
 `
+
 const QuantTool = () => {
   let data = []
   for (let i = 0; i < 10; i++) {
@@ -29,11 +30,10 @@ const QuantTool = () => {
       />
     )
   }
+
   return (
     <Card>
-      <CardHeader>
-        <CardHeading>Quant Toolbox</CardHeading>
-      </CardHeader>
+      <CardHeader text="Quant Toolbox" />
       <Col style={{ marginTop: "25px" }}>
         <QuantToolData QuantToolFields={"Market Rank"} QuantToolValue={"785"} />
         {data}

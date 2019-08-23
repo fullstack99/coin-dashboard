@@ -1,0 +1,17 @@
+import styled from "./node_modules/@emotion/styled"
+
+const SocialRating = styled.section`
+  color: #475ff2;
+  float:right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  height: 28px;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`
+
+export default SocialRating

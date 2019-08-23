@@ -5,22 +5,24 @@ import Col from "react-bootstrap/Col"
 import ListName from "../OverviewStyle/index"
 
 const TrendingRating = styled.section`
-  width: 26px;
-  height: 21px;
+  color: white;
   font-family: sans-serif;
   font-size: 18px;
-  font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
-  line-height: normal;
+  font-style: normal;
+  font-weight: 500;
+  height: 21px;
   letter-spacing: normal;
+  line-height: normal;
   text-align: right;
-  color: white;
+  width: 26px;
+
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `
-const DescripationData = props => {
+
+const DescriptionData = props => {
   return (
     <Row>
       <Col md={8} lg={8} style={{ width: "auto", flex: 1 }}>
@@ -32,4 +34,4 @@ const DescripationData = props => {
     </Row>
   )
 }
-export default DescripationData
+export default DescriptionData

@@ -1,12 +1,15 @@
-import styled from "@emotion/styled"
+import React from "react"
 
-const CardHeader = styled.section`
-  width: 100%;
-  height: 72px;
-  border-radius: 8px;
-  padding: 1em;
-  font-family: sans-serif;
-  background-color: #222636;
-`
+import CardHeaderWrapper from "./components/CardHeaderWrapper"
+import CardHeading from "./components/CardHeading"
+
+const CardHeader = props => {
+  const { text } = props
+  return (
+    <CardHeaderWrapper>
+      <CardHeading>{text}</CardHeading>
+    </CardHeaderWrapper>
+  )
+}
 
 export default CardHeader
