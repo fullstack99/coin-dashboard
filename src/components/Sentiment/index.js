@@ -7,8 +7,6 @@ import BtcMenu from "./components/BtcMenu"
 const Card = styled.section`
   border: solid 1px #313d4f;
   border-radius: 8px;
-  float: right;
-  width: 83%;
 
   @media (max-width: 575px) {
     margin-left: 0px;
