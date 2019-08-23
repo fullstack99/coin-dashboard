@@ -1,8 +1,10 @@
 import React from "react"
 import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
+
+
+
 import CoinInfoData from "./components/CoinInfoData/index"
-import CardHeader from "@components/CardHeader"
 
 const Card = styled.section`;
   border: solid 1px #313d4f;
@@ -23,8 +25,7 @@ const CoinInfo = () => {
      data.push(<CoinInfoData coinfields={"Market Rank"} coinvalue={"1" + i} key={"index" + i}/>)
   }
   return (
-    <Card>
-      <CardHeader text="Coin Info" />
+    <Card title="Coin Info">
       <Col style={{ marginTop: "25px" }}>
         {data}
       </Col>

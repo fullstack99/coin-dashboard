@@ -26,7 +26,7 @@ const DescriptionData = props => {
   return (
     <Row>
       <Col md={8} lg={8} style={{ width: "auto", flex: 1 }}>
-        <ListName>{props.socialmedia}</ListName>
+        <ListName>{props.socialMedia}</ListName>
       </Col>
       <Col md={4} lg={4} style={{ width: "auto" }}>
         <TrendingRating>7.2</TrendingRating>

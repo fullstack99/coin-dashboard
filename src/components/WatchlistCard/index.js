@@ -1,13 +1,13 @@
 import React from "react"
 import Col from "react-bootstrap/Col"
-import WatchlistData from "./components/WatchlistData/index"
+
 import Card from "@components/Card"
-import CardHeader from "@components/CardHeader"
+
+import WatchlistData from "./components/WatchlistData"
 
 const WatchlistCard = () => {
   return (
-    <Card>
-      <CardHeader text="Watch List" />
+    <Card title="Watch List">
       <Col style={{ marginTop: "25px" }}>
         <WatchlistData currency={"Bitcoin"} price={"$10,317.41"} />
         <WatchlistData currency={"Etherem"} price={"$310.33"} />

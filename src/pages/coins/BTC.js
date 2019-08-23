@@ -10,6 +10,7 @@ import TrendingCard from "@components/TrendingCard"
 import WatchlistCard from "@components/WatchlistCard"
 import SocialCard from "@components/SocialCard"
 import BtcMenu from "@components/BtcMenu"
+import Card from "@components/Card"
 import Sentiment from "@components/Sentiment"
 import Overview from "@components/Overview"
 import TradingView from "@components/TradingView"
@@ -54,11 +55,13 @@ const BtcPage = () => {
         <Row className="justify-content-md-center mb-5">
           <Col sm={11}>
             <Row>
-              <BarChatCol sm={7} style={{ height: "450px" }}>
+              <BarChatCol lg={8} className="mb-5 mb-lg-0">
                 <Barchart />
               </BarChatCol>
-              <Col sm={5}>
-                <Sentiment />
+              <Col lg={4}>
+                <Card title="Sentiment">
+                  <Sentiment />
+                </Card>
               </Col>
             </Row>
           </Col>
