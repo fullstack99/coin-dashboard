@@ -2,30 +2,29 @@ import React from "react"
 import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 import CardHeader from "@components/CardHeader"
-import CardHeading from "@components/CardHeading"
 import BtcMenu from "./components/BtcMenu"
 
 const Card = styled.section`
-  border-radius: 8px;
   border: solid 1px #313d4f;
-  width: 83%;
+  border-radius: 8px;
   float: right;
+  width: 83%;
+
   @media (max-width: 575px) {
-    margin-top:3em;
     margin-left: 0px;
+    margin-top:3em;
     width: 100%;
   }
+
   @media (max-width: 768px) {
-    border-radius: 8px;
     border: solid 1px #313d4f;
+    border-radius: 8px;
   }
 `
 const Sentimate = () => {
   return (
     <Card>
-      <CardHeader>
-        <CardHeading>Sentimate</CardHeading>
-      </CardHeader>
+      <CardHeader text="Sentimate"/>
       <Col>
         <BtcMenu />
       </Col>

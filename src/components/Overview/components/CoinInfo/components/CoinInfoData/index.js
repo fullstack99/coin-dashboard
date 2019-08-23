@@ -8,10 +8,10 @@ import { IoMdArrowDropup } from "react-icons/io"
 const CoinInfoData = props => {
   return (
     <Row>
-      <Col md={7} lg={8} sm={8} xs={8}>
+      <Col xs={8} md={7} lg={8}>
         <ListName>{props.coinfields}</ListName>
       </Col>
-      <Col md={5} lg={4} sm={4} xs={4}>
+      <Col xs={4} md={5} lg={4}>
         <ListValue>
           {props.coinvalue}
           <IoMdArrowDropup style={{ fontSize: "20px" }} />

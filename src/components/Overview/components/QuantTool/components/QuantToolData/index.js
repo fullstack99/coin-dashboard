@@ -8,10 +8,10 @@ import { IoMdArrowDropup } from "react-icons/io"
 const QuantToolData = props => {
   return (
     <Row>
-      <Col md={7} lg={7} sm={8} xs={8}>
+      <Col xs={8} md={7}>
         <ListName>{props.QuantToolFields}</ListName>
       </Col>
-      <Col md={5} lg={5} sm={4} xs={4}>
+      <Col xs={4} md={5}>
         <ListValue>
           {props.QuantToolValue}
           <IoMdArrowDropup style={{ fontSize: "20px" }} />

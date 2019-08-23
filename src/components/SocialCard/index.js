@@ -3,26 +3,24 @@ import styled from "@emotion/styled"
 import Col from "react-bootstrap/Col"
 import SocialData from "./components/Socialdata/index"
 import CardHeader from "@components/CardHeader"
-import CardHeading from "@components/CardHeading"
 
 const Card = styled.section`
-  width: 100%;
   border-radius: 8px;
   border: solid 1px #313d4f;
+  width: 100%;
+
   @media (max-width: 575px) {
-    width: 100% !important;
+    margin-bottom: 10%;
     margin-left: 0px;
     margin-top: 10%;
-    margin-bottom: 10%;
+    width: 100% !important;
   }
 `
 
 const SocialCard = () => {
   return (
     <Card>
-      <CardHeader>
-        <CardHeading>Social</CardHeading>
-      </CardHeader>
+      <CardHeader text="Social" />
       <Col>
         <SocialData
           username={"@theRealMacafee"}
