@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
-import BtcMenuStyle from "./components/BtcMenuStyle/index"
-import BtcNav from "./components//BtcNav/index"
+import BtcMenuStyle from "./components/BtcMenuStyle"
+import BtcNav from "./components/BtcNav"
 
 const BtcmenuComponents = styled(() => (
   <BtcMenuStyle>

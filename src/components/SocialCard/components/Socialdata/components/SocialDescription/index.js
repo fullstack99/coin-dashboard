@@ -1,6 +1,13 @@
+import React from "react"
 import styled from "@emotion/styled"
 
-const SocialDescription = styled.section`
+import PostedOn from "./components/PostedOn"
+
+const SocialDescription = styled(({ type, postedOn, postedAt }) => (
+  <>
+    <PostedOn type={type} postedOn={postedOn} postedAt={postedAt} />
+  </>
+))`
   color: #748aa1;
   font-family: sans-serif;
   font-size: 14px;

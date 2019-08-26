@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "@emotion/styled"
 
 import Chart from "./components/Chart/index"
 
@@ -30,8 +31,15 @@ let chartOptions = {
   responsive: true
 }
 
-const Barchart = () => {
-  return <Chart data={chartData} options={chartOptions} />
-}
+const Barchart = styled(({className}) => (
+  <Chart className={className} data={chartData} options={chartOptions} />
+))`
+  height: 200px !important;
+  position: relative;
+
+  @media (min-width: 992px) {
+    height: 450px !important;
+  }
+`
 
 export default Barchart
