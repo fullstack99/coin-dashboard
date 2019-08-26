@@ -2,24 +2,25 @@ import React from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
+import Hr from "@components/Hr"
 import SocialRating from "./components/SocialRating"
 import SocialUsername from "./components/SocialUsername"
 import SocialDescription from "./components/SocialDescription"
 
-const CardData = props => {
+const CardData = ({ username, type, postedOn, postedAt }) => {
   return (
-    <Row style={{ marginTop: "25px", paddingBottom: "20px" }}>
-      <Col xs={9} sm={8} md={8} lg={8}>
-        <SocialUsername>{props.username}</SocialUsername>
-        <SocialDescription>{props.description}</SocialDescription>
-        <hr
-          style={{ marginTop: "0.5em", marginBottom: "0.5em", width: "50%" }}
+    <Row className="mb-3">
+      <Col xs={9} sm={10} lg={9}>
+        <SocialUsername>{username}</SocialUsername>
+        <SocialDescription
+          type={type}
+          postedOn={postedOn}
+          postedAt={postedAt}
         />
+        <Hr />
       </Col>
-      <Col xs={3} sm={4} md={4} lg={4}>
-        <SocialRating>
-          7.2
-        </SocialRating>
+      <Col xs={3} sm={2} lg={3}>
+        <SocialRating>7.2</SocialRating>
       </Col>
     </Row>
   )

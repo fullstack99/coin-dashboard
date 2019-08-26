@@ -25,7 +25,7 @@ const DoughnutData = () => {
   ]
 
   const options = {
-    responsive: false
+    responsive: true
   }
 
   return <Chart data={doughnuData} options={options} width="500" height="250" />

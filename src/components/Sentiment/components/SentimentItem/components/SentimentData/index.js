@@ -1,7 +1,8 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { IoMdArrowDropup } from "react-icons/io"
-import { IoMdArrowDropdown } from "react-icons/io"
+
+import ArrowDown from "@components/ArrowDown"
+import ArrowUp from "@components/ArrowUp"
 
 const pctHelper = css`
   .social-name {
@@ -49,9 +50,9 @@ const SentimentData = ({ socialMedia, pct, pct24HoursMoved, score }) => (
     <span className="social-name">{socialMedia}</span>
     <span className="caret">
       {pct24HoursMoved === "up" ? (
-        <IoMdArrowDropup className="arrow up" />
+        <ArrowUp size="20" />
       ) : (
-        <IoMdArrowDropdown className="arrow down" />
+        <ArrowDown size="20" color="red" />
       )}
     </span>
     <span
