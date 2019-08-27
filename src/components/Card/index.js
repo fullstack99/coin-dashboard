@@ -1,4 +1,5 @@
 import React from "react"
+import { string, node, object } from "prop-types"
 import styled from "@emotion/styled"
 
 import CardHeader from "./components/CardHeader"
@@ -15,4 +16,17 @@ const Card = styled(({ title, children, className }) => (
   height: 100%;
   width: 100%;
 `
+
+Card.propTypes = {
+  title: string,
+  children: node,
+  className: object
+}
+
+Card.defaultProps = {
+  title: null,
+  children: null,
+  className: {}
+}
+
 export default Card

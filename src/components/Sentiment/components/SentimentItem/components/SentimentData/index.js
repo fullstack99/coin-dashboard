@@ -1,10 +1,13 @@
 import React from "react"
+import { string } from "prop-types"
 import { css } from "@emotion/core"
 
 import ArrowDown from "@components/ArrowDown"
 import ArrowUp from "@components/ArrowUp"
 
 const pctHelper = css`
+  margin-bottom: 6px;
+
   .social-name {
     color: #626f86;
     font-size: 12px;
@@ -26,7 +29,7 @@ const pctHelper = css`
   }
 
   .down {
-    color: #dc3545;
+    color: #ad34fe;
   }
 
   .up {
@@ -49,11 +52,7 @@ const SentimentData = ({ socialMedia, pct, pct24HoursMoved, score }) => (
   <div css={pctHelper}>
     <span className="social-name">{socialMedia}</span>
     <span className="caret">
-      {pct24HoursMoved === "up" ? (
-        <ArrowUp size="20" />
-      ) : (
-        <ArrowDown size="20" color="red" />
-      )}
+      {pct24HoursMoved === "up" ? <ArrowUp /> : <ArrowDown />}
     </span>
     <span
       className={"percentage" + (pct24HoursMoved === "up" ? " up" : " down")}
@@ -63,5 +62,19 @@ const SentimentData = ({ socialMedia, pct, pct24HoursMoved, score }) => (
     <span className="score">{score}</span>
   </div>
 )
+
+SentimentData.propTypes = {
+  socialMedia: string,
+  pct: string,
+  score: string,
+  pct24HoursMoved: string
+}
+
+SentimentData.defaultProps = {
+  socialMedia: "#ad34fe",
+  pct: null,
+  score: null,
+  pct24HoursMoved: null
+}
 
 export default SentimentData

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const SocialRating = styled.section`
+const SocialRating = styled.div`
   color: #475ff2;
   float:right;
   font-family: sans-serif;
