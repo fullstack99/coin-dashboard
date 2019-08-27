@@ -1,19 +1,24 @@
 import React from "react"
+import { string } from "prop-types"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Label from "./components/Label"
 import CoinScore from "./components/CoinScore"
 import Amount from "./components/Amount"
-import ArrowUp from "./components/ArrowUp"
 import Percentage from "./components/Percentage"
 
-const Block = styled(({ pct, amount, valueName, className }) => (
+const Block = styled(({ pct, amount, value, move, className }) => (
   <div className={className}>
-    <Label value={valueName} />
+    <Label value={value} />
     <CoinScore>CoinScore</CoinScore>
     <Amount value={amount} />
-    <ArrowUp />
-    <Percentage value={pct} />
+    <Percentage
+      css={css`
+        color: ${move === "up" ? "#475ff2" : "#ad34fe"};
+      `}
+      value={pct}
+    />
   </div>
 ))`
   background-color: #202334;
@@ -27,5 +32,17 @@ const Block = styled(({ pct, amount, valueName, className }) => (
     width: 100%;
   }
 `
+
+Block.propTypes = {
+  pct: string,
+  amount: string,
+  value: string
+}
+
+Block.defaultProps = {
+  pct: null,
+  amount: null,
+  value: null
+}
 
 export default Block

@@ -1,4 +1,5 @@
 import React from "react"
+import { object } from "prop-types"
 import styled from "@emotion/styled"
 
 import Chart from "./components/Chart/index"
@@ -41,5 +42,13 @@ const Barchart = styled(({className}) => (
     height: 450px !important;
   }
 `
+
+Barchart.propTypes = {
+  className: object
+}
+
+Barchart.defaultProps = {
+  className: {}
+}
 
 export default Barchart

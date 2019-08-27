@@ -1,4 +1,5 @@
 import React from "react"
+import { string } from "prop-types"
 import styled from "@emotion/styled"
 
 const Label = styled(({ value, className }) => (
@@ -14,5 +15,13 @@ const Label = styled(({ value, className }) => (
     font-size: 15px;
   }
 `
+
+Label.propTypes = {
+  value: string
+}
+
+Label.defaultProps = {
+  value: null
+}
 
 export default Label

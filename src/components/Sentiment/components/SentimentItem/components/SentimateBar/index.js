@@ -9,7 +9,7 @@ const Filled = styled.div`
   border-bottom-left-radius: 4px;
 `
 
-const SentimentBar = ({ pct }) => (
+const SentimentBar = () => (
   <div className="d-flex w-100">
     <Filled></Filled>
     <span

@@ -6,13 +6,11 @@ import Layout from "@components/Layout"
 import CurrencyTicker from "@components/CurrencyTicker"
 import Block from "@components/Block"
 import TrendingCard from "@components/TrendingCard"
-import WatchlistCard from "@components/WatchlistCard"
-import SocialCard from "@components/SocialCard"
+import SocialData from "@components/SocialData"
 import BtcMenu from "@components/BtcMenu"
 import Card from "@components/Card"
 import Sentiment from "@components/Sentiment"
 import TextValueCaret from "@components/TextValueCaret"
-import Description from "@components/Description"
 import TradingView from "@components/TradingView"
 import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
@@ -41,22 +39,28 @@ const BtcPage = () => {
               </Col>
               <Col xs={6} lg={4} xl={2}>
                 <Block
-                  valueName={"Tru value"}
-                  amount={"$10,313"}
-                  pct={"5.25%"}
+                  value="Tru value"
+                  amount="$10,313"
+                  pct="5.25%"
+                  move="up"
                 />
               </Col>
               <Col xs={6} lg={4} xl={2}>
-                <Block valueName={"Sentiment"} amount={"+7.2"} pct={"5.25%"} />
+                <Block value="Sentiment" amount="+7.2" pct="5.25%" move="up" />
               </Col>
               <Col xs={6} lg={4} xl={2}>
-                <Block valueName={"Stability"} amount={"+7.2"} pct={"5.25%"} />
+                <Block value="Stability" amount="+7.2" pct="5.25%" move="up" />
               </Col>
               <Col xs={6} lg={4} xl={2}>
-                <Block valueName={"Longevity"} amount={"+7.2"} pct={"5.25%"} />
+                <Block value="Longevity" amount="+7.2" pct="5.25%" move="up" />
               </Col>
               <Col xs={6} lg={4} xl={2}>
-                <Block valueName={"Community"} amount={"+7.2"} pct={"5.25%"} />
+                <Block
+                  value="Community"
+                  amount="+7.2"
+                  pct="5.25%"
+                  move="down"
+                />
               </Col>
             </Row>
             <Row className="mb-5">
@@ -74,7 +78,43 @@ const BtcPage = () => {
                 <TrendingCard />
               </Col>
               <Col lg={4} className="mb-5">
-                <SocialCard />
+                <Card title="Social">
+                  <SocialData
+                    username="@theRealMacafee"
+                    type="post"
+                    postedOn="twitter"
+                    postedAt="10min ago.."
+                    rating="7.2"
+                  />
+                  <SocialData
+                    username="@theRealMacafee"
+                    type="post"
+                    postedOn="facebook"
+                    postedAt="32min ago.."
+                    rating="7.2"
+                  />
+                  <SocialData
+                    username="@theRealMacafee"
+                    type="post"
+                    postedOn="reddit"
+                    postedAt="10min ago.."
+                    rating="7.2"
+                  />
+                  <SocialData
+                    username="@theRealMacafee"
+                    type="stream"
+                    postedOn="youtube"
+                    postedAt="1hr ago.."
+                    rating="7.2"
+                  />
+                  <SocialData
+                    username="@theRealMacafee"
+                    type="article"
+                    postedOn="medium"
+                    postedAt="10min ago.."
+                    rating="7.2"
+                  />
+                </Card>
               </Col>
               <Col lg={4} className="mb-5">
                 <Card title="Watch List">
@@ -106,7 +146,7 @@ const BtcPage = () => {
               </Col>
               <Col sm={12}>
                 <Row>
-                  <Col className="mb-5" md={4}>
+                  <Col className="mb-5" lg={4}>
                     <Card title="Coin Info">
                       <TextValueCaret
                         text="Market Rank"
@@ -120,7 +160,7 @@ const BtcPage = () => {
                       />
                     </Card>
                   </Col>
-                  <Col className="mb-5" md={4}>
+                  <Col className="mb-5" lg={4}>
                     <Card title="Quant Toolbox">
                       <TextValueCaret
                         text="Market Rank"
@@ -134,10 +174,27 @@ const BtcPage = () => {
                       />
                     </Card>
                   </Col>
-                  <Col className="mb-5" md={4}>
+                  <Col className="mb-5" lg={4}>
                     <Row>
                       <Col xs={12} className="mb-5">
-                        <Description  />
+                        <Card title="Description">
+                          <Row>
+                            <Col sm={12}>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Praesent at purus non mauris
+                                lobortis suscipit. Fusce mauris massa, faucibus
+                                eu leo sed, condimentum accumsan ex.
+                              </p>
+                            </Col>
+                            <Col sm={12}>
+                              <p>Creator/Team</p>
+                            </Col>
+                            <Col sm={12}>
+                              <p>www.bitcoin.com</p>
+                            </Col>
+                          </Row>
+                        </Card>
                       </Col>
                       <Col xs={12}>
                         <Card title="Coin Statistics">

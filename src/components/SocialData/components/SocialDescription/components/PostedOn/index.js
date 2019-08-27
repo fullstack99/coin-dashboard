@@ -1,4 +1,5 @@
 import React from "react"
+import { string } from "prop-types"
 import { css } from "@emotion/core"
 
 const postDetails = css`
@@ -43,7 +44,7 @@ const PostedOn = ({ type, postedOn, postedAt }) => (
         type === "post"
           ? "posted"
           : type === "stream"
-          ? "stread "
+          ? "stread"
           : type === "article"
           ? "published"
           : ""
@@ -83,8 +84,20 @@ const PostedOn = ({ type, postedOn, postedAt }) => (
     >
       {postedOn}{" "}
     </span>
-    {postedAt}
+    <span>{postedAt}</span>
   </div>
 )
+
+PostedOn.propTypes = {
+  type: string,
+  postedOn: string,
+  postedAt: string
+}
+
+PostedOn.defaultProps = {
+  type: null,
+  postedOn: null,
+  postedAt: null
+}
 
 export default PostedOn
