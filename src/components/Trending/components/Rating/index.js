@@ -1,17 +1,16 @@
 import styled from "@emotion/styled"
 
-const SocialRating = styled.div`
+const Rating = styled.section`
   color: #475ff2;
   float:right;
-  font-family: sans-serif;
   font-size: 24px;
   font-weight: 500;
-  height: 28px;
   text-align: right;
+  width: 34px;
 
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `
 
-export default SocialRating
+export default Rating

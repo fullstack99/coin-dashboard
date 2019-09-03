@@ -5,24 +5,24 @@ import Col from "react-bootstrap/Col"
 
 import Hr from "@components/Hr"
 
-import SocialRating from "./components/SocialRating"
-import SocialUsername from "./components/SocialUsername"
-import SocialDescription from "./components/SocialDescription"
+import Rating from "./components/Rating"
+import Username from "./components/Username"
+import PostDetails from "./components/PostDetails"
 
-const CardData = ({ username, type, postedOn, postedAt, rating }) => (
+const Social = ({ username, type, postedOn, postedAt, rating }) => (
   <Row className="mb-3">
     <Col xs={9} sm={10} lg={9}>
-      <SocialUsername>{username}</SocialUsername>
-      <SocialDescription type={type} postedOn={postedOn} postedAt={postedAt} />
+      <Username>{username}</Username>
+      <PostDetails type={type} postedOn={postedOn} postedAt={postedAt} />
       <Hr />
     </Col>
     <Col xs={3} sm={2} lg={3}>
-      <SocialRating>{rating}</SocialRating>
+      <Rating>{rating}</Rating>
     </Col>
   </Row>
 )
 
-CardData.propTypes = {
+Social.propTypes = {
   username: string,
   type: string,
   postedOn: string,
@@ -30,7 +30,7 @@ CardData.propTypes = {
   rating: string
 }
 
-CardData.defaultProps = {
+Social.defaultProps = {
   username: "#ad34fe",
   type: null,
   postedOn: null,
@@ -38,4 +38,4 @@ CardData.defaultProps = {
   rating: null
 }
 
-export default CardData
+export default Social

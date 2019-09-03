@@ -1,29 +1,20 @@
 import React from "react"
-import { object } from "prop-types"
+import { object, array } from "prop-types"
 import styled from "@emotion/styled"
 
 import SentimentItem from "./components/SentimentItem"
 
-const Sentiment = styled(({ className }) => (
+const Sentiment = styled(({ data, className }) => (
   <div className={className}>
-    <SentimentItem
-      socialMedia="TWITTER"
-      pct="1.2"
-      pct24HoursMoved="up"
-      score="8.5"
-    />
-    <SentimentItem
-      socialMedia="REDDIT"
-      pct="3.5"
-      pct24HoursMoved="down"
-      score="7.2"
-    />
-    <SentimentItem
-      socialMedia="FORUMS"
-      pct="4.7"
-      pct24HoursMoved="up"
-      score="2.9"
-    />
+    {data.map((item, index) => (
+      <SentimentItem
+        key={`sentiment-${index}`}
+        socialMedia={item.label}
+        score={item.value}
+        pct={item.pct}
+        pct24HoursMoved={item.move}
+      />
+    ))}
   </div>
 ))`
   position: relative;
@@ -34,10 +25,12 @@ const Sentiment = styled(({ className }) => (
 `
 
 Sentiment.propTypes = {
+  data: array,
   className: object
 }
 
 Sentiment.defaultProps = {
+  data: [],
   className: {}
 }
 

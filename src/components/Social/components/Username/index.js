@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const SocialUsername = styled.div`
+const Username = styled.div`
   color: #748aa1;
   font-size: 16px;
   font-weight: 500;
@@ -12,4 +12,4 @@ const SocialUsername = styled.div`
   }
 `
 
-export default SocialUsername
+export default Username

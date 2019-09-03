@@ -1,15 +1,1 @@
 /* Global styles here */
-
-p, span {
-  color: #748aa1;
-  font-size: 14px;
-  line-height: 1.25;
-
-  /* @media (max-width: 768px) {
-    font-size: 13px;
-  } */
-}
-
-p {
-  margin-bottom: 20px;
-}

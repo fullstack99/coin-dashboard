@@ -8,11 +8,11 @@ import CoinScore from "./components/CoinScore"
 import Amount from "./components/Amount"
 import Percentage from "./components/Percentage"
 
-const Block = styled(({ pct, amount, value, move, className }) => (
+const Block = styled(({ label, value, pct,  move, className }) => (
   <div className={className}>
-    <Label value={value} />
+    <Label label={label} />
     <CoinScore>CoinScore</CoinScore>
-    <Amount value={amount} />
+    <Amount value={value} />
     <Percentage
       css={css`
         color: ${move === "up" ? "#475ff2" : "#ad34fe"};
