@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 
 import PostedOn from "./components/PostedOn"
 
-const SocialDescription = styled(({ type, postedOn, postedAt }) => (
+const PostDetails = styled(({ type, postedOn, postedAt }) => (
   <PostedOn type={type} postedOn={postedOn} postedAt={postedAt} />
 ))`
   color: #748aa1;
@@ -19,16 +19,16 @@ const SocialDescription = styled(({ type, postedOn, postedAt }) => (
   }
 `
 
-SocialDescription.propTypes = {
+PostDetails.propTypes = {
   type: string,
   postedOn: string,
   postedAt: string
 }
 
-SocialDescription.defaultProps = {
+PostDetails.defaultProps = {
   type: null,
   postedOn: null,
   postedAt: null
 }
 
-export default SocialDescription
+export default PostDetails

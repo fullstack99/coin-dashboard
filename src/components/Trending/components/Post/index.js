@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const TrendingDescription = styled.div`
+const Post = styled.div`
   color: #748aa1;
   font-family: sans-serif;
   font-size: 14px;
@@ -14,4 +14,4 @@ const TrendingDescription = styled.div`
   }
 `
 
-export default TrendingDescription
+export default Post

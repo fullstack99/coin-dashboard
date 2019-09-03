@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const TrendingData = styled.section`
+const From = styled.div`
   color: #748aa1;
   font-family: sans-serif;
   font-size: 18px;
@@ -13,4 +13,4 @@ const TrendingData = styled.section`
   }
 `
 
-export default TrendingData
+export default From

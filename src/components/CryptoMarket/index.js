@@ -26,8 +26,9 @@ const Message = styled.h1`
 `
 
 const Span = styled.span`
-  font-weight: bold;
   color: #4659fb;
+  font-size: 36px;
+  font-weight: bold;
 `
 
 const CryptoMarket = ({ currency }) => {

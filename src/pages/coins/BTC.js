@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, createRef } from "react"
+import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Layout from "@components/Layout"
 import CurrencyTicker from "@components/CurrencyTicker"
 import Block from "@components/Block"
-import TrendingCard from "@components/TrendingCard"
-import SocialData from "@components/SocialData"
+import Trending from "@components/Trending"
+import Social from "@components/Social"
 import BtcMenu from "@components/BtcMenu"
 import Card from "@components/Card"
 import Sentiment from "@components/Sentiment"
@@ -15,15 +16,59 @@ import TradingView from "@components/TradingView"
 import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
 
-const BtcPage = () => {
+const BtcPage = ({ data }) => {
+  const ref = createRef();
+
   const [selected, setSelected] = useState(false)
+
+  const {
+    general,
+    sentiment,
+    trending,
+    social,
+    watchList,
+    coinInfo,
+    quantToolbox,
+    coinStatistics
+  } = data.allBtcJson.edges[0].node
 
   useEffect(() => {
     const timer = setTimeout(() => {
+
+
+
+      const script = document.createElement("script");
+
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+      script.async = true;
+
+      script.innerHTML = {
+        symbol: "BITSTAMP:BTCUSD",
+        width: 350,
+        height: 220,
+        locale: "en",
+        dateRange: "12m",
+        colorTheme: "dark",
+        trendLineColor: "#37a6ef",
+        underLineColor: "rgba(55, 166, 239, 0.15)",
+        isTransparent: false,
+        autosize: false,
+        largeChartUrl: ""
+      }
+
+      // document.body.appendChild(script);
+
+
+
+
       setSelected(true)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
+
+
+
+
 
   return (
     <Layout>
@@ -35,33 +80,20 @@ const BtcPage = () => {
           <Col sm={12} md={12}>
             <Row className="mb-5">
               <Col xs={6} lg={4} xl={2}>
-                <p>Tradeview mini-chart here</p>
+                <div className="tradingview-widget-container" ref={ref}>
+                  <div className="tradingview-widget-container__widget"></div>
+                </div>
               </Col>
-              <Col xs={6} lg={4} xl={2}>
-                <Block
-                  value="Tru value"
-                  amount="$10,313"
-                  pct="5.25%"
-                  move="up"
-                />
-              </Col>
-              <Col xs={6} lg={4} xl={2}>
-                <Block value="Sentiment" amount="+7.2" pct="5.25%" move="up" />
-              </Col>
-              <Col xs={6} lg={4} xl={2}>
-                <Block value="Stability" amount="+7.2" pct="5.25%" move="up" />
-              </Col>
-              <Col xs={6} lg={4} xl={2}>
-                <Block value="Longevity" amount="+7.2" pct="5.25%" move="up" />
-              </Col>
-              <Col xs={6} lg={4} xl={2}>
-                <Block
-                  value="Community"
-                  amount="+7.2"
-                  pct="5.25%"
-                  move="down"
-                />
-              </Col>
+              {general.map((item, index) => (
+                <Col xs={6} lg={4} xl={2} key={`block-${index}`}>
+                  <Block
+                    label={item.label}
+                    value={item.value}
+                    pct={item.pct}
+                    move={item.move}
+                  />
+                </Col>
+              ))}
             </Row>
             <Row className="mb-5">
               <Col lg={8} className="mb-5 mb-lg-0">
@@ -69,71 +101,53 @@ const BtcPage = () => {
               </Col>
               <Col lg={4}>
                 <Card title="Sentiment">
-                  <Sentiment />
+                  <Sentiment data={sentiment} />
                 </Card>
               </Col>
             </Row>
             <Row>
               <Col lg={4} className="mb-5">
-                <TrendingCard />
+                <Card title="Trending">
+                  {trending.map((item, index) => (
+                    <Trending
+                      key={`trending-${index}`}
+                      from={item.from}
+                      post={item.post}
+                      rating={item.rating}
+                    />
+                  ))}
+                </Card>
               </Col>
               <Col lg={4} className="mb-5">
                 <Card title="Social">
-                  <SocialData
-                    username="@theRealMacafee"
-                    type="post"
-                    postedOn="twitter"
-                    postedAt="10min ago.."
-                    rating="7.2"
-                  />
-                  <SocialData
-                    username="@theRealMacafee"
-                    type="post"
-                    postedOn="facebook"
-                    postedAt="32min ago.."
-                    rating="7.2"
-                  />
-                  <SocialData
-                    username="@theRealMacafee"
-                    type="post"
-                    postedOn="reddit"
-                    postedAt="10min ago.."
-                    rating="7.2"
-                  />
-                  <SocialData
-                    username="@theRealMacafee"
-                    type="stream"
-                    postedOn="youtube"
-                    postedAt="1hr ago.."
-                    rating="7.2"
-                  />
-                  <SocialData
-                    username="@theRealMacafee"
-                    type="article"
-                    postedOn="medium"
-                    postedAt="10min ago.."
-                    rating="7.2"
-                  />
+                  {social.map((item, index) => (
+                    <Social
+                      key={`social-${index}`}
+                      username={item.username}
+                      type={item.type}
+                      postedOn={item.postedOn}
+                      postedAt={item.postedAt}
+                      rating={item.rating}
+                    />
+                  ))}
                 </Card>
               </Col>
               <Col lg={4} className="mb-5">
                 <Card title="Watch List">
-                  <TextValueCaret text="Bitcoin" value="$10,317.41" move="up" />
-                  <TextValueCaret text="Etherem" value="$310.33" move="down" />
-                  <TextValueCaret text="XRP" value="$0.81" move="up" />
-                  <TextValueCaret text="Litecoin" value="$92.92" move="down" />
-                  <TextValueCaret
-                    text="Bitcoin cash"
-                    value="$313.42"
-                    move="up"
-                  />
-                  <TextValueCaret text="EOS" value="$4.32" move="down" />
+                  {watchList.map((item, index) => (
+                    <TextValueCaret
+                      key={`watch-list-${index}`}
+                      text={item.label}
+                      value={item.value}
+                      move={item.move}
+                    />
+                  ))}
                 </Card>
               </Col>
             </Row>
             <Row className="mb-5">
               <Col md={8} style={{ height: "400px" }}>
-                {selected && <TradingView symbol="BTC" />}
+                {selected && <TradingView symbol="BTCUSD" />}
               </Col>
               <Col md={4} style={{ height: "400px", position: "relative" }}>
                 <Doughnut />
@@ -148,30 +162,26 @@ const BtcPage = () => {
                 <Row>
                   <Col className="mb-5" lg={4}>
                     <Card title="Coin Info">
-                      <TextValueCaret
-                        text="Market Rank"
-                        value="120"
-                        move="up"
-                      />
-                      <TextValueCaret
-                        text="Market Rank"
-                        value="20"
-                        move="down"
-                      />
+                      {coinInfo.map((item, index) => (
+                        <TextValueCaret
+                          key={`coin-info-${index}`}
+                          text={item.label}
+                          value={item.value}
+                          move={item.move}
+                        />
+                      ))}
                     </Card>
                   </Col>
                   <Col className="mb-5" lg={4}>
                     <Card title="Quant Toolbox">
-                      <TextValueCaret
-                        text="Market Rank"
-                        value="120"
-                        move="up"
-                      />
-                      <TextValueCaret
-                        text="Market Rank"
-                        value="20"
-                        move="down"
-                      />
+                      {quantToolbox.map((item, index) => (
+                        <TextValueCaret
+                          key={`quant-toolbox-${index}`}
+                          text={item.label}
+                          value={item.value}
+                          move={item.move}
+                        />
+                      ))}
                     </Card>
                   </Col>
                   <Col className="mb-5" lg={4}>
@@ -198,16 +208,14 @@ const BtcPage = () => {
                       </Col>
                       <Col xs={12}>
                         <Card title="Coin Statistics">
-                          <TextValueCaret
-                            text="Market Rank"
-                            value="120"
-                            move="up"
-                          />
-                          <TextValueCaret
-                            text="Market Rank"
-                            value="20"
-                            move="down"
-                          />
+                          {coinStatistics.map((item, index) => (
+                            <TextValueCaret
+                              key={`coin-stats-${index}`}
+                              text={item.label}
+                              value={item.value}
+                              move={item.move}
+                            />
+                          ))}
                         </Card>
                       </Col>
                     </Row>
@@ -221,5 +229,60 @@ const BtcPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allBtcJson {
+      edges {
+        node {
+          general {
+            label
+            value
+            pct
+            move
+          }
+          sentiment {
+            label
+            value
+            pct
+            move
+          }
+          trending {
+            from
+            post
+            rating
+          }
+          social {
+            username
+            type
+            postedOn
+            postedAt
+            rating
+          }
+          watchList {
+            label
+            value
+            move
+          }
+          coinInfo {
+            label
+            value
+            move
+          }
+          quantToolbox {
+            label
+            value
+            move
+          }
+          coinStatistics {
+            label
+            value
+            move
+          }
+        }
+      }
+    }
+  }
+`
 
 export default BtcPage
