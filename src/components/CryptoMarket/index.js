@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-
+import { useCountUp } from 'react-countup';
 // hooks
 import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { GROUP_DIGITS } from "@hooks/use-format"
@@ -23,13 +23,14 @@ const Message = styled.h1`
   line-height: normal;
   margin: 0;
   text-align: center;
-`
-
-const Span = styled.span`
-  color: #4659fb;
-  font-size: 36px;
-  font-weight: bold;
-`
+  & span{
+    color: #4659fb;
+    font-size: 36px;
+    font-size: 36px;
+    font-weight: bold;
+    font-weight: bold;
+  }
+`;
 
 const CryptoMarket = ({ currency }) => {
   const [error, setError] = useState(false)
@@ -39,6 +40,9 @@ const CryptoMarket = ({ currency }) => {
   })
   // const [prc, setPrc] = useState({})
   const [data, setData] = useState({})
+  let number = useFormat(data, GROUP_DIGITS)
+  let finalData = parseFloat(number.replace(/,/g, ""))
+
   useEffect(() => {
     setLoading({ globalCrypto: true, changePercentage: true })
     useApi(REST_API_ENDPOINTS.PRICE_MULTIFULL, {
@@ -84,6 +88,22 @@ const CryptoMarket = ({ currency }) => {
         console.error(error)
       })
   }, [])
+
+  const CompleteHook = () => {
+    const { countUp } = useCountUp({
+      start: 0,
+      end: finalData,
+      duration: 5,
+      decimal:".", 
+      decimals:2, 
+      separator:",", 
+      duration:2
+    });
+    return (
+        <span>{countUp}</span>
+    );
+  };
+
   return (
     <CryptoMarketWrapper className="my-5">
       <Message>
@@ -94,11 +114,12 @@ const CryptoMarket = ({ currency }) => {
         ) : (
           <>
             Global Crypto Currency Valuation{" "}
-            <Span>
+            <span>
               {/* {prc.CHANGEPCT24HOUR > 0 ? "Up " : "Down "} */}
               {/* {useFormat(prc.CHANGEPCT24HOUR, PERCENTAGE)} $ */}$
-              {useFormat(data, GROUP_DIGITS)}
-            </Span>{" "}
+              {/* {useFormat(data, GROUP_DIGITS)} */}
+              <CompleteHook />
+            </span>{" "}
             {CURRENCY}
           </>
         )}
