@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-import { useCountUp } from 'react-countup';
+import { useCountUp } from "react-countup"
 // hooks
 import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { GROUP_DIGITS } from "@hooks/use-format"
@@ -23,14 +23,14 @@ const Message = styled.h1`
   line-height: normal;
   margin: 0;
   text-align: center;
-  & span{
+  & span {
     color: #4659fb;
     font-size: 36px;
     font-size: 36px;
     font-weight: bold;
     font-weight: bold;
   }
-`;
+`
 
 const CryptoMarket = ({ currency }) => {
   const [error, setError] = useState(false)
@@ -94,15 +94,12 @@ const CryptoMarket = ({ currency }) => {
       start: 0,
       end: finalData,
       duration: 5,
-      decimal:".", 
-      decimals:2, 
-      separator:",", 
-      duration:2
-    });
-    return (
-        <span>{countUp}</span>
-    );
-  };
+      decimal: ".",
+      decimals: 2,
+      separator: ","
+    })
+    return <span>{countUp}</span>
+  }
 
   return (
     <CryptoMarketWrapper className="my-5">
