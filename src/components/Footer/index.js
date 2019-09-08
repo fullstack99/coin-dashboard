@@ -8,7 +8,7 @@ import Copyright from "./components/Copyright"
 import LogoWrapper from "./components/LogoWrapper"
 import FooterNav from "./components/FooterNav"
 
-import Logo from "@images/logo-small.svg"
+import Logo from "@svg/logo-small.svg"
 
 // TODO: Remove sticky footer hack when enough content
 const StyledFooter = styled.section`
