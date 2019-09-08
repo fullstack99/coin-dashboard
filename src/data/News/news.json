@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "title": "Coins"
+    },
+    {
+      "title": "Sources"
+    },
+    {
+      "title": "Featured Articles"
+    },
+    {
+      "title": "Latest Articles"
+    },
+    {
+      "title": "Select Sector"
+    }
+  ],
+  "topNews": [
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "imgAlt": "some description here!",
+      "iconSrc": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "title": "Crypto News Example Head Line 2",
+      "time": "45 minutes ago"
+    },
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "imgAlt": "some description here!",
+      "iconSrc": "http://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Ripple-XRP-icon.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 3",
+      "time": "45 minutes ago"
+    }
+  ],
+  "secondaryNews": [
+    {
+      "iconSrc": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 1",
+      "tags": [
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    },
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "iconSrc": "http://www.iconarchive.com/download/i109533/cjdowner/cryptocurrency-flat/Ethereum-Classic-ETC.ico",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 2",
+      "tags": [
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    },
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "iconSrc": "http://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Ripple-XRP-icon.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 3",
+      "tags": [
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    }
+  ],
+  "tertiaryNews": [
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    }
+  ]
+}

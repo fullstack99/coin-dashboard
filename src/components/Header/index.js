@@ -9,7 +9,7 @@ import Search from "./components/Search"
 import NavigationDesktop from "./components/NavigationDesktop"
 import TopNav from "./components/TopNav"
 
-import Logo from "@images/logo-small.svg"
+import Logo from "@svg/logo-small.svg"
 
 const Header = styled(() => (
   <Container fluid>

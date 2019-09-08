@@ -68,7 +68,7 @@ const GetTickerData = () => {
       {loading ? (
         <div
           css={{
-            width: "750px",
+            width: "775px",
             visibility: "hidden"
           }}
         >
@@ -79,7 +79,7 @@ const GetTickerData = () => {
       ) : (
         <div
           css={{
-            width: "750px"
+            width: "775px"
           }}
         >
           <TickerItem

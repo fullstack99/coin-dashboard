@@ -17,7 +17,7 @@ import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
 
 const BtcPage = ({ data }) => {
-  const ref = createRef();
+  const ref = createRef()
 
   const [selected, setSelected] = useState(false)
 
@@ -34,13 +34,11 @@ const BtcPage = ({ data }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      const script = document.createElement("script")
 
-
-
-      const script = document.createElement("script");
-
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
-      script.async = true;
+      script.src =
+        "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+      script.async = true
 
       script.innerHTML = {
         symbol: "BITSTAMP:BTCUSD",
@@ -58,17 +56,10 @@ const BtcPage = ({ data }) => {
 
       // document.body.appendChild(script);
 
-
-
-
       setSelected(true)
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
-
-
-
-
 
   return (
     <Layout>
