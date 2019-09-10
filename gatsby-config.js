@@ -5,10 +5,9 @@ module.exports = {
     author: `@CoinGenius`,
     navigation: [
       {
-        url: "#",
+        url: "/market",
         label: "Market",
         disabled: true,
-        active: true
       },
       {
         url: "/",
@@ -16,27 +15,27 @@ module.exports = {
         disabled: true
       },
       {
-        url: "#",
+        url: "/sentiment",
         label: "Sentiment",
         disabled: true
       },
       {
-        url: "#",
+        url: "/news",
         label: "News",
         disabled: true
       },
       {
-        url: "/",
+        url: "/resources",
         label: "Resources",
         disabled: true
       },
       {
-        url: "#",
+        url: "/community",
         label: "Community",
         disabled: true
       },
       {
-        url: "#",
+        url: "/media",
         label: "Media",
         disabled: true
       }

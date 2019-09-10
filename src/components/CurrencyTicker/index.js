@@ -5,63 +5,55 @@ import axios from "axios"
 
 import TickerItem from "./components/TickerItem"
 
-import useApi, { REST_API_ENDPOINTS, TOP_BY_MARKET_URL } from "@hooks/use-api"
 import useFormat, { PERCENTAGE, GROUP_DIGITS } from "@hooks/use-format"
 
-const TickerWrapper = styled.div`
-  background-color: #475ff2;
-  color: #fff;
-  height: 56px;
-  padding: 16px 0;
-`
-
 const GetTickerData = () => {
-  const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
     totalMarketCap: null,
     totalVol24: null,
     btcDominance: null
   })
 
+  const [loading, setIsLoading] = useState(false)
+
+  const [isError, setIsError] = useState(false)
+
   useEffect(() => {
-    setLoading(true)
+    const fetchData = async () => {
+      setIsError(false)
+      setIsLoading(true)
 
-    const CancelToken = axios.CancelToken
-    const source = CancelToken.source()
+      try {
+        const result = await axios(
+          "https://s2.coinmarketcap.com/generated/stats/global.json"
+        )
 
-    const loadData = async () => {
-      await useApi(REST_API_ENDPOINTS.TOP_BY_MARKET, {
-        url: TOP_BY_MARKET_URL
-      })
-        .then(result => {
-          setLoading(false)
-          const { data, status } = result || {}
-          if (status !== 200) {
-            setError("There was an error loading this content")
-          } else {
-            const {
-              total_market_cap_by_available_supply_usd,
-              total_volume_usd,
-              bitcoin_percentage_of_market_cap
-            } = data || {}
-            setData({
-              totalMarketCap: total_market_cap_by_available_supply_usd,
-              totalVol24: total_volume_usd,
-              btcDominance: bitcoin_percentage_of_market_cap
-            })
-          }
+        const {
+          total_market_cap_by_available_supply_usd,
+          total_volume_usd,
+          bitcoin_percentage_of_market_cap
+        } = result.data || {}
+
+        setData({
+          totalMarketCap: total_market_cap_by_available_supply_usd,
+          totalVol24: total_volume_usd,
+          btcDominance: bitcoin_percentage_of_market_cap
         })
-        .catch(error => {
-          setLoading(false)
-          setError("There was an error loading this content")
-          console.error(error)
-        })
+      } catch (error) {
+        setIsError(true)
+      }
+
+      setIsLoading(false)
     }
 
-    loadData()
-    return () => source.cancel()
+    fetchData()
   }, [])
+
+  const formattedTotalMarketCap = useFormat(data.totalMarketCap, GROUP_DIGITS)
+
+  const formattedTotalVol24 = useFormat(data.totalVol24, GROUP_DIGITS)
+
+  const formattedBtcDominance = useFormat(data.btcDominance, PERCENTAGE)
 
   return (
     <>
@@ -74,8 +66,8 @@ const GetTickerData = () => {
         >
           Loading...
         </div>
-      ) : error ? (
-        error
+      ) : isError ? (
+        <div>There was an error loading this content</div>
       ) : (
         <div
           css={{
@@ -84,17 +76,17 @@ const GetTickerData = () => {
         >
           <TickerItem
             label="Market Cap $"
-            value={useFormat(data.totalMarketCap, GROUP_DIGITS)}
+            value={formattedTotalMarketCap}
             placeholder="xxx,xxx,xxx,xxx.xx"
           />
           <TickerItem
             label="24 Hours Trade Volume $"
-            value={useFormat(data.totalVol24, GROUP_DIGITS)}
+            value={formattedTotalVol24}
             placeholder="xxx,xxx,xxx,xxx.xx"
           />
           <TickerItem
             label="BTC Dominance "
-            value={useFormat(data.btcDominance, PERCENTAGE)}
+            value={formattedBtcDominance}
             placeholder="xx.xx"
           />
         </div>
@@ -103,14 +95,15 @@ const GetTickerData = () => {
   )
 }
 
-const CurrencyTicker = () => {
-  return (
-    <TickerWrapper>
-      <Ticker speed={5}>{() => <GetTickerData />}</Ticker>
-    </TickerWrapper>
-  )
-}
-
-CurrencyTicker.defaultProps = { Data: {} }
+const CurrencyTicker = styled(({ className }) => (
+  <div className={className}>
+    <Ticker speed={5}>{() => <GetTickerData />}</Ticker>
+  </div>
+))`
+  background-color: #475ff2;
+  color: #fff;
+  height: 56px;
+  padding: 16px 0;
+`
 
 export default CurrencyTicker

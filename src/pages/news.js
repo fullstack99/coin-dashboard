@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -10,19 +10,25 @@ import CurrencyTicker from "@components/CurrencyTicker"
 import ButtonsGroup from "@components/ButtonsGroup"
 import Button from "@components/Button"
 import Card from "@components/Card"
+import Carousel from "@components/Carousel"
 import NewsPrimary from "@components/NewsPrimary"
 import NewsSecondary from "@components/NewsSecondary"
 import NewsTertiary from "@components/NewsTertiary"
 
 const NewsPage = ({ data }) => {
   const [selected, setSelected] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
 
   const {
     categories,
-    topNews,
-    secondaryNews,
-    tertiaryNews
+    newsPrimary,
+    newsSecondary,
+    newsTertiary
   } = data.allNewsJson.edges[0].node
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [data.allNewsJson.edges[0].node])
 
   return (
     <Layout>
@@ -46,22 +52,28 @@ const NewsPage = ({ data }) => {
             </ButtonsGroup>
           </Col>
         </Row>
-        <Row>
-          {topNews.map((news, index) => (
-            <Col md={4} key={index} className="position-relative mb-5">
-              <NewsPrimary data={news} />
-            </Col>
-          ))}
+        <Row className="mb-5 mb-md-3">
+          {!isLoading ? (
+            <Carousel>
+              {newsPrimary.map((news, index) => (
+                <Col key={index}>
+                  <NewsPrimary data={news} className="mb-5" />
+                </Col>
+              ))}
+            </Carousel>
+          ) : (
+            <div>Loading</div>
+          )}
         </Row>
         <Row>
           <Col lg={8} xl={9} className="position-relative">
-            {secondaryNews.map((news, index) => (
+            {newsSecondary.map((news, index) => (
               <NewsSecondary key={index} data={news} className="mb-5" />
             ))}
           </Col>
           <Col lg={4} xl={3}>
             <Card title="Top Stories">
-              {tertiaryNews.map((news, index) => (
+              {newsTertiary.map((news, index) => (
                 <NewsTertiary key={index} data={news} />
               ))}
             </Card>
@@ -80,14 +92,16 @@ export const query = graphql`
           categories {
             title
           }
-          topNews {
+          newsPrimary {
+            url
             imgSrc
             iconSrc
             iconAlt
             title
             time
           }
-          secondaryNews {
+          newsSecondary {
+            url
             imgSrc
             iconSrc
             iconAlt
@@ -98,7 +112,8 @@ export const query = graphql`
             description
             time
           }
-          tertiaryNews {
+          newsTertiary {
+            url
             imgSrc
             title
             time

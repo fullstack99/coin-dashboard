@@ -5,8 +5,8 @@ import BackgroundImage from "@components/BackgroundImage"
 import NewsTitle from "@components/NewsTitle"
 import Time from "@components/Time"
 
-const NewsTertiary = styled(({ data: { imgSrc, title, time }, className }) => (
-  <a href="#" className={`d-flex ${className}`}>
+const NewsTertiary = styled(({ data: { url, imgSrc, title, time }, className }) => (
+  <a href={url} className={`d-flex ${className}`}>
     <BackgroundImage src={imgSrc} type="tertiary" className="mr-3" />
     <div>
       <NewsTitle text={title} className="mb-2" />

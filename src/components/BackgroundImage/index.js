@@ -38,11 +38,11 @@ const BackgroundImage = styled(({ src, className }) => (
     }
 
     @media (min-width: 992px) {
-      height: 250px;
+      height: 200px;
     }
 
     @media (min-width: 1200px) {
-      height: 300px;
+      height: 250px;
     }
   `}
 
