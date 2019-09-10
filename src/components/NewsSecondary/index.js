@@ -14,13 +14,13 @@ import ReadNow from "./components/ReadNow"
 
 const NewsSecondary = styled(
   ({
-    data: { title, imgSrc, iconSrc, iconAlt, tags, description, time },
+    data: { url, title, imgSrc, iconSrc, iconAlt, tags, description, time },
     className
   }) => {
     return (
       <Row className={className}>
         <Col md={4} lg={3}>
-          <a href="#">
+          <a href={url}>
             <CoinIcon src={iconSrc} alt={iconAlt} />
             <BackgroundImage src={imgSrc} type="secondary" />
           </a>

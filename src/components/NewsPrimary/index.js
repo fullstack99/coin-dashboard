@@ -7,9 +7,9 @@ import NewsTitle from "@components/NewsTitle"
 import Time from "@components/Time"
 
 const NewsPrimary = styled(
-  ({ data: { imgSrc, iconSrc, iconAlt, title, time }, className }) => {
+  ({ data: { url, imgSrc, iconSrc, iconAlt, title, time }, className }) => {
     return (
-      <a href="#" className={`d-block ${className}`}>
+      <a href={url} className={`d-block ${className}`}>
         <CoinIcon src={iconSrc} alt={iconAlt} />
         <BackgroundImage src={imgSrc} type="primary" />
         <NewsTitle text={title} />

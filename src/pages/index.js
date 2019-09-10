@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-// components
 import Layout from "@components/Layout"
 import SEO from "@components/Seo"
 import CurrencyTicker from "@components/CurrencyTicker"
@@ -39,6 +38,7 @@ const Categories = [
   "Interoperability",
   "Privacy Coins"
 ]
+
 const gridMapper = [
   { title: "Biggest Gainers", cryptoCurrencies: BiggestGainers },
   { title: "Biggest Losers", cryptoCurrencies: BiggestLosers },
