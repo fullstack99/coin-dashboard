@@ -1,19 +1,29 @@
 {
   "categories": [
     {
-      "title": "Coins"
+      "text": "Featured",
+      "title": "View Featured data",
+      "url": "/news/"
     },
     {
-      "title": "Sources"
+      "text": "Coins",
+      "title": "View Coins data",
+      "url": "/news/coins"
     },
     {
-      "title": "Featured Articles"
+      "text": "Sources",
+      "title": "View Sources data",
+      "url": "/news/sources"
     },
     {
-      "title": "Latest Articles"
+      "text": "Latest Articles",
+      "title": "View Latest Articles data",
+      "url": "/news/latest"
     },
     {
-      "title": "Select Sector"
+      "text": "Sector",
+      "title": "View Sectors data",
+      "url": "/news/sectors"
     }
   ],
   "newsPrimary": [
