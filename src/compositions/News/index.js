@@ -65,7 +65,7 @@ const News = ({ node, section }) => {
 
   // IF PAGE NOT FOUND
   if ([FEATURED, COINS, SOURCES, LATEST, SECTORS].indexOf(section) === -1) {
-    navigate(FEATURED)
+    navigate(`/news/${FEATURED}`)
     return null
   }
   return (
