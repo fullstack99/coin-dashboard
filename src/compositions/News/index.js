@@ -76,14 +76,6 @@ const News = ({ node, section }) => {
       ) : (
         <>
           <Overview
-            icon={
-              <CoinIcon
-                position="relative"
-                size={40}
-                src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png"
-                alt="BTC"
-              />
-            }
             title={title}
             description={description}
             currentSection={section}
