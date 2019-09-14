@@ -33,5 +33,12 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+
+  if (page.path.match(/^\/markets/)) {
+    page.matchPath = '/markets/*'
+
+    // Update the page.
+    createPage(page)
+  }
 }
 

@@ -3,8 +3,9 @@ import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+
+// components
 import Layout from "@components/Layout"
-import CurrencyTicker from "@components/CurrencyTicker"
 import Block from "@components/Block"
 import Trending from "@components/Trending"
 import Social from "@components/Social"
@@ -15,8 +16,31 @@ import TextValueCaret from "@components/TextValueCaret"
 import TradingView from "@components/TradingView"
 import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
+import Overview from "@components/Overview"
+import CoinIcon from "@components/CoinIcon"
 
-const BtcPage = ({ data }) => {
+export const ALL_MARKETS = 'all-markets'
+export const ANOTHER_SECTOR = 'another-sector'
+
+const Categories = [
+  {
+    text: "All Markets",
+    title: "View All Markets data",
+    url: `/coins/BTC/${ALL_MARKETS}`
+  },
+  {
+    text: "BTC Coin",
+    title: "View BTC coin data",
+    url: `/coins/BTC/`
+  },
+  {
+    text: "Sector Y",
+    title: "View Sector Y data",
+    url: `/coins/BTC/${ANOTHER_SECTOR}`
+  }
+]
+
+const BtcPage = ({ data, location }) => {
   const ref = createRef()
 
   const [selected, setSelected] = useState(false)
@@ -63,10 +87,21 @@ const BtcPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="mb-5">
-        <CurrencyTicker />
-      </div>
-      <Container fluid>
+      <Overview
+        icon={
+          <CoinIcon
+            position="relative"
+            size={40}
+            src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png"
+            alt="BTC"
+          />
+        }
+        title="Bitcoin - BTC"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        sections={Categories}
+        location={location}
+      />
+      <Container fluid className="pt-5">
         <Row className="justify-content-md-center mb-5">
           <Col sm={12} md={12}>
             <Row className="mb-5">
