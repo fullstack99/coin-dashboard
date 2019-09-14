@@ -52,7 +52,7 @@ const TabLink = ({ to, text, title, isActive }) => {
   return (
     <StyledLink
       className={cx(
-        "text-sm-center",
+        "text-center",
         "text-decoration-none",
         "position-relative",
         {

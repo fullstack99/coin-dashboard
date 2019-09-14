@@ -19,6 +19,8 @@ export const query = graphql`
     allNewsJson {
       edges {
         node {
+          title
+          description
           categories {
             text
             title

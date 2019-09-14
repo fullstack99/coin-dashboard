@@ -2,6 +2,9 @@ import React from "react"
 import styled from "@emotion/styled"
 import Slider from "react-slick"
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Carousel = styled(({className, children}) => {
   const settings = {
     arrows: false,
@@ -12,15 +15,17 @@ const Carousel = styled(({className, children}) => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 1
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 480,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1
         }
       }
     ]
@@ -36,13 +41,11 @@ const Carousel = styled(({className, children}) => {
 
   .slick-track {
     display: flex;
+  }
 
-    .slick-slider {
-      align-items: center;
-      display: flex;
-      height: auto;
-      justify-content: center;
-      margin-bottom: 20px;
+  .slick-slide {
+    .col {
+      margin-top: 15px;
     }
   }
 

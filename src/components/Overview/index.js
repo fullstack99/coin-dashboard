@@ -1,69 +1,107 @@
 import React from "react"
-import styled from "@emotion/styled"
 import cx from "classnames"
-import { array, string } from "prop-types"
+import { array, string, node } from "prop-types"
+import styled from "styled-components"
 import Container from "react-bootstrap/Container"
 
 // components
-import CoinIcon from "@components/CoinIcon"
+import Wrapper from "./components/Wrapper"
 import Title from "./components/Title"
+import Paragraph from "./components/Paragraph"
 import TabLink from "./components/TabLink"
 
-const Wrapper = styled.div`
-  background: #262d3f;
-  padding-top: 60px;
+const TabsContainer = styled.div``
+
+const TabsNav = styled.nav`
+  flex-wrap: nowrap;
+  list-style: none;
+  margin-bottom: 0;
+  order: 2;
+  overflow-x: scroll;
+  padding-left: 0;
+  position: relative;
+
+  &:after {
+    background-image: linear-gradient(90deg, transparent, #262d3e);
+    content: " ";
+    height: 40px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    width: 100px;
+  }
+
+  @media (min-width: 768px) {
+    flex-wrap: inherit;
+    order: 1;
+    overflow-x: inherit;
+    position: relative;
+
+    &:after {
+      content: none;
+    }
+  }
 `
+const CallToActionContainer = styled.div`
+  order: 1;
 
-const Paragraph = styled.p`
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 0.24px;
-  line-height: 18px;
-  padding-right: 2rem;
-
-  @media (min-width: 992px) {
-    width: 43%;
+  @media (min-width: 768px) {
+    order: 2;
   }
 `
 
-const Overview = ({ sections, currentSection }) => (
+const Overview = ({
+  sections,
+  currentSection,
+  icon,
+  title,
+  description,
+  callToAction
+}) => (
   <Wrapper>
     <Container fluid className={cx("d-flex", "flex-column")}>
       <div className="d-flex">
-        <CoinIcon
-          position="relative"
-          size={40}
-          src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png"
-          alt="BTC"
-        />
-        <Title className="ml-2 text-white">Bitcoin - BTC</Title>
+        {icon}
+        <Title className={cx("text-white", { "ml-2": !!icon })}>{title}</Title>
       </div>
-      <Paragraph className="pb-5 mb-3">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam.
-      </Paragraph>
-      <nav className="nav flex-column flex-sm-row">
-        {sections.map((item, index) => (
-          <TabLink
-            isActive={item.url === `/news/${currentSection}`}
-            key={index}
-            to={item.url}
-            text={item.text}
-            title={`View ${item.text} data`}
-          />
-        ))}
-      </nav>
+      <Paragraph className="pb-5 mb-3">{description}</Paragraph>
+      <TabsContainer className="d-flex flex-column flex-md-row justify-content-between">
+        <TabsNav className="d-flex flex-row">
+          {sections.map((item, index) => (
+            <TabLink
+              isActive={item.url === `/news/${currentSection}`}
+              key={index}
+              to={item.url}
+              text={item.text}
+              title={`View ${item.text} data`}
+            />
+          ))}
+        </TabsNav>
+        {callToAction && (
+          <CallToActionContainer className="position-relative">
+            {callToAction}
+          </CallToActionContainer>
+        )}
+      </TabsContainer>
     </Container>
   </Wrapper>
 )
 
 Overview.propTypes = {
   sections: array,
-  currentSection: string
+  currentSection: string,
+  title: string,
+  icon: node,
+  description: string,
+  callToAction: node
 }
 Overview.defaultProps = {
   sections: [],
-  currentSection: null
+  currentSection: null,
+  title: null,
+  icon: null,
+  description: null,
+  callToAction: null
 }
 
 export default Overview
