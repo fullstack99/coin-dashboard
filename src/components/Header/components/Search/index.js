@@ -1,4 +1,5 @@
 import React from "react"
+import cx from "classnames"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
@@ -7,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup"
 import FormControl from "react-bootstrap/FormControl"
 
 const Search = styled(({ className }) => (
-  <Form className={className}>
+  <Form className={cx('d-none', 'd-md-block', className)}>
     <InputGroup>
       <InputGroup.Prepend>
         <InputGroup.Text id="basic-addon1">
