@@ -1,6 +1,6 @@
 import React from "react"
 import cx from "classnames"
-import { array, string, node } from "prop-types"
+import { array, string, node, any } from "prop-types"
 import styled from "styled-components"
 import Container from "react-bootstrap/Container"
 
@@ -51,8 +51,8 @@ const CallToActionContainer = styled.div`
 `
 
 const Overview = ({
+  location,
   sections,
-  currentSection,
   icon,
   title,
   description,
@@ -69,7 +69,7 @@ const Overview = ({
         <TabsNav className="d-flex flex-row">
           {sections.map((item, index) => (
             <TabLink
-              isActive={item.url === `/news/${currentSection}`}
+              isActive={item.url === location.pathname}
               key={index}
               to={item.url}
               text={item.text}
@@ -88,8 +88,8 @@ const Overview = ({
 )
 
 Overview.propTypes = {
+  location: any.isRequired,
   sections: array,
-  currentSection: string,
   title: string,
   icon: node,
   description: string,
@@ -97,7 +97,6 @@ Overview.propTypes = {
 }
 Overview.defaultProps = {
   sections: [],
-  currentSection: null,
   title: null,
   icon: null,
   description: null,

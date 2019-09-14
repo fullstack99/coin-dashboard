@@ -6,7 +6,6 @@ import { string, any } from "prop-types"
 import Layout from "@components/Layout"
 import SEO from "@components/Seo"
 import Overview from "@components/Overview"
-import CoinIcon from "@components/CoinIcon"
 import Subscribe from "@components/Subscribe"
 
 import Featured from "./components/Featured"
@@ -21,7 +20,7 @@ export const SOURCES = "sources"
 export const LATEST = "latest"
 export const SECTORS = "sectors"
 
-const SectionComponent = props => {
+const PolyComponent = props => {
   const { section, node } = props // eslint-disable-line react/prop-types
   const Sections = {
     [FEATURED]: Featured,
@@ -55,8 +54,9 @@ const SubscribeAbsolute = styled(Subscribe)`
   }
 `
 
-const News = ({ node, section }) => {
+const News = ({ node, section, location }) => {
   const [isLoading, setIsLoading] = useState(false)
+  console.log({ location, section })
 
   const { categories, title, description } = node
   useEffect(() => {
@@ -78,11 +78,11 @@ const News = ({ node, section }) => {
           <Overview
             title={title}
             description={description}
-            currentSection={section}
+            location={location}
             sections={categories}
             callToAction={<SubscribeAbsolute>Subscribe +</SubscribeAbsolute>}
           />
-          <SectionComponent section={section} node={node} />
+          <PolyComponent section={section} node={node} />
         </>
       )}
     </Layout>
