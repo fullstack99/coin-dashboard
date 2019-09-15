@@ -45,7 +45,6 @@ const SubscribeAbsolute = styled(Subscribe)`
 
   @media (min-width: 768px) {
     bottom: 0;
-    box-sizing: border-box;
     font-size: 11px;
     padding-left: 8px;
     padding-right: 8px;
