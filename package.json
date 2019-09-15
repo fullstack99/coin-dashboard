@@ -16,7 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@reach/router": "^1.2.1",
     "axios": "^0.19.0",
-    "babel-plugin-styled-components": "^1.10.1",
+    "babel-plugin-styled-components": "^1.10.6",
     "bootstrap": "^4.3.1",
     "chart.js": "^1.1.1",
     "classnames": "^2.2.6",
@@ -59,6 +59,7 @@
     "typography-theme-ocean-beach": "^0.16.19"
   },
   "devDependencies": {
+    "dotenv": "^8.1.0",
     "prettier": "^1.18.2",
     "ts-pnp": "^1.1.2"
   },
@@ -73,7 +74,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "gatsby-plugin-s3 deploy"
+    "deploy": "npx -n \"-r dotenv/config\" gatsby-plugin-s3 deploy"
   },
   "repository": {
     "type": "git",
