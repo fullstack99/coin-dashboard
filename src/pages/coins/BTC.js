@@ -18,6 +18,7 @@ import Barchart from "@components/Barchart"
 import Doughnut from "@components/Doughnut"
 import Overview from "@components/Overview"
 import CoinIcon from "@components/CoinIcon"
+import ResponsiveMiniChart from "@components/ResponsiveMiniChart"
 
 export const ALL_MARKETS = 'all-markets'
 export const ANOTHER_SECTOR = 'another-sector'
@@ -64,21 +65,21 @@ const BtcPage = ({ data, location }) => {
         "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
       script.async = true
 
-      script.innerHTML = {
-        symbol: "BITSTAMP:BTCUSD",
+      script.innerHTML = JSON.stringify({
+        symbol: "COINBASE:BTCUSD",
         width: 350,
         height: 220,
         locale: "en",
         dateRange: "12m",
         colorTheme: "dark",
-        trendLineColor: "#37a6ef",
-        underLineColor: "rgba(55, 166, 239, 0.15)",
-        isTransparent: false,
+        trendLineColor: "#475FF2",
+        underLineColor: "rgba(98, 101, 241, 0.15)",
+        isTransparent: true,
         autosize: false,
         largeChartUrl: ""
-      }
+      })
 
-      // document.body.appendChild(script);
+      document.getElementsByClassName("tradingview-widget-container__widget")[0].appendChild(script)
 
       setSelected(true)
     }, 1000)
@@ -107,7 +108,9 @@ const BtcPage = ({ data, location }) => {
             <Row className="mb-5">
               <Col xs={6} lg={4} xl={2}>
                 <div className="tradingview-widget-container" ref={ref}>
-                  <div className="tradingview-widget-container__widget"></div>
+                  <ResponsiveMiniChart>
+                    <div className="tradingview-widget-container__widget"></div>
+                  </ResponsiveMiniChart>
                 </div>
               </Col>
               {general.map((item, index) => (
