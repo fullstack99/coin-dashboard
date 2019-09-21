@@ -16,6 +16,15 @@ const NavItem = styled.li`
   float: left;
   margin: 0;
 
+  a {
+    display: flex;
+    line-height: 14px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &:last-child {
     a,
     p {
@@ -33,7 +42,7 @@ const NavigationDesktop = () => {
         {navigation.map((item, index) => {
           return (
             <NavItem key={index}>
-              {item.disabled === false ? (
+              {!item.disabled ? (
                 <Link className="navigation" to={item.url}>
                   {item.label}
                 </Link>

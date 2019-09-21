@@ -100,10 +100,11 @@ const CurrencyTicker = styled(({ className }) => (
     <Ticker speed={5}>{() => <GetTickerData />}</Ticker>
   </div>
 ))`
-  background-color: #475ff2;
+  background-color: #222636;
   color: #fff;
   height: 56px;
   padding: 16px 0;
+  opacity: 0.7;
 `
 
 export default CurrencyTicker
