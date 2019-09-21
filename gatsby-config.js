@@ -12,7 +12,6 @@ module.exports = {
       {
         url: "/",
         label: "Index",
-        disabled: true
       },
       {
         url: "/sentiment",
@@ -22,7 +21,6 @@ module.exports = {
       {
         url: "/news",
         label: "News",
-        disabled: true
       },
       {
         url: "/resources",
@@ -38,6 +36,10 @@ module.exports = {
         url: "/media",
         label: "Media",
         disabled: true
+      },
+      {
+        url: "/contact",
+        label: "Contact",
       }
     ],
     socials: [
