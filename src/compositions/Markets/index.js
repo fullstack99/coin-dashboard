@@ -6,58 +6,77 @@ import SEO from "@components/Seo"
 import Overview from "@components/Overview"
 
 import AllMarkets from "./components/AllMarkets"
-import CoinsMarkets from "./components/CoinsMarkets"
-import SectorTemplate from "./components/SectorTemplate"
-
-export const ALL_MARKETS = ""
-export const COINS = "coins"
-export const ANOTHER_SECTOR = "another-sector"
-export const SECTORS = "sectors"
-
-const PolyComponent = props => {
-  const { section } = props // eslint-disable-line react/prop-types
-  const Sections = {
-    [ALL_MARKETS]: AllMarkets,
-    [COINS]: CoinsMarkets,
-    [ANOTHER_SECTOR]: SectorTemplate
-  }
-  const WrappedComponent = Sections[section] || null
-  if (!WrappedComponent) return null
-  return <WrappedComponent />
-}
 
 const Categories = [
   {
-    text: "All Markets",
-    title: "View All Markets data",
-    url: `/${ALL_MARKETS}`
+    text: "Biggest Gainers",
+    title: "View Biggest Gainers data",
+    url: "/"
   },
   {
-    text: "Coins",
-    title: "View Coins data",
-    url: `/markets/${COINS}`
+    text: "Biggest Losers",
+    title: "View Biggest Losers data",
+    url: "/markets/biggest-losers"
   },
   {
-    text: "Sector Y",
-    title: "View Sector Y data",
-    url: `/markets/${ANOTHER_SECTOR}`
+    text: "Highest Volume",
+    title: "View Highest Volume data",
+    url: "/markets/highest-volume"
+  },
+  {
+    text: "Top 10",
+    title: "View Top 10 data",
+    url: "/markets/top-10"
+  },
+  {
+    text: "Large Market Cap Sector",
+    title: "View Large Market Cap Sector data",
+    url: "/markets/large-market-cap-sector"
+  },
+  {
+    text: "Stablecoins",
+    title: "View Stablecoins data",
+    url: "/markets/stablecoins"
+  },
+  {
+    text: "Tokens",
+    title: "View Tokens data",
+    url: "/markets/tokens"
+  },
+  {
+    text: "SmartContracts",
+    title: "View SmartContracts data",
+    url: "/markets/smart-contracts"
+  },
+  {
+    text: "Interoperability",
+    title: "View Interoperability data",
+    url: "/markets/interoperability"
+  },
+  {
+    text: "Privacy Coins",
+    title: "View Privacy Coins data",
+    url: "/markets/privacy-coins"
   }
 ]
-const Markets = ({ section, location }) => (
-  <Layout>
-    <SEO
-      title="Market and sentiment crypto trading analysis | Coingenius"
-      description="CoinGenius is helping the world trade smarter by providing real time crypto trading market and sentiment analysis"
-    />
-    <Overview
-      title="Market Index"
-      description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-      sections={Categories}
-      location={location}
-    />
-    <PolyComponent section={section} />
-  </Layout>
-)
+const Markets = ({ location }) => {
+  const selected = Categories.find(item => item.url === location.pathname)
+  return (
+    <Layout>
+      <SEO
+        title="Market and sentiment crypto trading analysis | Coingenius"
+        description="CoinGenius is helping the world trade smarter by providing real time crypto trading market and sentiment analysis"
+      />
+      <Overview
+        title="Market Index"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        sections={Categories}
+        location={location}
+      />
+      <AllMarkets section={selected.text}/>
+    </Layout>
+  )
+}
 
 Markets.propTypes = {
   location: any,
@@ -65,7 +84,7 @@ Markets.propTypes = {
 }
 Markets.defaultProps = {
   location: {},
-  section: ALL_MARKETS
+  section: ""
 }
 
 export default Markets
