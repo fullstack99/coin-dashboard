@@ -1,11 +1,10 @@
 import React, { useState } from "react"
+import { string } from "prop-types"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 import CryptoMarket from "@components/CryptoMarket"
-import ButtonsGroup from "@components/ButtonsGroup"
-import Button from "@components/Button"
 import CoinsTable from "@components/CoinsTable"
 import TradingView from "@components/TradingView"
 
@@ -22,19 +21,6 @@ import {
   Interoperability,
   PrivacyCoins
 } from "@utils/constants"
-
-const Categories = [
-  "Biggest Gainers",
-  "Biggest Losers",
-  "Highest Volume",
-  "Top 10",
-  "Large Market Cap Sector",
-  "Stablecoins",
-  "Tokens",
-  "Smart Contracts",
-  "Interoperability",
-  "Privacy Coins"
-]
 
 const gridMapper = [
   { title: "Biggest Gainers", cryptoCurrencies: BiggestGainers },
@@ -57,9 +43,9 @@ const renderGridMapper = ({ selected, selectedCoin, onClick }) => {
   )
 }
 
-const AllMarkets = () => {
+const AllMarkets = ({ section }) => {
   const [coinSelected, setCoinSelected] = useState({})
-  const [selected, setSelected] = useState(0)
+  const selected = gridMapper.findIndex(item => item.title === section)
   const onClick = (info, crypto) => {
     setCoinSelected({ info, crypto })
   }
@@ -69,25 +55,6 @@ const AllMarkets = () => {
       <Row className="justify-content-md-center">
         <Col sm={11} md={8} lg={7} xl={5}>
           <CryptoMarket currency={AllCurrency} />
-        </Col>
-      </Row>
-      <Row className="justify-content-md-center">
-        <Col md={10} lg={8}>
-          <ButtonsGroup>
-            {Categories.map((title, index) => (
-              <Button
-                key={index}
-                onClick={() => {
-                  const { info, crypto } = coinSelected
-                  setSelected(index)
-                  setCoinSelected({ info, crypto })
-                }}
-                active={selected === index}
-              >
-                {title}
-              </Button>
-            ))}
-          </ButtonsGroup>
         </Col>
       </Row>
       <Row>
@@ -134,6 +101,10 @@ const AllMarkets = () => {
         </Row> */}
     </Container>
   )
+}
+
+AllMarkets.propTypes = {
+  section: string.isRequired
 }
 
 export default AllMarkets
