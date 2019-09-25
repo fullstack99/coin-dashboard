@@ -7,7 +7,9 @@ import Separator from "@components/Separator"
 const Contact = styled(({ name, email, phone, className }) => (
   <div className={className}>
     <h2>{name}</h2>
-    <p className="mb-3">{email}</p>
+    <a href={`mailto:${email}`} className="mb-3" target="_blank">
+      {email}
+    </a>
     {/* <p className="mb-3">{phone}</p> */}
     <Separator />
   </div>
@@ -21,22 +23,23 @@ const Contact = styled(({ name, email, phone, className }) => (
     margin-bottom: 6px;
   }
 
-  p {
+  a {
     color: #5d6c76;
+    display: block;
     font-size: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 6px !important;
   }
 `
 
 Contact.propTypes = {
   name: string,
-  email: string,
+  email: string
   // phone: string
 }
 
 Contact.defaultProps = {
   name: null,
-  email: null,
+  email: null
   // phone: null
 }
 
