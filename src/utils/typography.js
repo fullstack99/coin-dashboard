@@ -70,6 +70,14 @@ const typography = new Typography({
       ".navigation.disabled.active:hover": {
         color: "#475ff2",
       },
+      "p,span": {
+        color: "#748aa1",
+        fontSize: "14px",
+        lineHeight: "1.25"
+      },
+      "p": {
+        marginBottom: "20px"
+      }
     }
   }
 })

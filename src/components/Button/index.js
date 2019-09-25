@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { bool } from "prop-types"
 
-import ButtonContainer from './components/ButtonContainer'
+import ButtonContainer from "./components/ButtonContainer"
 
 const Button = styled(({ className, ...rest }) => (
   <div className={className}>
@@ -13,7 +13,7 @@ const Button = styled(({ className, ...rest }) => (
 `
 
 Button.propTypes = {
-  active: bool,
+  active: bool
 }
 
 Button.defaultProps = { active: false }

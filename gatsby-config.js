@@ -5,40 +5,41 @@ module.exports = {
     author: `@CoinGenius`,
     navigation: [
       {
-        url: "#",
+        url: "/market",
         label: "Market",
         disabled: true,
-        active: true
       },
       {
         url: "/",
         label: "Index",
-        disabled: true
       },
       {
-        url: "#",
+        url: "/sentiment",
         label: "Sentiment",
         disabled: true
       },
       {
-        url: "#",
+        url: "/news",
         label: "News",
-        disabled: true
       },
       {
-        url: "/",
+        url: "/resources",
         label: "Resources",
         disabled: true
       },
       {
-        url: "#",
+        url: "/community",
         label: "Community",
         disabled: true
       },
       {
-        url: "#",
+        url: "/media",
         label: "Media",
         disabled: true
+      },
+      {
+        url: "/contact",
+        label: "Contact",
       }
     ],
     socials: [
@@ -77,6 +78,13 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`
       }
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-s3`,
       options: {
@@ -88,7 +96,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: `${__dirname}/src/images/`
+          include: `${__dirname}/src/svg/`
         }
       }
     },
@@ -110,8 +118,14 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo.svg` // This path is relative to the root of the site.
+        icon: `src/svg/logo.svg` // This path is relative to the root of the site.
       }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

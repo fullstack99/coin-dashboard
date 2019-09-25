@@ -1,0 +1,19 @@
+{
+  "contact": [
+    {
+      "name": "For Investor Relations",
+      "email": "investors@geniusxv.com ",
+      "phone": "949-555-5555"
+    },
+    {
+      "name": "For Media & PR",
+      "email": "media@geniusxv.com ",
+      "phone": "949-555-5555"
+    },
+    {
+      "name": "For General Inquiries",
+      "email": "info@geniusxv.com",
+      "phone": "949-555-5555"
+    }
+  ]
+}
