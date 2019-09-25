@@ -11,7 +11,6 @@ export const useSiteMetadata = () => {
               url
               label
               disabled
-              active
             }
             socials {
               social

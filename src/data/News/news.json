@@ -1,0 +1,137 @@
+{
+  "title": "Crypto News",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  "categories": [
+    {
+      "text": "Featured",
+      "title": "View Featured data",
+      "url": "/news"
+    },
+    {
+      "text": "Coins",
+      "title": "View Coins data",
+      "url": "/news/coins"
+    },
+    {
+      "text": "Sources",
+      "title": "View Sources data",
+      "url": "/news/sources"
+    },
+    {
+      "text": "Latest Articles",
+      "title": "View Latest Articles data",
+      "url": "/news/latest"
+    },
+    {
+      "text": "Sector",
+      "title": "View Sectors data",
+      "url": "/news/sectors"
+    }
+  ],
+  "newsPrimary": [
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "imgAlt": "some description here!",
+      "iconSrc": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "title": "Crypto News Example Head Line 2",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "imgAlt": "some description here!",
+      "iconSrc": "http://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Ripple-XRP-icon.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 3",
+      "time": "45 minutes ago"
+    }
+  ],
+  "newsSecondary": [
+    {
+      "url": "/",
+      "iconSrc": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 1",
+      "tags": [
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "iconSrc": "http://www.iconarchive.com/download/i109533/cjdowner/cryptocurrency-flat/Ethereum-Classic-ETC.ico",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 2",
+      "tags": [
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "iconSrc": "http://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Ripple-XRP-icon.png",
+      "iconAlt": "some description here!",
+      "title": "Crypto News Example Head Line 3",
+      "tags": [
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        },
+        {
+          "tag": "Coins"
+        }
+      ],
+      "description": "Lorem ipsum dolor sit amet, ne his omittam iudicabit, ne cum legendos definiebas, mea melius signiferumque cu. Ius ne apeirian dissentias.",
+      "time": "45 minutes ago"
+    }
+  ],
+  "newsTertiary": [
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    },
+    {
+      "url": "/",
+      "imgSrc": "https://cdn.pixabay.com/photo/2018/09/19/23/03/sunset-3689760_960_720.jpg",
+      "title": "Crypto News Example Head Line 1",
+      "time": "45 minutes ago"
+    }
+  ]
+}

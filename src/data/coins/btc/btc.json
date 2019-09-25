@@ -1,0 +1,296 @@
+{
+  "general": [
+    {
+      "label": "Tru Value",
+      "value": "$10,313",
+      "pct": "5.25",
+      "move": "up"
+    },
+    {
+      "label": "Sentiment",
+      "value": "+7.2",
+      "pct": "5.25",
+      "move": "up"
+    },
+    {
+      "label": "Stability",
+      "value": "+7.2",
+      "pct": "5.25",
+      "move": "up"
+    },
+    {
+      "label": "Longevity",
+      "value": "+7.2",
+      "pct": "5.25",
+      "move": "up"
+    },
+    {
+      "label": "Community",
+      "value": "+7.2",
+      "pct": "5.25",
+      "move": "up"
+    }
+  ],
+  "sentiment": [
+    {
+      "label": "twitter",
+      "value": "7.2",
+      "pct": "1.2",
+      "move": "up"
+    },
+    {
+      "label": "reddit",
+      "value": "7.2",
+      "pct": "1.2",
+      "move": "up"
+    },
+    {
+      "label": "forums",
+      "value": "7.2",
+      "pct": "1.2",
+      "move": "up"
+    }
+  ],
+  "trending": [
+    {
+      "from": "Coindesk",
+      "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": "7.2"
+    },
+    {
+      "from": "Coin Telelgraph",
+      "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": "7.2"
+    },
+    {
+      "from": "CNBC",
+      "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": "7.2"
+    }
+  ],
+  "social": [
+    {
+      "username": "@theRealMacafee",
+      "type": "post",
+      "postedOn": "twitter",
+      "postedAt": "10min ago..",
+      "rating": "7.2"
+    },
+    {
+      "username": "@theRealMacafee",
+      "type": "post",
+      "postedOn": "facebook",
+      "postedAt": "32min ago..",
+      "rating": "7.2"
+    },
+    {
+      "username": "@theRealMacafee",
+      "type": "post",
+      "postedOn": "reddit",
+      "postedAt": "10min ago..",
+      "rating": "7.2"
+    },
+    {
+      "username": "@theRealMacafee",
+      "type": "stream",
+      "postedOn": "youtube",
+      "postedAt": "1hr ago..",
+      "rating": "7.2"
+    },
+    {
+      "username": "@theRealMacafee",
+      "type": "article",
+      "postedOn": "medium",
+      "postedAt": "10min ago..",
+      "rating": "7.2"
+    }
+  ],
+  "watchList": [
+    {
+      "label": "Bitcoin",
+      "value": "$10,317.41",
+      "move" : "up"
+    },
+    {
+      "label": "Etherem",
+      "value": "$310.33",
+      "move" : "down"
+    },
+    {
+      "label": "XRP",
+      "value": "$0.81",
+      "move" : "up"
+    },
+    {
+      "label": "Litecoin",
+      "value": "$92.92",
+      "move" : "down"
+    },
+    {
+      "label": "Bitcoin cash",
+      "value": "$313.42",
+      "move" : "up"
+    },
+    {
+      "label": "EOS",
+      "value": "$4.32",
+      "move" : "down"
+    }
+  ],
+  "coinInfo": [
+    {
+      "label": "Market Rank",
+      "value" : "1",
+      "move": "up"
+    },
+    {
+      "label": "Market Cap",
+      "value" : "577,545",
+      "move": "up"
+    },
+    {
+      "label": "Calculating Supply",
+      "value" : "4.07",
+      "move": "up"
+    },
+    {
+      "label": "Total Supply",
+      "value" : "992",
+      "move": "up"
+    },
+    {
+      "label": "Max Supply",
+      "value" : "9,112",
+      "move": "up"
+    },
+    {
+      "label": "24 Hour Volume",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "Hash Algorithm",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "Chart",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "All Time High",
+      "value" : "9,112",
+      "move": "up"
+    },
+    {
+      "label": "Halving Dates",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "Performance Metrix",
+      "value" : "878",
+      "move": "up"
+    }
+  ],
+  "quantToolbox": [
+    {
+      "label": "Greeks",
+      "value" : "2212",
+      "move": "up"
+    },
+    {
+      "label": "Variance",
+      "value" : "1032",
+      "move": "up"
+    },
+    {
+      "label": "stdev",
+      "value" : "954",
+      "move": "up"
+    },
+    {
+      "label": "returns",
+      "value" : "992",
+      "move": "up"
+    },
+    {
+      "label": "return",
+      "value" : "877",
+      "move": "up"
+    },
+    {
+      "label": "alpha on index",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "beta",
+      "value" : "834",
+      "move": "up"
+    },
+    {
+      "label": "black scholes",
+      "value" : "2212",
+      "move": "up"
+    },
+    {
+      "label": "Sharp ratio",
+      "value" : "1032",
+      "move": "up"
+    },
+    {
+      "label": "minimum variance allocation",
+      "value" : "954",
+      "move": "up"
+    },
+    {
+      "label": "value at risk",
+      "value" : "922",
+      "move": "up"
+    }
+  ],
+  "coinStatistics": [
+    {
+      "label": "Calculating Supply",
+      "value" : "2212",
+      "move": "up"
+    },
+    {
+      "label": "Total Supply",
+      "value" : "1032",
+      "move": "up"
+    },
+    {
+      "label": "Max Supply",
+      "value" : "954",
+      "move": "up"
+    },
+    {
+      "label": "Type of Coin/Currency",
+      "value" : "922",
+      "move": "up"
+    },
+    {
+      "label": "Use Cases",
+      "value" : "877",
+      "move": "up"
+    },
+    {
+      "label": "POW/POS",
+      "value" : "878",
+      "move": "up"
+    },
+    {
+      "label": "Wallet Support",
+      "value" : "834",
+      "move": "up"
+    },
+    {
+      "label": "Exchanges",
+      "value" : "754",
+      "move": "down"
+    }
+  ]
+}
