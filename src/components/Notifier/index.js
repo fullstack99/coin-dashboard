@@ -40,7 +40,7 @@ const Notifier = () => {
       <div className="position-relative">
         <button onClick={() => setOpen(!open)}>
           <FontAwesomeIcon icon={faBell} />
-          <Counter value="2" />
+          <Counter>2</Counter>
         </button>
         <Notifications className={open === false ? "d-none" : "d-block"} />
       </div>

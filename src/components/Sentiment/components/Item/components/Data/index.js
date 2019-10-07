@@ -48,7 +48,7 @@ const pctHelper = css`
   }
 `
 
-const SentimentData = ({ socialMedia, pct, pct24HoursMoved, score }) => (
+const Data = ({ socialMedia, pct, pct24HoursMoved, score }) => (
   <div css={pctHelper}>
     <span className="social-name">{socialMedia}</span>
     <span className="caret">
@@ -63,18 +63,18 @@ const SentimentData = ({ socialMedia, pct, pct24HoursMoved, score }) => (
   </div>
 )
 
-SentimentData.propTypes = {
+Data.propTypes = {
   socialMedia: string,
   pct: string,
   score: string,
   pct24HoursMoved: string
 }
 
-SentimentData.defaultProps = {
+Data.defaultProps = {
   socialMedia: "#ad34fe",
   pct: null,
   score: null,
   pct24HoursMoved: null
 }
 
-export default SentimentData
+export default Data

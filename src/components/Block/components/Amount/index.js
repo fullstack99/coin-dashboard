@@ -1,10 +1,6 @@
-import React from "react"
-import { string } from "prop-types"
 import styled from "@emotion/styled"
 
-const Amount = styled(({ value, className }) => (
-  <span className={className}>{value}</span>
-))`
+const Amount = styled.span`
   color: #fff;
   font-size: 24px;
   font-weight: bold;
@@ -14,13 +10,5 @@ const Amount = styled(({ value, className }) => (
     font-size: 12px !important;
   }
 `
-
-Amount.propTypes = {
-  value: string
-}
-
-Amount.defaultProps = {
-  value: null
-}
 
 export default Amount

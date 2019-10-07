@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 
 import CardHeading from "./components/CardHeading"
 
-const CardHeader = styled(({ title, className }) => (
+const Header = styled(({ title, className }) => (
   <div className={className}>
     <CardHeading>{title}</CardHeading>
   </div>
@@ -17,4 +17,4 @@ const CardHeader = styled(({ title, className }) => (
   width: 100%;
 `
 
-export default CardHeader
+export default Header

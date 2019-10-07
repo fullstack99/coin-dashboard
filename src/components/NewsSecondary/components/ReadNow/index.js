@@ -1,12 +1,6 @@
-import React from "react"
-import { string } from "prop-types"
 import styled from "@emotion/styled"
 
-const ReadNow = styled(({ text, url, className }) => (
-  <a className={className} href={url}>
-    {text}
-  </a>
-))`
+const ReadNow = styled.a`
   border: solid 2px #3a405b;
   border-radius: 100px;
   color: #3a405b;
@@ -21,15 +15,4 @@ const ReadNow = styled(({ text, url, className }) => (
     text-decoration: none;
   }
 `
-
-ReadNow.propTypes = {
-  text: string,
-  url: string
-}
-
-ReadNow.defaultProps = {
-  text: null,
-  url: "#"
-}
-
 export default ReadNow

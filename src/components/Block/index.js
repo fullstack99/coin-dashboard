@@ -10,15 +10,16 @@ import Percentage from "./components/Percentage"
 
 const Block = styled(({ label, value, pct,  move, className }) => (
   <div className={className}>
-    <Label label={label} />
+    <Label>{label}</Label>
     <CoinScore>CoinScore</CoinScore>
-    <Amount value={value} />
+    <Amount>{value}</Amount>
     <Percentage
       css={css`
         color: ${move === "up" ? "#475ff2" : "#ad34fe"};
       `}
-      value={pct}
-    />
+    >
+      {pct}
+    </Percentage>
   </div>
 ))`
   background-color: #202334;

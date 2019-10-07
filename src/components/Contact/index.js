@@ -7,7 +7,12 @@ import Separator from "@components/Separator"
 const Contact = styled(({ name, email, phone, className }) => (
   <div className={className}>
     <h2>{name}</h2>
-    <a href={`mailto:${email}`} className="mb-3" target="_blank">
+    <a
+      href={`mailto:${email}`}
+      className="mb-3"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {email}
     </a>
     {/* <p className="mb-3">{phone}</p> */}

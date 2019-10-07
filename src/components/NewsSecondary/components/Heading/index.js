@@ -8,9 +8,9 @@ import Title from "./components/Title"
 
 const Heading = styled(({ title, tags, className }) => (
   <div className={`d-lg-flex align-items-center ${className}`}>
-    <Title text={title} className="mt-1 mb-3 my-lg-0" />
+    <Title className="mt-1 mb-3 my-lg-0">{title}</Title>
     {tags.map((tag, index) => (
-      <Tag key={index} text={tag.tag} />
+      <Tag key={index}>{tag.tag}</Tag>
     ))}
   </div>
 ))`
