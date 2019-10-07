@@ -56,7 +56,7 @@ const CoinsTable = styled(
       }
 
       fetchData()
-    }, [title])
+    }, [title, cryptoCurrencies, onClick])
 
     return (
       <div className={`mb-5 ${className}`}>

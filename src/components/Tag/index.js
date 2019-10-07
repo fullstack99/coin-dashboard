@@ -1,9 +1,6 @@
-import React from "react"
 import styled from "@emotion/styled"
 
-const Tag = styled(({ text, className }) => (
-  <button className={className}>{text}</button>
-))`
+const Tag = styled.button`
   background-color: #262d3f;
   border: 0;
   border-radius: 8px;

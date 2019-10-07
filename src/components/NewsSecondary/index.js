@@ -1,4 +1,5 @@
 import React from "react"
+import { object } from "prop-types"
 import styled from "@emotion/styled"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -9,7 +10,6 @@ import Clock from "@components/Clock"
 import Time from "@components/Time"
 
 import Heading from "./components/Heading"
-import Description from "./components/Description"
 import ReadNow from "./components/ReadNow"
 
 const NewsSecondary = styled(
@@ -27,11 +27,11 @@ const NewsSecondary = styled(
         </Col>
         <Col md={8} lg={9}>
           <Heading title={title} tags={tags} />
-          <Description text={description} />
+          <p>{description}</p>
           <div className="d-flex align-items-center">
             <Clock />
             <Time text={time} />
-            <ReadNow text="Read now" />
+            <ReadNow>Read now</ReadNow>
           </div>
         </Col>
       </Row>
@@ -42,5 +42,13 @@ const NewsSecondary = styled(
     text-decoration: none;
   }
 `
+
+NewsSecondary.propTypes = {
+  data: object
+}
+
+NewsSecondary.defaultProps = {
+  data: {}
+}
 
 export default NewsSecondary

@@ -2,13 +2,13 @@ import React from "react"
 import { string, node, object } from "prop-types"
 import styled from "@emotion/styled"
 
-import CardHeader from "./components/CardHeader"
-import CardBody from "./components/CardBody"
+import Header from "./components/Header"
+import Body from "./components/Body"
 
 const Card = styled(({ title, children, className }) => (
   <div className={className}>
-    <CardHeader title={title} />
-    <CardBody>{children}</CardBody>
+    <Header title={title} />
+    <Body>{children}</Body>
   </div>
 ))`
   border: solid 1px #313d4f;

@@ -2,7 +2,12 @@ import React from "react"
 import { string, oneOfType, number } from "prop-types"
 import styled from "@emotion/styled"
 
-const Item = styled.span`
+const TickerItem = styled(({ label, value, placeholder, className }) => (
+  <span className={className}>
+    {label}
+    {value ? value : placeholder}
+  </span>
+))`
   color: #ffffff;
   font-family: sans-serif;
   font-size: 14px;
@@ -11,15 +16,6 @@ const Item = styled.span`
   opacity: 0.7;
   white-space: nowrap;
 `
-
-const TickerItem = ({ label, value, placeholder }) => {
-  return (
-    <Item>
-      {label}
-      {value ? value : placeholder}
-    </Item>
-  )
-}
 
 TickerItem.propTypes = {
   label: string.isRequired,

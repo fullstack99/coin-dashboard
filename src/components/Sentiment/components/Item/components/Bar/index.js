@@ -9,7 +9,7 @@ const Filled = styled.div`
   border-bottom-left-radius: 4px;
 `
 
-const SentimentBar = () => (
+const Bar = () => (
   <div className="d-flex w-100">
     <Filled></Filled>
     <span
@@ -24,4 +24,4 @@ const SentimentBar = () => (
   </div>
 )
 
-export default SentimentBar
+export default Bar
