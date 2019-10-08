@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "@components/Layout"
 import SEO from "@components/Seo"
 import Hero from "@components/Hero"
+import Tools from "@components/Tools"
 
 const MediaPage = ({ data }) => {
   const { hero } = data.allAboutJson.edges[0].node
@@ -15,6 +16,7 @@ const MediaPage = ({ data }) => {
       <SEO title="Media" />
       <div className="about">
         <Hero data={hero} fluid={HeroImage.childImageSharp.fluid} />
+        <Tools />
       </div>
     </Layout>
   )
