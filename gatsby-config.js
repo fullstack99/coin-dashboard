@@ -38,6 +38,10 @@ module.exports = {
         disabled: true
       },
       {
+        url: "/about",
+        label: "About us",
+      },
+      {
         url: "/contact",
         label: "Contact",
       }
@@ -72,6 +76,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -107,8 +112,8 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

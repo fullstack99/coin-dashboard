@@ -1,0 +1,59 @@
+.about {
+  .h1,
+  .h2 {
+    font-family: $font-main;
+    font-weight: 500;
+    font-size: 3.333rem;
+    line-height: 1.25;
+    color: $color-white;
+    @include atMedium {
+      font-size: 2.5rem;
+    }
+  }
+
+  .h2 {
+    color: $color-black;
+  }
+
+  .h3 {
+    font-family: $font-main;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.416;
+    color: $color-white;
+    @include atMedium {
+      font-size: 1.5rem;
+    }
+  }
+
+  .h4 {
+    font-family: $font-main;
+    font-weight: 500;
+    color: $color-black;
+    font-size: 1.833rem;
+    line-height: 1.45;
+    letter-spacing: 1px;
+    @include atMedium {
+      font-size: 1.375rem;
+    }
+  }
+
+  .p {
+    font-family: $font-main;
+    font-size: 1.167rem;
+    line-height: 1.785;
+    font-weight: 400;
+    color: $color-gray-drk;
+    @include atMedium {
+      font-size: 0.875rem;
+    }
+
+    &--md {
+      font-size: 1.083rem;
+      line-height: 1.92;
+      @include atMedium {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+}

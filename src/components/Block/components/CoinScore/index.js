@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 const CoinScore = styled.p`
-  color: #54617a;
   font-family: sans-serif;
   font-size: 12px;
   margin-bottom: 6px;

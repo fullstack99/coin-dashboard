@@ -1,0 +1,33 @@
+// Colors
+$color-primary: #05d7eb;
+$color-secondary: #12102d;
+
+$color-gray: #b6bcd7;
+$color-gray-alt: #b4bace;
+$color-gray-drk: #647091;
+$color-gray-drk-2: #555879;
+$color-gray-lgt: #f5f6fa;
+
+$color-white: #ffffff;
+$color-black: #171c29;
+
+// Typography
+@font-face {
+  font-family: "EuclidCircularB";
+  font-weight: 300;
+  src: url("/src/fonts/EuclidCircularB-Light-WebS.ttf");
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  font-weight: 400;
+  src: url("/src/fonts/EuclidCircularB-Regular-WebS.ttf");
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  font-weight: 700;
+  src: url("/src/fonts/EuclidCircularB-Bold-WebS.ttf");
+}
+
+$font-main: "EuclidCircularB", "Helvetica", "Arial", sans-serif;

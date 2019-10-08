@@ -7,7 +7,7 @@ import logo from "@images/logo-big.png"
 
 const BackgroundImage = styled(({ src, className }) => (
   <div
-    className={className}
+    className={`${className} bg-ebony-clay`}
     css={
       src
         ? css`
@@ -21,7 +21,6 @@ const BackgroundImage = styled(({ src, className }) => (
     }
   />
 ))`
-  background-color: #222636;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;

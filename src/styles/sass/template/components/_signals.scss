@@ -1,0 +1,19 @@
+.about {
+  .signals {
+    background-color: $color-secondary;
+    padding: 10rem 0;
+    margin-bottom: -6.25rem;
+
+    .features {
+      &__item {
+        margin-bottom: 6.25rem;
+
+        p {
+          @include atMedium {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@ const CryptoMarket = styled(({ className }) => {
 
   return (
     <div className={`my-5 ${className}`}>
-      <Body>
+      <Body className="text-white">
         {isLoading.changePercentage ? (
           "Loading..."
         ) : isError ? (

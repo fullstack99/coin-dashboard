@@ -17,7 +17,7 @@ const Trending = ({ from, post, rating }) => (
       <Post>{post}</Post>
     </Col>
     <Col xs={3} sm={2} lg={3}>
-      <Rating>{rating}</Rating>
+      <Rating className="text-royal-blue">{rating}</Rating>
     </Col>
   </Row>
 )
