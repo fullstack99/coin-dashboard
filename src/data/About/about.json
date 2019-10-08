@@ -102,5 +102,11 @@
         "feature_text": "Get a fee for each transaction made by your followers. Allow other users to benefit from your knowledge."
       }
     ]
+  },
+  "roadmap": {
+    "subHeading": "ROADMAP",
+    "heading": "Timeline Coingenius",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "cta": "MORE INFO ROADMAP"
   }
 }
