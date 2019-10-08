@@ -1,0 +1,44 @@
+.about {
+  .prices {
+    &__slider {
+      padding-bottom: 8.4375rem;
+
+      &-item {
+        padding: 0 15px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .slick {
+        &-dots {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          margin-top: 3.75rem;
+
+          li {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: $color-gray-drk-2;
+            transition: all 0.25s;
+            cursor: pointer;
+
+            &.slick-active {
+              background-color: $color-primary;
+            }
+
+            & + li {
+              margin-left: 1.5rem;
+              @include atMedium {
+                margin-left: 1.125rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

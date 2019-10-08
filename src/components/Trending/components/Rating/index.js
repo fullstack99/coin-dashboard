@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 
 const Rating = styled.section`
-  color: #475ff2;
-  float:right;
+  float: right;
   font-size: 24px;
   font-weight: 500;
   text-align: right;

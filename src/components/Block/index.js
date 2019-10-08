@@ -1,6 +1,5 @@
 import React from "react"
 import { string } from "prop-types"
-import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Label from "./components/Label"
@@ -8,20 +7,18 @@ import CoinScore from "./components/CoinScore"
 import Amount from "./components/Amount"
 import Percentage from "./components/Percentage"
 
-const Block = styled(({ label, value, pct,  move, className }) => (
-  <div className={className}>
-    <Label label={label} />
-    <CoinScore>CoinScore</CoinScore>
-    <Amount value={value} />
+const Block = styled(({ label, value, pct, move, className }) => (
+  <div className={`${className} bg-ebony-clay`}>
+    <Label className="text-black-squeeze">{label}</Label>
+    <CoinScore className="text-blue-bayoux">CoinScore</CoinScore>
+    <Amount className="text-white">{value}</Amount>
     <Percentage
-      css={css`
-        color: ${move === "up" ? "#475ff2" : "#ad34fe"};
-      `}
-      value={pct}
-    />
+      className={move === "up" ? "text-royal-blue" : "text-electric-violet"}
+    >
+      {pct}
+    </Percentage>
   </div>
 ))`
-  background-color: #202334;
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 20px 15px;

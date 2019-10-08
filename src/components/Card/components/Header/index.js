@@ -3,12 +3,11 @@ import styled from "@emotion/styled"
 
 import CardHeading from "./components/CardHeading"
 
-const CardHeader = styled(({ title, className }) => (
-  <div className={className}>
-    <CardHeading>{title}</CardHeading>
+const Header = styled(({ title, className }) => (
+  <div className={`${className} bg-ebony-clay`}>
+    <CardHeading className="text-aluminium">{title}</CardHeading>
   </div>
 ))`
-  background-color: #222636;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-top-left-radius: 8px;
@@ -17,4 +16,4 @@ const CardHeader = styled(({ title, className }) => (
   width: 100%;
 `
 
-export default CardHeader
+export default Header

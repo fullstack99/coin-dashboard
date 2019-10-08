@@ -1,0 +1,98 @@
+.about {
+  overflow-x: hidden;
+  font-size: 2.5vw;
+  background-color: $color-secondary;
+  @include atSmall {
+    font-size: 12px;
+  }
+  @include atMedium {
+    font-size: 13px;
+  }
+  @include atLarge {
+    font-size: 14px;
+  }
+  @include atHuge {
+    font-size: 16px;
+  }
+}
+.about {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  ul,
+  ol,
+  span {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    @extend .h1;
+  }
+
+  h2 {
+    @extend .h2;
+  }
+
+  h3 {
+    @extend .h3;
+  }
+
+  h4 {
+    @extend .h4;
+  }
+
+  p,
+  li {
+    @extend .p;
+  }
+
+  a {
+    transition: all 0.25s;
+    cursor: pointer;
+    @include linkStates(inherit, none);
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    border: none;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  ::selection {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  .float {
+    width: 160% !important;
+    position: relative;
+    left: -40%;
+    max-width: unset !important;
+  }
+}

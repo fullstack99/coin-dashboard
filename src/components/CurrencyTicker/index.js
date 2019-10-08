@@ -96,12 +96,10 @@ const GetTickerData = () => {
 }
 
 const CurrencyTicker = styled(({ className }) => (
-  <div className={className}>
+  <div className={`${className} bg-ebony-clay text-white`}>
     <Ticker speed={5}>{() => <GetTickerData />}</Ticker>
   </div>
 ))`
-  background-color: #222636;
-  color: #fff;
   height: 56px;
   padding: 16px 0;
   opacity: 0.7;

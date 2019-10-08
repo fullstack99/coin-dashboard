@@ -9,7 +9,7 @@ const LINK_TEXT_COLOR = '#5d6c76'
 const LINK_VISITED_TEXT_COLOR = '#5d6c76'
 const LINK_HOVER_TEXT_COLOR = '#9e9e9e'
 const LINK_ACTIVE_BORDER_COLOR = '#475ff2'
-const LINK_HOVER_BORDER_COLOR = '#475ff25e'
+const LINK_HOVER_BORDER_COLOR = '#475ff2'
 
 const StyledLink = styled(Link)`
   color: ${LINK_TEXT_COLOR};

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 const Value = styled.p`
-  color: #475ff2 !important;
   font-family: sans-serif;
   font-size: 14px;
   font-weight: 500;

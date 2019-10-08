@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "preHeading": "COINGENIUS",
+    "heading": "The Crypto Industry’s Most Advanced Market Intelligence Platform is Coming Soon.",
+    "text": "360° sentiment analysis, AI-based scoring systems, advanced forecasting models, and high-quality data feeds, all in one platform. Are you ready to trade like a Genius?",
+    "cta": "GET IN CONTACT"
+  },
+  "tools": {
+    "preHeading": "TOOLS",
+    "heading": "CoinGenius Tools",
+    "text": "The most vital tools a trader needs in one platform.",
+    "tools_boxes": [
+      {
+        "tool_title": "Global Market Data",
+        "tool_text": "Know what’s happening in the crypto market and how it compares to other asset classes aroundthe world in real-time."
+      },
+      {
+        "tool_title": "Signals",
+        "tool_text": "See trends forming before they happen with our suite of signals and proprietary indicators."
+      },
+      {
+        "tool_title": "Sentiment",
+        "tool_text": "Anticipate where the markets are heading with 360 degree sentiment analysis encapsulatingsocial media, news, and forums."
+      },
+      {
+        "tool_title": "Deep Insights",
+        "tool_text": "Learn from the brightest in the industry with our monthly reports, conference calls, andexpansive research tools."
+      },
+      {
+        "tool_title": "Portfolio",
+        "tool_text": "Track your performance, compare, HODL, and trade crypto all in one platform."
+      },
+      {
+        "tool_title": "API",
+        "tool_text": "Are you a pro trader? Leverage the CoinGenius API to access the best data feeds, signals, andproprietary indicators to refine your trading strategy."
+      }
+    ]
+  },
+  "signals": {
+    "preHeading": "SIGNALS",
+    "heading": "Signals Coingenius",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna.",
+    "signals_boxes": [
+      {
+        "signal_title": "Social Signals",
+        "signal_text": "Influencer Signals, Corperat PR Signals, Troll Signals, Memes Signals, Manipulation Signals"
+      },
+      {
+        "signal_title": "Economy",
+        "signal_text": "Flat Signals Fake Signals, Coin Signals, Buy Signals"
+      },
+      {
+        "signal_title": "Bot Signals",
+        "signal_text": "Bot, Software Signals"
+      },
+      {
+        "signal_title": "Global Affairs",
+        "signal_text": "Goverment Regulations, SCE Signals, Tech"
+      },
+      {
+        "signal_title": "Company Info Signals",
+        "signal_text": "Lawsuites, Management Change"
+      },
+      {
+        "signal_title": "Manipulation Signals",
+        "signal_text": "Paid Signals, Hacked Signals, Crisis Signals"
+      }
+    ]
+  },
+  "features": {
+    "preHeading": "FEATURES",
+    "heading": "Market Data & Sentiment",
+    "features_boxes": [
+      {
+        "feature_title": "Be Up to Date",
+        "feature_text": "See Sentiment Changes in Real Time, Utilize Trends and Industry-ImpactingEvents, Curate your Personal Experience with the News and Alerts you care about, Hit the MuteButton on the rest."
+      },
+      {
+        "feature_title": "Invest Smart",
+        "feature_text": "Research Effectively like Wall Street, Understand Correlations to Your TradingStrategy, Explore our Mock Portfolio to test your skills & theories"
+      },
+      {
+        "feature_title": "Use Our Data",
+        "feature_text": "Website, Mock Portfolio Platform, API Available Now, with or without CoinGeniusalgos & metrics"
+      }
+    ]
+  },
+  "socialTrading": {
+    "preHeading": "FEATURES",
+    "heading": "Social Trading",
+    "features_boxes": [
+      {
+        "feature_title": "Follow the Best",
+        "feature_text": "Track other Coinquistadors’ transactions, gain experience and follow their footsteps. You can get access to experts’ knowledge with one click."
+      },
+      {
+        "feature_title": "Comment on Events",
+        "feature_text": "Join the community - ask questions, exchange opinions and discuss market events. A problem shared is a problem halved."
+      },
+      {
+        "feature_title": "Earn Money on Followers",
+        "feature_text": "Get a fee for each transaction made by your followers. Allow other users to benefit from your knowledge."
+      }
+    ]
+  },
+  "roadmap": {
+    "subHeading": "ROADMAP",
+    "heading": "Timeline Coingenius",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "cta": "MORE INFO ROADMAP"
+  }
+}

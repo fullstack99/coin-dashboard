@@ -1,0 +1,8 @@
+.about {
+  .hero {
+    padding: 5rem 0 10rem 0;
+    @include atMedium {
+      padding: 8.125rem 0 16.25rem 0;
+    }
+  }
+}
