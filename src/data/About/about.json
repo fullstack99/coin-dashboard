@@ -1,18 +1,18 @@
 {
   "hero": {
     "preHeading": "COINGENIUS",
-    "heading": "The Crypto Industry’s Most Advanced Market Intelligence Platform is Coming Soon.",
+    "heading": "Deep Insights for Crypto Assets",
     "text": "360° sentiment analysis, AI-based scoring systems, advanced forecasting models, and high-quality data feeds, all in one platform. Are you ready to trade like a Genius?",
-    "cta": "GET IN CONTACT"
+    "cta1": "Sign up for early access",
+    "cta2": "Sign up for our Newsletter"
   },
   "tools": {
-    "preHeading": "TOOLS",
     "heading": "CoinGenius Tools",
     "text": "The most vital tools a trader needs in one platform.",
     "tools_boxes": [
       {
         "tool_title": "Global Market Data",
-        "tool_text": "Know what’s happening in the crypto market and how it compares to other asset classes aroundthe world in real-time."
+        "tool_text": "Know what’s happening in the crypto market and how it compares to other asset classes around the world in real-time."
       },
       {
         "tool_title": "Signals",
@@ -20,11 +20,11 @@
       },
       {
         "tool_title": "Sentiment",
-        "tool_text": "Anticipate where the markets are heading with 360 degree sentiment analysis encapsulatingsocial media, news, and forums."
+        "tool_text": "Anticipate where the markets are heading with 360 degree sentiment analysis encapsulating social media, news, and forums."
       },
       {
         "tool_title": "Deep Insights",
-        "tool_text": "Learn from the brightest in the industry with our monthly reports, conference calls, andexpansive research tools."
+        "tool_text": "Learn from the brightest in the industry with our monthly reports, conference calls, and expansive research tools."
       },
       {
         "tool_title": "Portfolio",
@@ -32,7 +32,7 @@
       },
       {
         "tool_title": "API",
-        "tool_text": "Are you a pro trader? Leverage the CoinGenius API to access the best data feeds, signals, andproprietary indicators to refine your trading strategy."
+        "tool_text": "Are you a pro trader? Leverage the CoinGenius API to access the best data feeds, signals, and proprietary indicators to refine your trading strategy."
       }
     ]
   },
@@ -73,15 +73,15 @@
     "features_boxes": [
       {
         "feature_title": "Be Up to Date",
-        "feature_text": "See Sentiment Changes in Real Time, Utilize Trends and Industry-ImpactingEvents, Curate your Personal Experience with the News and Alerts you care about, Hit the MuteButton on the rest."
+        "feature_text": "See Sentiment Changes in Real Time, Utilize Trends and Industry-Impacting Events, Curate your Personal Experience with the News and Alerts you care about, Hit the Mute Button on the rest."
       },
       {
         "feature_title": "Invest Smart",
-        "feature_text": "Research Effectively like Wall Street, Understand Correlations to Your TradingStrategy, Explore our Mock Portfolio to test your skills & theories"
+        "feature_text": "Research Effectively like Wall Street, Understand Correlations to Your Trading Strategy, Explore our Mock Portfolio to test your skills & theories"
       },
       {
         "feature_title": "Use Our Data",
-        "feature_text": "Website, Mock Portfolio Platform, API Available Now, with or without CoinGeniusalgos & metrics"
+        "feature_text": "Website, Mock Portfolio Platform, API Available Now, with or without CoinGenius algos & metrics"
       }
     ]
   },

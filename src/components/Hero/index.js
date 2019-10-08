@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 
-const Hero = ({ data: { preHeading, heading, text, cta }, fluid }) => {
+const Hero = ({ data: { preHeading, heading, text, cta1, cta2 }, fluid }) => {
   return (
     <section className="hero">
       <Container>
@@ -23,8 +23,11 @@ const Hero = ({ data: { preHeading, heading, text, cta }, fluid }) => {
             <p className="u-color-primary u-weight-smb u-ls-lg">{preHeading}</p>
             <h1 className="my-4">{heading}</h1>
             <p className="p--md u-color-gray">{text}</p>
+            <Link to="/contact" className="btn mt-5 mr-5">
+              {cta1}
+            </Link>
             <Link to="/contact" className="btn mt-5">
-              {cta}
+              {cta2}
             </Link>
           </Col>
         </Row>
