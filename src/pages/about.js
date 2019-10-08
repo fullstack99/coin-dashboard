@@ -8,6 +8,7 @@ import Tools from "@components/Tools"
 import Signals from "@components/Signals"
 import Features from "@components/Features"
 import SocialTrading from "@components/SocialTrading"
+import Roadmap from "@components/Roadmap"
 
 const MediaPage = ({ data }) => {
   const {
@@ -15,10 +16,19 @@ const MediaPage = ({ data }) => {
     tools,
     signals,
     features,
-    socialTrading
+    socialTrading,
+    roadmap
   } = data.allAboutJson.edges[0].node
 
-  const { HeroImage, marketDataImage, SocialTradingImage, calendarImage } = data
+  const {
+    HeroImage,
+    marketDataImage,
+    SocialTradingImage,
+    calendarImage,
+    timeline
+  } = data
+
+  console.log(timeline)
 
   return (
     <Layout>
@@ -37,6 +47,7 @@ const MediaPage = ({ data }) => {
           fluid={SocialTradingImage.childImageSharp.fluid}
           calender={calendarImage.childImageSharp.fluid}
         />
+        <Roadmap data={roadmap} fluid={timeline.childImageSharp.fluid} />
       </div>
     </Layout>
   )
@@ -87,6 +98,12 @@ export const query = graphql`
               feature_text
             }
           }
+          roadmap {
+            subHeading
+            heading
+            text
+            cta
+          }
         }
       }
     }
@@ -114,6 +131,13 @@ export const query = graphql`
     calendarImage: file(relativePath: { eq: "i-calendar.png" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    timeline: file(relativePath: { eq: "timeline.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1440, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
