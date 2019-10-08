@@ -4,16 +4,13 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-const Tools = ({ data: { preHeading, heading, text, tools_boxes } }) => {
+const Tools = ({ data: { heading, text, tools_boxes } }) => {
   return (
     <section className="features">
       <Container>
         <Row>
           <Col className="col-12">
             <div className="mb-5 pb-5 text-center">
-              <p className="u-color-primary u-weight-smb u-ls-lg">
-                {preHeading}
-              </p>
               <h2 className="mb-3 mt-2 u-color-mirage">{heading}</h2>
               <p>{text}</p>
             </div>

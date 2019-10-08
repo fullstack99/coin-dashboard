@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "@components/Layout"
 import SEO from "@components/Seo"
+import CurrencyTicker from "@components/CurrencyTicker"
 import Hero from "@components/Hero"
 import Tools from "@components/Tools"
 import Signals from "@components/Signals"
@@ -32,7 +33,8 @@ const MediaPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Media" />
+      <SEO title="About Us" />
+      <CurrencyTicker />
       <div className="about">
         <Hero data={hero} fluid={HeroImage.childImageSharp.fluid} />
         <Tools data={tools} />
@@ -62,10 +64,10 @@ export const query = graphql`
             preHeading
             heading
             text
-            cta
+            cta1
+            cta2
           }
           tools {
-            preHeading
             heading
             text
             tools_boxes {
