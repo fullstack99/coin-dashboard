@@ -1,0 +1,53 @@
+.about {
+  .features {
+    background-color: $color-gray-lgt;
+    padding: 8.75rem 0 10rem 0;
+
+    &__box {
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      background-color: $color-white;
+      text-align: center;
+      box-shadow: 0 2.5rem 3.75rem rgba($color-gray, 0.2);
+      margin-bottom: 30px;
+      @include atMedium {
+        border-radius: 1.125rem;
+      }
+    }
+
+    &__item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &-media {
+        margin-right: 1.667rem;
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: $color-white;
+        @include atMedium {
+          margin-right: 1.25rem;
+          height: 2.8125rem;
+          width: 2.8125rem;
+        }
+
+        &--primary {
+          background-color: rgba($color-primary, 0.12);
+        }
+      }
+
+      &-icon {
+        height: 50%;
+      }
+
+      &-copy {
+        flex: 1;
+      }
+    }
+  }
+}

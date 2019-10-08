@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 const Body = styled.h1`
-  color: #fff !important;
   font-size: 36px;
   letter-spacing: -1px;
   margin: 0;

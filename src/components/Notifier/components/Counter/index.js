@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 const Counter = styled.div`
-  background: #475ff2;
   border-radius: 50%;
   content: "";
   font-size: 10px;

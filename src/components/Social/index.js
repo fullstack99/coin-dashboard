@@ -17,7 +17,7 @@ const Social = ({ username, type, postedOn, postedAt, rating }) => (
       <Hr />
     </Col>
     <Col xs={3} sm={2} lg={3}>
-      <Rating>{rating}</Rating>
+      <Rating className="text-royal-blue">{rating}</Rating>
     </Col>
   </Row>
 )

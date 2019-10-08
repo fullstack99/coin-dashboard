@@ -107,7 +107,7 @@ const BtcPage = ({ data, location }) => {
           <Col sm={12} md={12}>
             <Row className="mb-5">
               <Col xs={6} lg={4} xl={2}>
-                <div className="tradingview-widget-container" ref={ref}>
+                <div className="tradingview-widget-container bg-ebony-clay" ref={ref}>
                   <ResponsiveMiniChart>
                     <div className="tradingview-widget-container__widget"></div>
                   </ResponsiveMiniChart>

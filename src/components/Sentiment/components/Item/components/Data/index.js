@@ -28,14 +28,6 @@ const pctHelper = css`
     position: relative;
   }
 
-  .down {
-    color: #ad34fe;
-  }
-
-  .up {
-    color: #475ff2;
-  }
-
   .arrow {
     font-size: 20px;
   }
@@ -55,7 +47,9 @@ const Data = ({ socialMedia, pct, pct24HoursMoved, score }) => (
       {pct24HoursMoved === "up" ? <ArrowUp /> : <ArrowDown />}
     </span>
     <span
-      className={"percentage" + (pct24HoursMoved === "up" ? " up" : " down")}
+      className={`percentage ${
+        pct24HoursMoved === "up" ? "text-royal-blue" : "text-electric-violet"
+      }`}
     >
       {pct}%{" "}
     </span>

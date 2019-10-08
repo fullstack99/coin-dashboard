@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 const Amount = styled.span`
-  color: #fff;
   font-size: 24px;
   font-weight: bold;
   margin-right: 5px;
