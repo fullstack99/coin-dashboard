@@ -1,4 +1,4 @@
-$royal-blue: #475FF2;
+$royal-blue: #475ff2;
 $lavender-gray: #b6bcd7;
 $electric-violet: #ad34fe;
 $danube: #75abd7;
@@ -6,6 +6,7 @@ $ebony-clay: #222636;
 $blue-bayoux: #54617a;
 $black-squeeze: #eff3f9;
 $aluminium: #a5a6ad;
+$midnight-express: #171c29;
 
 .text-lavender-gray {
   color: $lavender-gray !important;
@@ -35,6 +36,9 @@ $aluminium: #a5a6ad;
   color: $aluminium !important;
 }
 
+.text-midnight-express {
+  color: $midnight-express !important;
+}
 //
 
 .bg-lavender-gray {

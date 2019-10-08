@@ -13,17 +13,11 @@ const Hero = ({ data: { preHeading, heading, text, cta }, fluid }) => {
       <Container>
         <Row>
           <Col className="col-12 col-md-6 order-md-2 col-lg-5 offset-lg-2 mb-5 mb-md-0">
-            {console.log(fluid)}
             <Img
               fluid={fluid}
               alt="Illustration"
               className="w-100 px-5 px-md-0"
             />
-            {/* <img
-              src="images/illustration.png"
-              alt="Illustration"
-              className="w-100 px-5 px-md-0"
-            /> */}
           </Col>
           <Col className="col-12 col-md-6 order-md-1 col-lg-5">
             <p className="u-color-primary u-weight-smb u-ls-lg">{preHeading}</p>

@@ -88,4 +88,11 @@
     background-color: $color-primary;
     color: $color-white;
   }
+
+  .float {
+    width: 160% !important;
+    position: relative;
+    left: -40%;
+    max-width: unset !important;
+  }
 }
