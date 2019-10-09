@@ -16,11 +16,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
+        <meta name="msvalidate.01" content="7D7FA1582FD050F8728B0A2E88D12ECD" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald:400,500,600&display=swap"
           rel="stylesheet"
         />
-        >
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
