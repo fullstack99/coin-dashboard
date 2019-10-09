@@ -47,7 +47,6 @@ const CoinsTable = styled(
   
             if (info && info[CURRENCY]) {
               const displayInfo = info[CURRENCY]
-              console.log("click")
               onClick(displayInfo, crypto)
             }
           }
