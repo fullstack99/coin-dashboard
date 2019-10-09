@@ -1,8 +1,7 @@
 module.exports = {
   apps : [{
     name: 'Dashboard',
-    // script: 'npm run serve',
-    script: 'npm run develop',
+    script: 'npm run serve',
 
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     // args: 'one two',
