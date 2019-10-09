@@ -61,6 +61,11 @@ const StyledLink = styled(props => <Link {...props} />)`
   line-height: 50px;
 `
 
+const DisabledLink = styled.p`
+  color: #9dafbd;
+  line-height: 50px;
+`
+
 const FooterNav = () => {
   const { navigation } = useSiteMetadata()
 
@@ -75,7 +80,9 @@ const FooterNav = () => {
                   {item.label}
                 </StyledLink>
               ) : (
-                <p className="navigation disabled">{item.label}</p>
+                <DisabledLink className="navigation disabled">
+                  {item.label}
+                </DisabledLink>
               )}
             </UnsortedItem>
           )
