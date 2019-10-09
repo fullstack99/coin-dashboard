@@ -29,8 +29,6 @@ const MediaPage = ({ data }) => {
     timeline
   } = data
 
-  console.log(timeline)
-
   return (
     <Layout>
       <SEO title="About Us" />

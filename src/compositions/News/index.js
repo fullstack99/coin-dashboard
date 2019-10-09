@@ -55,7 +55,6 @@ const SubscribeAbsolute = styled(Subscribe)`
 
 const News = ({ node, section, location }) => {
   const [isLoading, setIsLoading] = useState(false)
-  console.log({ location, section })
 
   const { categories, title, description } = node
   useEffect(() => {
