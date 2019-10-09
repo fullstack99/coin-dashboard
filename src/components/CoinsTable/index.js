@@ -41,13 +41,13 @@ const CoinsTable = styled(
 
           setCoins(RAW)
 
-          const crypto = cryptoCurrencies.find(item => RAW[item.symbol])
-          const info = RAW[crypto.symbol]
+          // const crypto = cryptoCurrencies.find(item => RAW[item.symbol])
+          // const info = RAW[crypto.symbol]
 
-          if (info && info[CURRENCY]) {
-            const displayInfo = info[CURRENCY]
-            onClick(displayInfo, crypto)
-          }
+          // if (info && info[CURRENCY]) {
+          //   const displayInfo = info[CURRENCY]
+          //   // onClick(displayInfo, crypto)
+          // }
         } catch (error) {
           setIsError(true)
         }
