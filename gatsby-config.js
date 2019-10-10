@@ -114,22 +114,22 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-MX5QHGB",
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: "GTM-MX5QHGB",
+    //     // Include GTM in development.
+    //     // Defaults to false meaning GTM will only be loaded in production.
+    //     includeInDevelopment: false,
 
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+    //     // datalayer to be set before GTM is loaded
+    //     // should be an object or a function that is executed in the browser
+    //     // Defaults to null
+    //     defaultDataLayer: { platform: "gatsby" },
 
-        gtmAuth: "4OjORx1z4RMUqWxbxB6yzEIJvZUOQSbmjFf0lPwe8iU",
-      },
-    },
+    //     // gtmAuth: "4OjORx1z4RMUqWxbxB6yzEIJvZUOQSbmjFf0lPwe8iU",
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
