@@ -41,12 +41,14 @@ const CoinsTable = styled(
 
           setCoins(RAW)
 
-          const crypto = cryptoCurrencies.find(item => RAW[item.symbol])
-          const info = RAW[crypto.symbol]
-
-          if (info && info[CURRENCY]) {
-            const displayInfo = info[CURRENCY]
-            onClick(displayInfo, crypto)
+          if (!selectedCoin || !selectedCoin.symbol) {
+            const crypto = cryptoCurrencies.find(item => RAW[item.symbol])
+            const info = RAW[crypto.symbol]
+  
+            if (info && info[CURRENCY]) {
+              const displayInfo = info[CURRENCY]
+              onClick(displayInfo, crypto)
+            }
           }
         } catch (error) {
           setIsError(true)
@@ -56,7 +58,7 @@ const CoinsTable = styled(
       }
 
       fetchData()
-    }, [title])
+    }, [title, cryptoCurrencies, onClick, selectedCoin])
 
     return (
       <div className={`mb-5 ${className}`}>

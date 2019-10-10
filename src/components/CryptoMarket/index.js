@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import axios from "axios"
+import CountUp from "react-countup"
 import useFormat, { GROUP_DIGITS } from "@hooks/use-format"
 
 import Body from "./components/Body"
@@ -36,7 +37,7 @@ const CryptoMarket = styled(({ className }) => {
 
   return (
     <div className={`my-5 ${className}`}>
-      <Body>
+      <Body className="text-white">
         {isLoading.changePercentage ? (
           "Loading..."
         ) : isError ? (
@@ -44,7 +45,11 @@ const CryptoMarket = styled(({ className }) => {
         ) : (
           <>
             Global Crypto Currency Valuation{" "}
-            <span>${useFormat(data, GROUP_DIGITS)}</span> USD
+            <span>$
+              {
+                <CountUp end={parseFloat(useFormat(data, GROUP_DIGITS).toString().replace(/,/g, ""))} decimal="." decimals={2} separator="," duration={1}  />
+              }
+            </span> USD
           </>
         )}
       </Body>

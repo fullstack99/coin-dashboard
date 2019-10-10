@@ -1,0 +1,31 @@
+.about {
+  .brands {
+    padding-bottom: 15rem;
+    text-align: center;
+
+    &__title {
+      margin-bottom: 4.375rem;
+    }
+
+    &__logos {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: -2.5rem;
+      @include atMedium {
+        margin-bottom: 0;
+      }
+
+      &-item {
+        width: 34%;
+        margin-bottom: 2.5rem;
+        @include atMedium {
+          width: auto;
+          height: 2.1875rem;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react"
+import { object } from "prop-types"
 import styled from "@emotion/styled"
 
 import CoinIcon from "@components/CoinIcon"
@@ -12,7 +13,7 @@ const NewsPrimary = styled(
       <a href={url} className={`d-block ${className}`}>
         <CoinIcon src={iconSrc} alt={iconAlt} />
         <BackgroundImage src={imgSrc} type="primary" />
-        <NewsTitle text={title} />
+        <NewsTitle>{title}</NewsTitle>
         <Time text={time} />
       </a>
     )
@@ -22,5 +23,13 @@ const NewsPrimary = styled(
     text-decoration: none;
   }
 `
+
+NewsPrimary.propTypes = {
+  data: object
+}
+
+NewsPrimary.defaultProps = {
+  data: {}
+}
 
 export default NewsPrimary

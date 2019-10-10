@@ -2,12 +2,12 @@ import React from "react"
 import { object, array } from "prop-types"
 import styled from "@emotion/styled"
 
-import SentimentItem from "./components/SentimentItem"
+import Item from "./components/Item"
 
 const Sentiment = styled(({ data, className }) => (
   <div className={className}>
     {data.map((item, index) => (
-      <SentimentItem
+      <Item
         key={`sentiment-${index}`}
         socialMedia={item.label}
         score={item.value}

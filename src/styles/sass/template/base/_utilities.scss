@@ -1,0 +1,47 @@
+.about {
+  // Color
+  .u-color {
+    &-primary {
+      color: $color-primary;
+    }
+
+    &-gray {
+      color: $color-gray;
+    }
+
+    &-white {
+      color: $color-white !important;
+    }
+
+    &-black {
+      color: $color-black !important;
+    }
+
+    &-mirage {
+      color: $color-mirage;
+    }
+  }
+
+  // Background
+  .u-bg {
+    &-gray {
+      &-lgt {
+        background-color: $color-gray-lgt;
+      }
+    }
+  }
+
+  // Font weight
+  .u-weight {
+    &-smb {
+      font-weight: 600;
+    }
+  }
+
+  // Letter spacing
+  .u-ls {
+    &-lg {
+      letter-spacing: 2px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.header {
+  padding: 1.5rem 0;
+  @include atMedium {
+    padding: 1.875rem 0;
+  }
+  @include atExtralarge {
+    padding: 1.875rem 3.75rem;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 15rem;
+
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    li {
+      color: $color-gray;
+      @extend .p--md;
+
+      & + li {
+        margin-left: 4.167rem;
+        @include atMedium {
+          margin-left: 3.125rem;
+        }
+      }
+    }
+  }
+}

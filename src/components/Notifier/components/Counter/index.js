@@ -1,10 +1,6 @@
-import React from "react"
 import styled from "@emotion/styled"
 
-const Counter = styled(({ value, className }) => (
-  <div className={className}>{value}</div>
-))`
-  background: #475ff2;
+const Counter = styled.div`
   border-radius: 50%;
   content: "";
   font-size: 10px;

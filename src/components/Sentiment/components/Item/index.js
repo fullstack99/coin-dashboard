@@ -2,26 +2,26 @@ import React from "react"
 import { string, object } from "prop-types"
 import styled from "@emotion/styled"
 
-import SentimentData from "./components/SentimentData"
-import SentimentBar from "./components/SentimateBar"
+import Data from "./components/Data"
+import Bar from "./components/Bar"
 
-const SentimentItem = styled(
+const Item = styled(
   ({ socialMedia, pct, score, pct24HoursMoved, className }) => (
     <div className={className}>
-      <SentimentData
+      <Data
         socialMedia={socialMedia}
         pct={pct}
         score={score}
         pct24HoursMoved={pct24HoursMoved}
       />
-      <SentimentBar pct={pct} />
+      <Bar pct={pct} />
     </div>
   )
 )`
   margin-bottom: 20px;
 `
 
-SentimentItem.propTypes = {
+Item.propTypes = {
   socialMedia: string,
   pct: string,
   score: string,
@@ -29,7 +29,7 @@ SentimentItem.propTypes = {
   className: object
 }
 
-SentimentItem.defaultProps = {
+Item.defaultProps = {
   socialMedia: "#ad34fe",
   pct: null,
   score: null,
@@ -37,4 +37,4 @@ SentimentItem.defaultProps = {
   className: {}
 }
 
-export default SentimentItem
+export default Item

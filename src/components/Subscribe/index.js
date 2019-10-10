@@ -3,9 +3,7 @@ import cx from "classnames"
 import styled from "styled-components"
 import { string, node } from "prop-types"
 
-const BUTTON_BACKGROUND_COLOR = "#475ff2"
 const Button = styled.button`
-  background-color: ${BUTTON_BACKGROUND_COLOR};
   border-radius: 6px;
   box-sizing: border-box;
   font-size: 14px;
@@ -27,7 +25,7 @@ const Subscribe = ({ type, children, className, ...rest }) => {
   return (
     <Button
       type={type}
-      className={cx("border-0", "text-white", className)}
+      className={cx("border-0", "text-white", "text-royal-blue", className)}
       {...rest}
     >
       {children}

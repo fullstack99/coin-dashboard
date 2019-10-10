@@ -1,0 +1,22 @@
+.about {
+  .btn {
+    padding: 1.5rem 2.5rem;
+    border-radius: 10rem;
+    background-color: $color-primary;
+    line-height: 1;
+    font-weight: 600;
+    color: $color-white;
+    transition: all 0.25s;
+    cursor: pointer;
+    @include linkStates($color-white, none);
+    @extend .p;
+    @extend .p--md;
+    @include atMedium {
+      padding: 1.125rem 1.875rem;
+    }
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+  }
+}

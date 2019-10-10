@@ -1,6 +1,5 @@
 import React from "react"
 import { string } from "prop-types"
-import { css } from "@emotion/core"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
@@ -17,11 +16,9 @@ const TextValueCaret = ({ text, value, move }) => {
         <Name>{text}</Name>
       </Col>
       <Col xs={4} md={5} lg={4}>
-        <Value>
+        <Value className="text-royal-blue">
           <span
-            css={css`
-              color: ${move === "up" ? "#475ff2" : "#ad34fe"};
-            `}
+            className={move === "up" ? "text-royal-blue" : "text-electric-violet"}
           >
             {value}
           </span>
