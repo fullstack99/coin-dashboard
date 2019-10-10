@@ -16,6 +16,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
+        <meta name="google-site-verification" content="4OjORx1z4RMUqWxbxB6yzEIJvZUOQSbmjFf0lPwe8iU" />
         <meta name="msvalidate.01" content="7D7FA1582FD050F8728B0A2E88D12ECD" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald:400,500,600&display=swap"
