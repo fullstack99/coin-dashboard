@@ -126,6 +126,8 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         // Defaults to null
         defaultDataLayer: { platform: "gatsby" },
+
+        gtmAuth: "4OjORx1z4RMUqWxbxB6yzEIJvZUOQSbmjFf0lPwe8iU",
       },
     },
     {
