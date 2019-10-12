@@ -37,6 +37,8 @@ pipelines:
               S3_BUCKET: $AWS_BUCKET
               LOCAL_PATH: '$BITBUCKET_CLONE_DIR/public'
           - echo PWD
+          - ls -la
+          - echo ls -la
     - step:
         name: Deploy to staging
         deployment: Staging
