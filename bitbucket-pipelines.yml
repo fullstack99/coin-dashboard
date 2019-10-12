@@ -28,13 +28,15 @@ pipelines:
         trigger: manual
         deployment: Test
         script:
+          - echo $PWD
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_REGION
               S3_BUCKET: $AWS_BUCKET
-              LOCAL_PATH: 'public'
+              LOCAL_PATH: '$BITBUCKET_CLONE_DIR/public'
+          - echo PWD
     - step:
         name: Deploy to staging
         deployment: Staging
