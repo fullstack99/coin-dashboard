@@ -20,7 +20,7 @@ module.exports = {
   deploy : {
     production : {
       user: 'bitnami',
-      host: '35.164.176.102',
+      host: '34.213.212.52',
       key: '~/gocodistry/Coingenious.pem',
       ref: 'origin/master',
       repo: 'git@bitbucket.org:gocodistry/dashboard.git',
