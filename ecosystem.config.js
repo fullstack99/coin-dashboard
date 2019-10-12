@@ -20,6 +20,16 @@ module.exports = {
   ],
 
   deploy: {
+    staging: {
+      user: "bitnami",
+      host: "XX.XXX.XXX.XX",
+      ref: "origin/staging",
+      repo: "git@bitbucket.org:gocodistry/dashboard.git",
+      path: "/opt/bitnami/apps/coingenius.ai",
+      env: {
+        NODE_ENV: "staging"
+      }
+    },
     production: {
       user: "bitnami",
       host: "34.213.212.52",
