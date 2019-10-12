@@ -26,7 +26,6 @@ pipelines:
           name: Release to test
           caches:
             - node
-          trigger: manual
           deployment: Test
           script:
             - npm run build
@@ -41,15 +40,10 @@ pipelines:
             - echo "Nothing setup here"
     production:
       - step:
-          name: Install, Lint, Tests and Build
-          caches:
-            - node-production
-      - step:
           name: Release to production
           caches:
             - node
           deployment: Production
-          trigger: manual
           script:
             - npm i -g pm2
             - echo "pm2 deploy production"
