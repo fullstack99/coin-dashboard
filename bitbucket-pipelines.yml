@@ -29,6 +29,8 @@ pipelines:
         deployment: Test
         script:
           - echo $PWD
+          - echo ls -la
+          - ls -la
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
@@ -36,9 +38,6 @@ pipelines:
               AWS_DEFAULT_REGION: $AWS_REGION
               S3_BUCKET: $AWS_BUCKET
               LOCAL_PATH: '$BITBUCKET_CLONE_DIR/public'
-          - echo PWD
-          - ls -la
-          - echo ls -la
     - step:
         name: Deploy to staging
         deployment: Staging
