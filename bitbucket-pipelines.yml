@@ -36,6 +36,8 @@ pipelines:
     #       - echo "Nothing setup here"
     - step:
         name: Deploy to production
+        caches:
+          - node
         deployment: Production
         trigger: manual
         script:
