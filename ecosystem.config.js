@@ -4,8 +4,6 @@ const productionConfig = {
   ref: "origin/master",
   repo: "git@bitbucket.org:gocodistry/dashboard.git",
   path: "/opt/bitnami/apps/coingenius.ai",
-  // 'post-deploy':
-  //   'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
   env: {
     NODE_ENV: "production"
   }
