@@ -39,13 +39,16 @@ pipelines:
         caches:
           - node
         deployment: Production
-        trigger: manual
+        # trigger: manual
         script:
           - mkdir -p ~/.ssh
-          - npm i -g pm2
-          - echo "npm run build"
-          - npm run build
-          - ls -la ~/.ssh
-          - tail -n 10 ~/.ssh/config
-          - tail -n 10 ~/.ssh/known_hosts
-          - pm2 deploy productionpipeline
+          - cp /opt/atlassian/pipelines/agent/ssh/id_rsa ~/.ssh/id_rsa
+          - cp /opt/atlassian/pipelines/agent/ssh/id_rsa.pub ~/.ssh/id_rsa.pub
+          - ssh bitnami@34.213.212.52 'echo "connected to `host` as $USER"'
+          # - npm i -g pm2
+          # - echo "npm run build"
+          # - npm run build
+          # - ls -la ~/.ssh
+          # - tail -n 10 ~/.ssh/config
+          # - tail -n 10 ~/.ssh/known_hosts
+          # - pm2 deploy productionpipeline
