@@ -34,7 +34,7 @@ module.exports = {
   deploy: {
     production: {
       ...productionConfig,
-      key: "~/gocodistry/Coingenious.pem"
+      key: "~/gocodistry/coingenius_production_deploy"
     },
     productionpipeline: {
       ...productionConfig,
