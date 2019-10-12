@@ -39,8 +39,8 @@ pipelines:
         caches:
           - node
         deployment: Production
-        # trigger: manual
+        trigger: manual
         script:
           - npm i -g pm2
-          - echo "npm run build"
-          - pm2 deploy productionpipeline
+          - echo "pm2 deploy productionpipeline"
+          - pm2 deploy production
