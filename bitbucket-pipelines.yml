@@ -18,8 +18,8 @@ pipelines:
           # - echo "Nothing setup here" #- npm run lint
           # - echo "npm run test"
           # - npm run test
-          - echo "npm run build"
-          - npm run build
+          # - echo "npm run build"
+          # - npm run build
     # - step:
     #     name: Deploy to test
     #     caches:
@@ -40,5 +40,7 @@ pipelines:
         trigger: manual
         script:
           - npm i -g pm2
+          - echo "npm run build"
+          - npm run build
           - ls -la ~/.ssh
           - pm2 deploy productionpipeline
