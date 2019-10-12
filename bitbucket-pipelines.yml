@@ -41,11 +41,7 @@ pipelines:
         deployment: Production
         # trigger: manual
         script:
-          - ssh bitnami@34.213.212.52 'echo "connected to `host` as $USER"'
-          # - npm i -g pm2
-          # - echo "npm run build"
-          # - npm run build
-          # - ls -la ~/.ssh
-          # - tail -n 10 ~/.ssh/config
-          # - tail -n 10 ~/.ssh/known_hosts
-          # - pm2 deploy productionpipeline
+          - npm i -g pm2
+          - echo "npm run build"
+          - npm run build
+          - pm2 deploy productionpipeline
