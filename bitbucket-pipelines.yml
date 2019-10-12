@@ -28,9 +28,7 @@ pipelines:
         trigger: manual
         deployment: Test
         script:
-          - echo $PWD
-          - echo ls -la
-          - ls -la
+          - npm run build
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
