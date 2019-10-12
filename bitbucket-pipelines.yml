@@ -6,7 +6,7 @@
 image: node:10.16.3
 
 pipelines:
-  develop:
+  default:
     - step:
         name: Install, Lint, Tests and Build
         caches:
@@ -20,48 +20,37 @@ pipelines:
           - npm run test
           - echo "npm run build"
           - npm run build
-    - step:
-        name: Deploy to test
-        caches:
-          - node
-        trigger: manual
-        deployment: Test
-        script:
-          - npm run build
-          - npm run deploy:test
-  staging:
-    - step:
-        name: Install, Lint, Tests and Build
-        caches:
-          - node-staging
-        script: # Modify the commands below to build your repository.
-          - echo "npm install"
-          - npm install
-          - echo "npm run lint"
-          - echo "Nothing setup here" #- npm run lint
-          - echo "npm run test"
-          - npm run test
-          - echo "npm run build"
-          - npm run build
-    - step:
-        name: Deploy to staging
-        deployment: Staging
-        # cache:
-        #   - node-staging
-        script:
-          - echo "Nothing setup here"
-  production:
-    - step:
-        name: Install, Lint, Tests and Build
-        caches:
-          - node-production
-    - step:
-        name: Deploy to production
-        caches:
-          - node-production
-        deployment: Production
-        trigger: manual
-        script:
-          - npm i -g pm2
-          - echo "pm2 deploy production"
-          - pm2 deploy production
+  branches:
+    develop:
+      - step:
+          name: Release to test
+          caches:
+            - node
+          trigger: manual
+          deployment: Test
+          script:
+            - npm run build
+            - npm run deploy:test
+    staging:
+      - step:
+          name: Release to Staging
+          deployment: Staging
+          # cache:
+          #   - node
+          script:
+            - echo "Nothing setup here"
+    production:
+      - step:
+          name: Install, Lint, Tests and Build
+          caches:
+            - node-production
+      - step:
+          name: Release to production
+          caches:
+            - node
+          deployment: Production
+          trigger: manual
+          script:
+            - npm i -g pm2
+            - echo "pm2 deploy production"
+            - pm2 deploy production
