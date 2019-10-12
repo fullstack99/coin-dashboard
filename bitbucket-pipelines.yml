@@ -38,7 +38,7 @@ pipelines:
           #   - node
           script:
             - echo "Nothing setup here"
-    production:
+    master:
       - step:
           name: Release to production
           caches:
