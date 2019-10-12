@@ -34,7 +34,7 @@ pipelines:
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_REGION
               S3_BUCKET: $AWS_BUCKET
-              LOCAL_PATH: 'public'
+              LOCAL_PATH: 'build'
     - step:
         name: Deploy to staging
         deployment: Staging
