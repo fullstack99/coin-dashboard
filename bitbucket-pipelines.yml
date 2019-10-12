@@ -20,7 +20,6 @@ pipelines:
           - npm run test
           - echo "npm run build"
           - npm run build
-          - npm i -g pm2
     - step:
         name: Deploy to test
         caches:
@@ -40,4 +39,5 @@ pipelines:
         deployment: Production
         trigger: manual
         script:
+          - npm i -g pm2
           - pm2 deploy production
