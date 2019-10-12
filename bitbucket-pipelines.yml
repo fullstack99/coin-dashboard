@@ -29,13 +29,7 @@ pipelines:
         deployment: Test
         script:
           - npm run build
-          - pipe: atlassian/aws-s3-deploy:0.3.5
-            variables:
-              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-              AWS_DEFAULT_REGION: $AWS_REGION
-              S3_BUCKET: $AWS_BUCKET
-              LOCAL_PATH: '$BITBUCKET_CLONE_DIR/public'
+          - npm run deploy:test
     - step:
         name: Deploy to staging
         deployment: Staging

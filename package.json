@@ -77,7 +77,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve -p 3000",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy:test": "npx -n \"-r dotenv/config\" gatsby-plugin-s3 deploy"
   },
   "repository": {
     "type": "git",
