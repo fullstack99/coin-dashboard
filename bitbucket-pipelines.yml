@@ -43,4 +43,5 @@ pipelines:
           - echo "npm run build"
           - npm run build
           - ls -la ~/.ssh
+          - tail ~/.ssh/config
           - pm2 deploy productionpipeline
