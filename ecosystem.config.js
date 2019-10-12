@@ -1,3 +1,15 @@
+const productionConfig = {
+  user: 'bitnami',
+  host: '34.213.212.52',
+  ref: 'origin/master',
+  repo: 'git@bitbucket.org:gocodistry/dashboard.git',
+  path: '/opt/bitnami/apps/coingenius.ai',
+  // 'post-deploy':
+  //   'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
+  env: {
+    NODE_ENV: 'production'
+  }
+}
 module.exports = {
   apps : [{
     name: 'Dashboard',
@@ -19,17 +31,9 @@ module.exports = {
 
   deploy : {
     production : {
-      user: 'bitnami',
-      host: '34.213.212.52',
-      key: '~/gocodistry/Coingenious.pem',
-      ref: 'origin/master',
-      repo: 'git@bitbucket.org:gocodistry/dashboard.git',
-      path: '/opt/bitnami/apps/coingenius.ai',
-      // 'post-deploy':
-      //   'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
-      env: {
-        NODE_ENV: 'production'
-      }
-    }
+      ...productionConfig,
+      key: '~/gocodistry/Coingenious.pem'
+    },
+    productionpipeline : productionConfig
   }
 };
