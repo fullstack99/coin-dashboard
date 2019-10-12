@@ -25,6 +25,7 @@ pipelines:
         name: Deploy to test
         caches:
           - node
+        trigger: manual
         script:
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
