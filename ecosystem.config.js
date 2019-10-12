@@ -38,7 +38,6 @@ module.exports = {
     },
     productionpipeline: {
       ...productionConfig,
-      key: "/opt/atlassian/pipelines/agent/ssh/id_rsa",
       'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name Dashboard',
     }
   }
