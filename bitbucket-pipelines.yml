@@ -26,7 +26,7 @@ pipelines:
         caches:
           - node
         trigger: manual
-        deployment: test
+        deployment: Test
         script:
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
@@ -34,7 +34,7 @@ pipelines:
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_REGION
               S3_BUCKET: $AWS_BUCKET
-              LOCAL_PATH: 'build'
+              LOCAL_PATH: 'public'
     - step:
         name: Deploy to staging
         deployment: Staging
