@@ -26,6 +26,7 @@ pipelines:
         caches:
           - node
         trigger: manual
+        deployment: test
         script:
           - pipe: atlassian/aws-s3-deploy:0.3.5
             variables:
@@ -36,12 +37,12 @@ pipelines:
               LOCAL_PATH: 'public'
     - step:
         name: Deploy to staging
-        deployment: staging
+        deployment: Staging
         script:
           - echo "Nothing setup here"
     - step:
         name: Deploy to production
-        deployment: production
+        deployment: Production
         trigger: manual
         script:
           - pm2 deploy production
