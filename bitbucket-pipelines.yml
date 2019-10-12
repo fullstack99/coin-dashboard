@@ -42,5 +42,5 @@ pipelines:
         trigger: manual
         script:
           - npm i -g pm2
-          - echo "pm2 deploy productionpipeline"
+          - echo "pm2 deploy production"
           - pm2 deploy production
