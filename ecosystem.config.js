@@ -29,7 +29,7 @@ module.exports = {
       env: {
         NODE_ENV: "staging"
       },
-      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
+      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name Dashboard',
     },
     production: {
       user: "bitnami",
@@ -40,7 +40,7 @@ module.exports = {
       env: {
         NODE_ENV: "production"
       },
-      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
+      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name Dashboard',
     }
   }
 }
