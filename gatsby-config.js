@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.coingenius.ai/`,
     title: `Market and sentiment crypto trading analysis | Coingenius`,
     description: `CoinGenius is helping the world trade smarter by providing real time crypto trading market and sentiment analysis.`,
     author: `@CoinGenius`,
@@ -75,6 +76,7 @@ module.exports = {
     ]
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
