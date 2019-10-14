@@ -28,8 +28,7 @@ module.exports = {
       path: "/opt/bitnami/apps/coingenius.ai",
       env: {
         NODE_ENV: "staging"
-      },
-      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
+      }
     },
     production: {
       user: "bitnami",
@@ -39,8 +38,7 @@ module.exports = {
       path: "/opt/bitnami/apps/coingenius.ai",
       env: {
         NODE_ENV: "production"
-      },
-      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name AuthWebsite',
+      }
     }
   }
 }
