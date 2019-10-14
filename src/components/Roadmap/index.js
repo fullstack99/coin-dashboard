@@ -10,7 +10,7 @@ const Roadmap = ({ data: { subHeading, heading, text, cta }, fluid }) => (
           <div className="text-center">
             <p className="u-color-primary u-weight-smb u-ls-lg">{subHeading}</p>
             <h2 className="mb-3 mt-2 u-color-white">{heading}</h2>
-            <p>{text}</p>
+            {/* <p>{text}</p> */}
           </div>
         </div>
       </div>

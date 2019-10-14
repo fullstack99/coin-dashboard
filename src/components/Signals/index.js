@@ -15,7 +15,7 @@ const Signals = ({ data: { preHeading, heading, text, signals_boxes } }) => {
                 {preHeading}
               </p>
               <h2 className="mb-3 mt-2 u-color-white">{heading}</h2>
-              <p className="u-color-gray-lgt">{text}</p>
+              {/* <p className="u-color-gray-lgt">{text}</p> */}
             </div>
           </Col>
         </Row>
