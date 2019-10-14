@@ -38,7 +38,7 @@
   },
   "signals": {
     "preHeading": "SIGNALS",
-    "heading": "Signals Coingenius",
+    "heading": "Signals CoinGenius",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna.",
     "signals_boxes": [
       {
@@ -105,7 +105,7 @@
   },
   "roadmap": {
     "subHeading": "ROADMAP",
-    "heading": "Timeline Coingenius",
+    "heading": "Timeline CoinGenius",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "cta": "MORE INFO ROADMAP"
   }

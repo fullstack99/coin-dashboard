@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /news
+Disallow: /sentiment
+Disallow: /resources
+Disallow: /community
+Disallow: /media
+Disallow: /about
+Sitemap: https://www.coingenius.ai/sitemap.xml
