@@ -75,12 +75,16 @@ const FooterNav = () => {
         {navigation.map((item, index) => {
           return (
             <UnsortedItem key={index}>
-              {item.disabled ? (
+              {!item.disabled ? (
                 <StyledLink className="navigation" to={item.url}>
                   {item.label}
                 </StyledLink>
               ) : (
-                <DisabledLink className="navigation disabled">
+                <DisabledLink
+                  className={
+                    "navigation disabled" + (item.active ? " active" : "")
+                  }
+                >
                   {item.label}
                 </DisabledLink>
               )}
