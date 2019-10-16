@@ -125,7 +125,7 @@ export const query = graphql`
         }
       }
     }
-    SocialTradingImage: file(relativePath: { eq: "UI-illustration.png" }) {
+    SocialTradingImage: file(relativePath: { eq: "cg-score.png" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
