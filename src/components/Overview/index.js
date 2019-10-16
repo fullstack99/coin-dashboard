@@ -64,7 +64,7 @@ const Overview = ({
         {icon}
         <Title className={cx("text-white", { "ml-2": !!icon })}>{title}</Title>
       </div>
-      <Paragraph className="pb-5 mb-3">{description}</Paragraph>
+      <Paragraph className="pb-3 mb-3">{description}</Paragraph>
       <TabsContainer className="d-flex flex-column flex-md-row justify-content-between">
         <TabsNav className="d-flex flex-row">
           {sections.map((item, index) => (

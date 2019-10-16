@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
   font-size: 14px;
   min-height: 40px;
   min-width: 120px;
-  padding: 0 0 28px 0;
+  padding: 0 0 15px 0;
 
   &:active,
   &:visited {
