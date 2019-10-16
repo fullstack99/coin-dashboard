@@ -12,27 +12,33 @@
     "tools_boxes": [
       {
         "tool_title": "Global Market Data",
-        "tool_text": "Know what’s happening in the crypto market and how it compares to other asset classes around the world in real-time."
+        "tool_text": "Know what’s happening in the crypto market and how it compares to other asset classes around the world in real-time.",
+        "icon":"fa fa-globe"
       },
       {
         "tool_title": "Signals",
-        "tool_text": "See trends forming before they happen with our suite of signals and proprietary indicators."
+        "tool_text": "See trends forming before they happen with our suite of signals and proprietary indicators.",
+        "icon":"fa fa-signal"
       },
       {
         "tool_title": "Sentiment",
-        "tool_text": "Anticipate where the markets are heading with 360 degree sentiment analysis encapsulating social media, news, and forums."
+        "tool_text": "Anticipate where the markets are heading with 360 degree sentiment analysis encapsulating social media, news, and forums.",
+        "icon":"fa fa-line-chart"
       },
       {
         "tool_title": "Deep Insights",
-        "tool_text": "Learn from the brightest in the industry with our monthly reports, conference calls, and expansive research tools."
+        "tool_text": "Learn from the brightest in the industry with our monthly reports, conference calls, and expansive research tools.",
+        "icon":"fa fa-tasks"
       },
       {
         "tool_title": "Portfolio",
-        "tool_text": "Track your performance, compare, HODL, and trade crypto all in one platform."
+        "tool_text": "Track your performance, compare, HODL, and trade crypto all in one platform.",
+        "icon":"fa fa-tachometer"
       },
       {
         "tool_title": "API",
-        "tool_text": "Are you a pro trader? Leverage the CoinGenius API to access the best data feeds, signals, and proprietary indicators to refine your trading strategy."
+        "tool_text": "Are you a pro trader? Leverage the CoinGenius API to access the best data feeds, signals, and proprietary indicators to refine your trading strategy.",
+        "icon":"fa fa-code"
       }
     ]
   },
@@ -43,27 +49,33 @@
     "signals_boxes": [
       {
         "signal_title": "Social Signals",
-        "signal_text": "Influencer Signals, Corperat PR Signals, Troll Signals, Memes Signals, Manipulation Signals"
+        "signal_text": "Influencer Signals, Corperat PR Signals, Troll Signals, Memes Signals, Manipulation Signals",
+        "icon": "fa fa-connectdevelop"
       },
       {
         "signal_title": "Economy",
-        "signal_text": "Flat Signals Fake Signals, Coin Signals, Buy Signals"
+        "signal_text": "Flat Signals Fake Signals, Coin Signals, Buy Signals",
+        "icon": "fa fa-btc"
       },
       {
         "signal_title": "Bot Signals",
-        "signal_text": "Bot, Software Signals"
+        "signal_text": "Bot, Software Signals",
+        "icon": "fa fa-soundcloud"
       },
       {
         "signal_title": "Global Affairs",
-        "signal_text": "Goverment Regulations, SCE Signals, Tech"
+        "signal_text": "Goverment Regulations, SCE Signals, Tech",
+        "icon": "fa fa-globe"
       },
       {
         "signal_title": "Company Info Signals",
-        "signal_text": "Lawsuites, Management Change"
+        "signal_text": "Lawsuites, Management Change",
+        "icon": "fa fa-building-o"
       },
       {
         "signal_title": "Manipulation Signals",
-        "signal_text": "Paid Signals, Hacked Signals, Crisis Signals"
+        "signal_text": "Paid Signals, Hacked Signals, Crisis Signals",
+        "icon": "fa fa-handshake-o"
       }
     ]
   },

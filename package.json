@@ -20,6 +20,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^1.1.1",
     "classnames": "^2.2.6",
+    "font-awesome": "^4.7.0",
     "gatsby": "^2.9.11",
     "gatsby-background-image": "^0.7.2",
     "gatsby-image": "^2.2.24",

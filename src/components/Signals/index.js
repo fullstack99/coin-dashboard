@@ -23,7 +23,9 @@ const Signals = ({ data: { preHeading, heading, text, signals_boxes } }) => {
           {signals_boxes.map((item, index) => (
             <Col xs={12} md={6} lg={4} key={index}>
               <div className="features__item">
-                <div className="features__item-media">&nbsp;</div>
+                <div className="features__item-media">
+                  <i className={`${item.icon} text-midnight-express`} style={{fontSize: "1.9rem"}}></i>
+                </div>
                 <div className="features__item-copy">
                   <h3 className="mb-3">{item.signal_title}</h3>
                   <p className="u-color-gray-lgt">{item.signal_text}</p>

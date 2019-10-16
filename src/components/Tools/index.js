@@ -20,11 +20,7 @@ const Tools = ({ data: { heading, text, tools_boxes } }) => {
           {tools_boxes.map((item, index) => (
             <Col xs={6} md={4} key={index}>
               <div className="features__box">
-                <img
-                  className="mb-0"
-                  src="http://nickshanekearney.com/webPreview/images/icon-placeholder.png"
-                  alt="Icon"
-                />
+                <i className={`${item.icon} text-midnight-express display-4`}></i>
                 <h4 className="mt-4 mb-3 text-midnight-express">
                   {item.tool_title}
                 </h4>

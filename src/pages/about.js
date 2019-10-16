@@ -11,6 +11,8 @@ import Features from "@components/Features"
 import SocialTrading from "@components/SocialTrading"
 import Roadmap from "@components/Roadmap"
 
+import "font-awesome/css/font-awesome.min.css"
+
 const MediaPage = ({ data }) => {
   const {
     hero,
@@ -71,6 +73,7 @@ export const query = graphql`
             tools_boxes {
               tool_title
               tool_text
+              icon
             }
           }
           signals {
@@ -80,6 +83,7 @@ export const query = graphql`
             signals_boxes {
               signal_title
               signal_text
+              icon
             }
           }
           features {
