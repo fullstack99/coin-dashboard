@@ -57,6 +57,11 @@ const Categories = [
     text: "Privacy Coins",
     title: "View Privacy Coins data",
     url: "/markets/privacy-coins"
+  },
+  {
+    text: "Test Chart",
+    title: "View Test Chart data",
+    url: "/markets/firebase-chart"
   }
 ]
 const Markets = ({ location }) => {

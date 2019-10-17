@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
-import { Bar } from "react-chartjs-2"
+import { Line } from "react-chartjs-2"
 
-const Chart = styled(Bar)`
+const Chart = styled(Line)`
   bottom: 0;
   height: 100% !important;
   width: 100% !important;

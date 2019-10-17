@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { string } from "prop-types"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -7,7 +7,8 @@ import Col from "react-bootstrap/Col"
 import CryptoMarket from "@components/CryptoMarket"
 import CoinsTable from "@components/CoinsTable"
 import TradingView from "@components/TradingView"
-
+import Linechart from "@components/Linechart"
+import Barchart from "@components/Barchart"
 // modules
 import {
   BiggestGainers,
@@ -21,6 +22,9 @@ import {
   Interoperability,
   PrivacyCoins
 } from "@utils/constants"
+import firebase from "@utils/firebase"
+
+const firebaseTestURL = 'test/pKqYixf2v4AmxOPM0GxN/fearandgreedtimeseries';
 
 const gridMapper = [
   { title: "Biggest Gainers", cryptoCurrencies: BiggestGainers },
@@ -32,7 +36,8 @@ const gridMapper = [
   { title: "Tokens", cryptoCurrencies: Tokens },
   { title: "SmartContracts", cryptoCurrencies: SmartContracts },
   { title: "Interoperability", cryptoCurrencies: Interoperability },
-  { title: "Privacy Coins", cryptoCurrencies: PrivacyCoins }
+  { title: "Privacy Coins", cryptoCurrencies: PrivacyCoins },
+  { title: "Test Chart" }
 ]
 
 const renderGridMapper = ({ selected, selectedCoin, onClick }) => {
@@ -45,11 +50,35 @@ const renderGridMapper = ({ selected, selectedCoin, onClick }) => {
 
 const AllMarkets = ({ section }) => {
   const [coinSelected, setCoinSelected] = useState({})
+  const [coinData, setCoinData] = useState({})
+
+  useEffect(() => {
+    getData();
+  }, [])
+
   const selected = gridMapper.findIndex(item => item.title === section)
   const onClick = (info, crypto) => {
     setCoinSelected({ info, crypto })
   }
+
+  const getData = () => {
+    const today = new Date();
+    const priorDate = new Date().setDate(today.getDate() - 30);
+    const db = firebase.firestore();
+
+    db.collection(firebaseTestURL).where("timestamp", '>=', priorDate).orderBy("timestamp").onSnapshot(res => {
+      let labels = [], data = [];
+      res.forEach(doc => {
+        labels.push(doc.data().Date)
+        data.push(doc.data().fear_and_greed_index)
+      });
+
+      setCoinData({ labels, data })
+    })
+  }
+
   const AllCurrency = gridMapper.map(data => data.cryptoCurrencies)
+
   return (
     <Container fluid>
       <Row className="justify-content-md-center">
@@ -57,27 +86,39 @@ const AllMarkets = ({ section }) => {
           <CryptoMarket currency={AllCurrency} />
         </Col>
       </Row>
-      <Row>
-        <Col lg={5} className="mb-5">
-          {renderGridMapper({
-            selected,
-            selectedCoin: coinSelected.crypto || {},
-            onClick
-          })}
-        </Col>
-        <Col lg={7} className="mb-5">
-          {coinSelected.info && (
-            <TradingView
-              symbol={
-                coinSelected.crypto.symbol !== "BTC"
-                  ? coinSelected.crypto.tradingview
-                  : coinSelected.info.FROMSYMBOL + coinSelected.info.TOSYMBOL
-              }
-              save_image={false}
-            />
-          )}
-        </Col>
-      </Row>
+      {
+        section === 'Test Chart' ?
+          <Row>
+            <Col md={12} lg={12} xl={6}>
+              <Linechart coinData={coinData} />
+            </Col>
+            <Col md={12} lg={12} xl={6}>
+              <Barchart coinData={coinData} />
+            </Col>
+          </Row>
+          : <Row>
+            <Col lg={5} className="mb-5">
+              {renderGridMapper({
+                selected,
+                selectedCoin: coinSelected.crypto || {},
+                onClick
+              })}
+            </Col>
+            <Col lg={7} className="mb-5">
+              {coinSelected.info && (
+                <TradingView
+                  symbol={
+                    coinSelected.crypto.symbol !== "BTC"
+                      ? coinSelected.crypto.tradingview
+                      : coinSelected.info.FROMSYMBOL + coinSelected.info.TOSYMBOL
+                  }
+                  save_image={false}
+                />
+              )}
+            </Col>
+          </Row>
+      }
+
       {/* <Row className="mb-5">
           <Col>
             <h1>{Categories[selected]} Coin Market Data</h1>
