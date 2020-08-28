@@ -1,5 +1,5 @@
 # About Project
-This project is to shows recently coin value
+CoinGenius is bringing together some of the brightest minds from a number of industries to bring unparalleled access to information in an effort to educate the masses about blockchain and crypto.
 
 ## Technologies
 
@@ -12,4 +12,4 @@ gatsby
 ## Run Project
  npm install
  npm start
-<!-- AUTO-GENERATED-CONTENT:END -->
+
